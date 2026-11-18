@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Post history{% endblock %}
+{% block asof %}Period: <b>{{ frm }}</b> to <b>{{ to }}</b> inclusive (Asia/Kolkata calendar days){% endblock %}
+{% block body %}
+<h1>Post history <span class="muted">— who held this chair, and for how many working days</span></h1>
+<form class="inline card" method="get">
+  <label>Chair
+    <select name="sanctioned_post_id">{% for c in chairs %}<option {{ 'selected' if c == sanctioned_post_id }}>{{ c }}</option>{% endfor %}</select>
+  </label>
+  <label>From<input type="date" name="frm" value="{{ frm }}"></label>
+  <label>To (inclusive)<input type="date" name="to" value="{{ to }}"></label>
+  <button>Show</button>
+</form>
+{% if result %}
+<div class="card">
+  <p><code>{{ result.sanctioned_post_id }}</code> · {{ result.office_id }} · {{ result.post_code }} ·
+     {{ result.working_days_in_interval }} working days in the period.</p>
+  <table>
+    <tr><th>Holder</th><th>Charge</th><th>Held (exact sub-intervals)</th><th>Working days</th></tr>
+    {% for h in result.holders %}
+    <tr><td>{{ m.officer(h) }}</td><td>{{ m.charge(h.charge_type) }}</td>
+        <td>{% for i in h.intervals %}{{ i['from'] | ist }} → {{ i['to'] | ist }}<br>{% endfor %}</td>
+        <td><b>{{ h.working_days }}</b></td></tr>
+    {% else %}<tr><td colspan="4" class="muted">Nobody held this chair in the period.</td></tr>{% endfor %}
+  </table>
+  {% if result.unheld_intervals %}<p><span class="badge away">not held</span>
+    {% for g in result.unheld_intervals %}{{ g['from'] | ist }} → {{ g['to'] | ist }}{{ '; ' if not loop.last }}{% endfor %}</p>{% endif %}
+  <p class="muted">{{ result.working_day_rule }} Holidays in period: {{ result.holidays_in_interval | join(', ') or 'none in the MDM calendar' }}.</p>
+</div>
+{% endif %}
+{% endblock %}

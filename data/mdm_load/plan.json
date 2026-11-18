@@ -1,0 +1,4567 @@
+{
+  "office_map": {
+    "CDO-11GOL": "SDO_D-285-GOL",
+    "CDO-20DIM": "SDO_KMM-DIM",
+    "CDO-20DIS": "SDO_KMM-DIS",
+    "CDO-20JAL": "SDO_KMM-JAL",
+    "CDO-20NEW": "SDO_KMM-NEW",
+    "CDO-33DIG": "SDO_D-302-DIG",
+    "CDO-33DOO": "SDO_D-302-DOO",
+    "CDO-33MAK": "SDO_D-302-MAK",
+    "CDO-33MAR": "SDO_D-302-MAR",
+    "CDO-33SAD": "SDO_D-302-SAD",
+    "DAO_D-298": "DAO_D-298"
+  },
+  "items": [
+    {
+      "kind": "function",
+      "key": "function:E_GOVERNANCE",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "E_GOVERNANCE",
+        "name": "e-Governance"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:SOCIAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "SOCIAL_WELFARE",
+        "name": "Social Welfare"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:HEALTH_FW",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "HEALTH_FW",
+        "name": "Health & Family Welfare"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:ARTPS",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "ARTPS",
+        "name": "ARTPS certificates and matters"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:NAZARAT",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "NAZARAT",
+        "name": "Nazarat"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:MAGISTRACY",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "MAGISTRACY",
+        "name": "Magistracy"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:ACCOUNTS",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "ACCOUNTS",
+        "name": "Accounts"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:REVENUE",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "REVENUE",
+        "name": "Revenue"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:ELECTION",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "ELECTION",
+        "name": "Election"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:DISASTER_MGMT",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "DISASTER_MGMT",
+        "name": "Disaster Management (CEO DDMA)"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:DECENTRALIZED_PLANNING",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "DECENTRALIZED_PLANNING",
+        "name": "Decentralized Planning"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:SUBDIVISIONAL_PLANNING",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "SUBDIVISIONAL_PLANNING",
+        "name": "Sub-Divisional Planning (SDPLO)"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:CENSUS",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "CENSUS",
+        "name": "Census operations"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:LAND_ACQUISITION",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "LAND_ACQUISITION",
+        "name": "Land Acquisition"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:RKG",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "RKG",
+        "name": "RKG Branch"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:RECORD_ROOM",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "RECORD_ROOM",
+        "name": "Record room & Mahafezkhana"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:PERSONNEL",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "PERSONNEL",
+        "name": "Personnel"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:FOREST",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "FOREST",
+        "name": "Forest"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:SKILL_DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "SKILL_DEVELOPMENT",
+        "name": "Skill Development"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:RURAL_DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "RURAL_DEVELOPMENT",
+        "name": "Rural Development"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:POWER",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "POWER",
+        "name": "Power Department works"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:PHE",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "PHE",
+        "name": "Public Health Engineering"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:RTI",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "RTI",
+        "name": "RTI (SPIO)"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:ORUNUDOI",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "ORUNUDOI",
+        "name": "Orunudoi (OGRO / nodal)"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "DEVELOPMENT",
+        "name": "Development Branch"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:EDUCATION",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "EDUCATION",
+        "name": "Education (incl. DMC / SSA)"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:FPDCA",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "FPDCA",
+        "name": "FPD&CA (incl. paddy procurement)"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:AGRICULTURE",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "AGRICULTURE",
+        "name": "Agriculture & allied services"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:SPORTS",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "SPORTS",
+        "name": "Sports & allied services"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:LINE_DEPARTMENTS",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "LINE_DEPARTMENTS",
+        "name": "All line departments not specified to others"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:RELIEF_REHABILITATION",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "RELIEF_REHABILITATION",
+        "name": "Relief & Rehabilitation"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:EXCISE",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "EXCISE",
+        "name": "Excise"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:AADHAAR",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "AADHAAR",
+        "name": "Nodal Officer AADHAAR"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:SUBDIVISIONAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "SUBDIVISIONAL_WELFARE",
+        "name": "Sub-Divisional Welfare Officer"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:WOMEN_CELL",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "WOMEN_CELL",
+        "name": "Women Cell"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:URBAN_AFFAIRS",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "URBAN_AFFAIRS",
+        "name": "Urban Affairs"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:CULTURAL_AFFAIRS",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "CULTURAL_AFFAIRS",
+        "name": "Cultural Affairs"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:BATADRABA_NODAL",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "BATADRABA_NODAL",
+        "name": "Nodal Officer Batadraba Than & Sankardev Abirbhab Kshetra"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:CM_DASHBOARD",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "CM_DASHBOARD",
+        "name": "CM Dashboard"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:MEDIA",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "MEDIA",
+        "name": "Media incl. social media"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:TRANSPORT",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "TRANSPORT",
+        "name": "Transport & DRSC"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:PUBLIC_GRIEVANCE",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "PUBLIC_GRIEVANCE",
+        "name": "Public grievances & CPGRAM"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:DMS",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "DMS",
+        "name": "DMS Branch"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:LABOUR",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "LABOUR",
+        "name": "Labour Department"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:LAND_SETTLEMENT",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "LAND_SETTLEMENT",
+        "name": "Land settlement and allotment"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:AGRI_LICENSING",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "AGRI_LICENSING",
+        "name": "Seed, fertiliser and pesticide licensing"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "function",
+      "key": "function:MEDICAL_REGISTRATION",
+      "method": "POST",
+      "path": "/mdm/entities/function",
+      "body": {
+        "code": "MEDICAL_REGISTRATION",
+        "name": "Registration of medical practitioners"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_D-285-GOL",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_D-285-GOL",
+        "name": "Co-District Office, Golakganj",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "D-285",
+        "parentOfficeCode": "AS-D-285"
+      },
+      "note": "was provisional CDO-11GOL",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_KMM-DIM",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_KMM-DIM",
+        "name": "Co-District Office, Dimoria",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "KMM",
+        "parentOfficeCode": "DC_KMM"
+      },
+      "note": "was provisional CDO-20DIM",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_KMM-DIS",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_KMM-DIS",
+        "name": "Co-District Office, Dispur",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "KMM",
+        "parentOfficeCode": "DC_KMM"
+      },
+      "note": "was provisional CDO-20DIS",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_KMM-JAL",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_KMM-JAL",
+        "name": "Co-District Office, Jalukbari",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "KMM",
+        "parentOfficeCode": "DC_KMM"
+      },
+      "note": "was provisional CDO-20JAL",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_KMM-NEW",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_KMM-NEW",
+        "name": "Co-District Office, New Guwahati",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "KMM",
+        "parentOfficeCode": "DC_KMM"
+      },
+      "note": "was provisional CDO-20NEW",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_D-302-DIG",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_D-302-DIG",
+        "name": "Co-District Office, Digboi",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "D-302",
+        "parentOfficeCode": "AS-D-302"
+      },
+      "note": "was provisional CDO-33DIG",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_D-302-DOO",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_D-302-DOO",
+        "name": "Co-District Office, Doomdooma",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "D-302",
+        "parentOfficeCode": "AS-D-302"
+      },
+      "note": "was provisional CDO-33DOO",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_D-302-MAK",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_D-302-MAK",
+        "name": "Co-District Office, Makum",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "D-302",
+        "parentOfficeCode": "AS-D-302"
+      },
+      "note": "was provisional CDO-33MAK",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_D-302-MAR",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_D-302-MAR",
+        "name": "Co-District Office, Margherita",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "D-302",
+        "parentOfficeCode": "AS-D-302"
+      },
+      "note": "was provisional CDO-33MAR",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:SDO_D-302-SAD",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "SDO_D-302-SAD",
+        "name": "Co-District Office, Sadiya",
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "departmentCode": "GAD",
+        "districtCode": "D-302",
+        "parentOfficeCode": "AS-D-302"
+      },
+      "note": "was provisional CDO-33SAD",
+      "done": false
+    },
+    {
+      "kind": "office",
+      "key": "office:DAO_D-298",
+      "method": "POST",
+      "path": "/mdm/entities/office",
+      "body": {
+        "code": "DAO_D-298",
+        "name": "District Agriculture Office, Nalbari",
+        "officeTypeCode": "DISTRICT_AGRICULTURE_OFFICE",
+        "departmentCode": "AGRI",
+        "districtCode": "D-298"
+      },
+      "note": "was provisional DAO_D-298",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:CIRCLE_OFFICE:ARTPS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "CIRCLE_OFFICE",
+        "functionCode": "ARTPS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:CIRCLE_OFFICE:BAKIJAI",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "CIRCLE_OFFICE",
+        "functionCode": "BAKIJAI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:CIRCLE_OFFICE:DISASTER_MGMT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "CIRCLE_OFFICE",
+        "functionCode": "DISASTER_MGMT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:CIRCLE_OFFICE:ELECTION",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "CIRCLE_OFFICE",
+        "functionCode": "ELECTION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:CIRCLE_OFFICE:LAND_SETTLEMENT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "CIRCLE_OFFICE",
+        "functionCode": "LAND_SETTLEMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:CIRCLE_OFFICE:REVENUE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "CIRCLE_OFFICE",
+        "functionCode": "REVENUE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:AADHAAR",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "AADHAAR"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:ACCOUNTS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "ACCOUNTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:AGRICULTURE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "AGRICULTURE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:ARTPS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "ARTPS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:BAKIJAI",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "BAKIJAI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:BATADRABA_NODAL",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "BATADRABA_NODAL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:CENSUS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "CENSUS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:CM_DASHBOARD",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "CM_DASHBOARD"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:CULTURAL_AFFAIRS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "CULTURAL_AFFAIRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:DECENTRALIZED_PLANNING",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "DECENTRALIZED_PLANNING"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:DISASTER_MGMT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "DISASTER_MGMT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:DMS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "DMS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:EDUCATION",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "EDUCATION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:ELECTION",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "ELECTION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:EXCISE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "EXCISE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:E_GOVERNANCE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "E_GOVERNANCE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:FOREST",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "FOREST"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:FPDCA",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "FPDCA"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:HEALTH_FW",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "HEALTH_FW"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:LABOUR",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "LABOUR"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:LAND_ACQUISITION",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "LAND_ACQUISITION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:LINE_DEPARTMENTS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "LINE_DEPARTMENTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:MAGISTRACY",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "MAGISTRACY"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:MEDIA",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "MEDIA"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:NAZARAT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "NAZARAT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:ORUNUDOI",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "ORUNUDOI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:PERSONNEL",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "PERSONNEL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:PHE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "PHE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:POWER",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "POWER"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:PUBLIC_GRIEVANCE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "PUBLIC_GRIEVANCE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:RECORD_ROOM",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "RECORD_ROOM"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:RELIEF_REHABILITATION",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "RELIEF_REHABILITATION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:REVENUE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "REVENUE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:RKG",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "RKG"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:RTI",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "RTI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:RURAL_DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "RURAL_DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:SKILL_DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "SKILL_DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:SOCIAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "SOCIAL_WELFARE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:SPORTS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "SPORTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:SUBDIVISIONAL_PLANNING",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "SUBDIVISIONAL_PLANNING"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:SUBDIVISIONAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "SUBDIVISIONAL_WELFARE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:TRANSPORT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "TRANSPORT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:URBAN_AFFAIRS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "URBAN_AFFAIRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DC_OFFICE:WOMEN_CELL",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "functionCode": "WOMEN_CELL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DISTRICT_AGRICULTURE_OFFICE:AGRICULTURE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DISTRICT_AGRICULTURE_OFFICE",
+        "functionCode": "AGRICULTURE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DISTRICT_AGRICULTURE_OFFICE:AGRI_LICENSING",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DISTRICT_AGRICULTURE_OFFICE",
+        "functionCode": "AGRI_LICENSING"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:DISTRICT_AGRICULTURE_OFFICE:ARTPS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "DISTRICT_AGRICULTURE_OFFICE",
+        "functionCode": "ARTPS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:ACCOUNTS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "ACCOUNTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:ARTPS",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "ARTPS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:DISASTER_MGMT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "DISASTER_MGMT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:ELECTION",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "ELECTION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:E_GOVERNANCE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "E_GOVERNANCE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:HEALTH_FW",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "HEALTH_FW"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:MAGISTRACY",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "MAGISTRACY"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:NAZARAT",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "NAZARAT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:PUBLIC_GRIEVANCE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "PUBLIC_GRIEVANCE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:REVENUE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "REVENUE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:RTI",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "RTI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "office-type-function",
+      "key": "otf:SUBDIV_OFFICE:SOCIAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/office-type-function",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "functionCode": "SOCIAL_WELFARE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:AADHAAR",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "AADHAAR"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:ACCOUNTS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "ACCOUNTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:AGRICULTURE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "AGRICULTURE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:ARTPS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "ARTPS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:BAKIJAI",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "BAKIJAI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:BATADRABA_NODAL",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "BATADRABA_NODAL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:CENSUS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "CENSUS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:CM_DASHBOARD",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "CM_DASHBOARD"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:CULTURAL_AFFAIRS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "CULTURAL_AFFAIRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:DECENTRALIZED_PLANNING",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "DECENTRALIZED_PLANNING"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:DISASTER_MGMT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "DISASTER_MGMT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:DMS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "DMS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:EDUCATION",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "EDUCATION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:ELECTION",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "ELECTION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:EXCISE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "EXCISE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:E_GOVERNANCE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "E_GOVERNANCE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:FOREST",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "FOREST"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:FPDCA",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "FPDCA"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:HEALTH_FW",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "HEALTH_FW"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:LABOUR",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "LABOUR"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:LAND_ACQUISITION",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "LAND_ACQUISITION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:LINE_DEPARTMENTS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "LINE_DEPARTMENTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:MAGISTRACY",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "MAGISTRACY"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:MEDIA",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "MEDIA"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:NAZARAT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "NAZARAT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:ORUNUDOI",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "ORUNUDOI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:PERSONNEL",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "PERSONNEL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:PHE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "PHE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:POWER",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "POWER"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:PUBLIC_GRIEVANCE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "PUBLIC_GRIEVANCE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:RECORD_ROOM",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "RECORD_ROOM"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:RELIEF_REHABILITATION",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "RELIEF_REHABILITATION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:REVENUE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "REVENUE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:RKG",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "RKG"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:RTI",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "RTI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:RURAL_DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "RURAL_DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:SKILL_DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "SKILL_DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:SOCIAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "SOCIAL_WELFARE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:SPORTS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "SPORTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:SUBDIVISIONAL_PLANNING",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "SUBDIVISIONAL_PLANNING"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:SUBDIVISIONAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "SUBDIVISIONAL_WELFARE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:TRANSPORT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "TRANSPORT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:URBAN_AFFAIRS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "URBAN_AFFAIRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ADC:WOMEN_CELL",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ADC",
+        "functionCode": "WOMEN_CELL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:AADHAAR",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "AADHAAR"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:ACCOUNTS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "ACCOUNTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:AGRICULTURE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "AGRICULTURE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:ARTPS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "ARTPS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:BAKIJAI",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "BAKIJAI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:BATADRABA_NODAL",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "BATADRABA_NODAL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:CENSUS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "CENSUS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:CM_DASHBOARD",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "CM_DASHBOARD"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:CULTURAL_AFFAIRS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "CULTURAL_AFFAIRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:DECENTRALIZED_PLANNING",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "DECENTRALIZED_PLANNING"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:DISASTER_MGMT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "DISASTER_MGMT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:DMS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "DMS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:EDUCATION",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "EDUCATION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:ELECTION",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "ELECTION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:EXCISE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "EXCISE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:E_GOVERNANCE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "E_GOVERNANCE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:FOREST",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "FOREST"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:FPDCA",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "FPDCA"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:HEALTH_FW",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "HEALTH_FW"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:LABOUR",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "LABOUR"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:LAND_ACQUISITION",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "LAND_ACQUISITION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:LINE_DEPARTMENTS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "LINE_DEPARTMENTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:MAGISTRACY",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "MAGISTRACY"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:MEDIA",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "MEDIA"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:NAZARAT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "NAZARAT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:ORUNUDOI",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "ORUNUDOI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:PERSONNEL",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "PERSONNEL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:PHE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "PHE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:POWER",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "POWER"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:PUBLIC_GRIEVANCE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "PUBLIC_GRIEVANCE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:RECORD_ROOM",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "RECORD_ROOM"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:RELIEF_REHABILITATION",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "RELIEF_REHABILITATION"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:REVENUE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "REVENUE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:RKG",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "RKG"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:RTI",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "RTI"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:RURAL_DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "RURAL_DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:SKILL_DEVELOPMENT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "SKILL_DEVELOPMENT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:SOCIAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "SOCIAL_WELFARE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:SPORTS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "SPORTS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:SUBDIVISIONAL_PLANNING",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "SUBDIVISIONAL_PLANNING"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:SUBDIVISIONAL_WELFARE",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "SUBDIVISIONAL_WELFARE"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:TRANSPORT",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "TRANSPORT"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:URBAN_AFFAIRS",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "URBAN_AFFAIRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "designation-function",
+      "key": "df:ASSISTANT_COMMISSIONER:WOMEN_CELL",
+      "method": "POST",
+      "path": "/mdm/entities/designation-function",
+      "body": {
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "functionCode": "WOMEN_CELL"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-285-01:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-285-01",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-285-02:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-285-02",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-285-03:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-285-03",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-285-04:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-285-04",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-285-05:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-285-05",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-285-06:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-285-06",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-285-07:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-285-07",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-285-08:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-285-08",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-297-01:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-297-01",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-297-03:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-297-03",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-297-06:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-297-06",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-298-01:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-298-01",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-298-02:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-298-02",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-298-03:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-298-03",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-298-04:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-298-04",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-298-05:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-298-05",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-298-06:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-298-06",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-298-07:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-298-07",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-302-01:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-302-01",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-302-02:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-302-02",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-302-03:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-302-03",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-CR-302-04:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "AS-CR-302-04",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-D-298:ADC:6",
+      "method": "PUT",
+      "path": "/mdm/entities/sanctioned-post/AS-D-298:ADC",
+      "body": {
+        "sanctionedCount": 6
+      },
+      "note": "MDM had 3",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:AS-D-302:ADC:4",
+      "method": "PUT",
+      "path": "/mdm/entities/sanctioned-post/AS-D-302:ADC",
+      "body": {
+        "sanctionedCount": 4
+      },
+      "note": "MDM had 3",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_AZARA:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_AZARA",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_CHANDRAPUR:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_CHANDRAPUR",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_DISPUR:CIRCLE_OFFICER:2",
+      "method": "PUT",
+      "path": "/mdm/entities/sanctioned-post/CO_DISPUR:CIRCLE_OFFICER",
+      "body": {
+        "sanctionedCount": 2
+      },
+      "note": "MDM had 1",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_DISPUR:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_DISPUR",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_GUWAHATI:CIRCLE_OFFICER:2",
+      "method": "PUT",
+      "path": "/mdm/entities/sanctioned-post/CO_GUWAHATI:CIRCLE_OFFICER",
+      "body": {
+        "sanctionedCount": 2
+      },
+      "note": "MDM had 1",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_GUWAHATI:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_GUWAHATI",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_KALIABOR:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_KALIABOR",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_NAGAON:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_NAGAON",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_RAHA:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_RAHA",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_SAMAGURI:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_SAMAGURI",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_SONAPUR:CIRCLE_OFFICER:2",
+      "method": "PUT",
+      "path": "/mdm/entities/sanctioned-post/CO_SONAPUR:CIRCLE_OFFICER",
+      "body": {
+        "sanctionedCount": 2
+      },
+      "note": "MDM had 1",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:CO_SONAPUR:SUB_REGISTRAR:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "CO_SONAPUR",
+        "designationCode": "SUB_REGISTRAR",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:DAO_D-298:DISTRICT_AGRICULTURE_OFFICER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "DAO_D-298",
+        "designationCode": "DISTRICT_AGRICULTURE_OFFICER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:DC_KMM:ADC:4",
+      "method": "PUT",
+      "path": "/mdm/entities/sanctioned-post/DC_KMM:ADC",
+      "body": {
+        "sanctionedCount": 4
+      },
+      "note": "MDM had 3",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:DC_NGN:ADC:6",
+      "method": "PUT",
+      "path": "/mdm/entities/sanctioned-post/DC_NGN:ADC",
+      "body": {
+        "sanctionedCount": 6
+      },
+      "note": "MDM had 3",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:DC_NGN:ASSISTANT_COMMISSIONER:7",
+      "method": "PUT",
+      "path": "/mdm/entities/sanctioned-post/DC_NGN:ASSISTANT_COMMISSIONER",
+      "body": {
+        "sanctionedCount": 7
+      },
+      "note": "MDM had 2",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_D-285-GOL:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_D-285-GOL",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_D-302-DIG:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_D-302-DIG",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_D-302-DOO:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_D-302-DOO",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_D-302-MAK:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_D-302-MAK",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_D-302-MAR:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_D-302-MAR",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_D-302-SAD:ASSISTANT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_D-302-SAD",
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_D-302-SAD:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_D-302-SAD",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_KMM-DIM:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_KMM-DIM",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_KMM-DIS:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_KMM-DIS",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_KMM-JAL:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_KMM-JAL",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_KMM-NEW:CO_DISTRICT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_KMM-NEW",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "sanctioned-post",
+      "key": "sp:SDO_NGN-KLB:ASSISTANT_COMMISSIONER:1",
+      "method": "POST",
+      "path": "/mdm/entities/sanctioned-post",
+      "body": {
+        "officeCode": "SDO_NGN-KLB",
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "sanctionedCount": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000001",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Megha NidhiDahal",
+        "mobile": "8826605380",
+        "email": "2015arpandhal@gmail.com",
+        "cadreCode": "IAS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000002",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Swapnil Paul",
+        "mobile": "9971835061",
+        "cadreCode": "IAS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000003",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Nivedan Das Patowari",
+        "mobile": "9435087272",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000004",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Devasish Sharma",
+        "mobile": "9819744446",
+        "email": "2022rangmanch9@yahoo.comdevasishsharma9",
+        "cadreCode": "IAS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000005",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sumit Sattawan",
+        "mobile": "9958373505",
+        "email": "2015sumitsattawan@gmail.com",
+        "cadreCode": "IAS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000006",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Preety Lekha Deka",
+        "mobile": "8876490263",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000007",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Yimkum I. Ozukum",
+        "mobile": "8837072492",
+        "cadreCode": "IAS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000008",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Apurba Kr. Das",
+        "mobile": "9854067475"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000009",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Arundhuti Narah Mipun",
+        "mobile": "8638182349",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000010",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Biman Das",
+        "mobile": "8402883038",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000011",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Kankan Sarmah",
+        "mobile": "8723942087",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000012",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Ankita Bora",
+        "mobile": "7896256019",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000013",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Raj Boruah",
+        "mobile": "8638160255",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000014",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Rahul Doley",
+        "mobile": "7086049160",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000015",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Nuzhat Nasreen",
+        "mobile": "8486710960",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000016",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Syed Wasbir Subhani",
+        "mobile": "7896256196",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000017",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Phyllis V L Hmunsiami Hrangchal",
+        "mobile": "7896118599",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000018",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Jangmir Rongpharpi",
+        "mobile": "8876224874",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000019",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Jayanta Dutta",
+        "mobile": "8638828566",
+        "email": "jdutta.acs@assam.gov.in",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000020",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Hemanga Nabish",
+        "mobile": "8638600125",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000021",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Kaustubh Roy",
+        "mobile": "7002707756",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000022",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Pallavi Gogoi",
+        "mobile": "9864055226",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000023",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sanghamitra Baruah",
+        "mobile": "7086761135",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000024",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Nandita Saharia",
+        "mobile": "8638230565",
+        "email": "nandita.acs2021@assam.gov.in",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000025",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Reetimoni Das",
+        "mobile": "8876614740",
+        "email": "reetimoni.das18@assam.gov.in",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000026",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Shashee Bhusan Raj Konwar",
+        "mobile": "9435109110",
+        "email": "sb.rajkonwar@assam.gov.in",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000027",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Ranjumoni Dutta",
+        "mobile": "6003590325",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000028",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Amarjyoti Nath",
+        "mobile": "6003650061",
+        "email": "amarj.alrs@assam.gov.in",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000029",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sari Lalruotkim Lungtau",
+        "mobile": "9127369710",
+        "email": "sari.luntau@assam.gov.in",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000030",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sajjad Hussain",
+        "mobile": "7002240629",
+        "email": "hussain.sajjad@assam.gov.in",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000031",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Namrata Das",
+        "mobile": "8486974467",
+        "email": "das.namrata@assam.gov.in",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000032",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Debasena Barman",
+        "mobile": "9706953321",
+        "email": "debasena.barman@assam.gov.in",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000033",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sontush kumar Nath",
+        "mobile": "6001997519",
+        "email": "san22ghy@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000034",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Shahnawaz Ikbal",
+        "mobile": "8822601677",
+        "email": "shazhnawazikbal@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000035",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Himanshu Saloi",
+        "mobile": "9954192947",
+        "email": "himanshu.saloi123@gmail.com",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000036",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Rituparna Bhadra",
+        "mobile": "9435010459",
+        "email": "bhadraritu@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000037",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sangeeta Sarmah",
+        "mobile": "8761802187",
+        "email": "sangeetasarma90@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000038",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Bilaob Sarma Bordoloi",
+        "mobile": "8638155497",
+        "email": "biplob.sbordoloi@assam.gov.in",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000039",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Manoj Kr. Dutta",
+        "mobile": "9678222652",
+        "email": "er.mkdutta@gmail.com",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000040",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Bipul Deka",
+        "mobile": "7002498375",
+        "email": "bipuldeka.du@assam.gov.in",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000041",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Jaideep Rajak",
+        "mobile": "7086442900",
+        "email": "jaideeprajak@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000042",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Rantu Borah",
+        "mobile": "9954556295",
+        "email": "rantuboruah12@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000043",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Bikramjit Bora",
+        "mobile": "7637955577",
+        "email": "sonapurcircle@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000044",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Upasane Deka",
+        "mobile": "8753841844",
+        "email": "upasanadeka94@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000045",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Bikrom Chasha",
+        "mobile": "7002763282",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000046",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Bandeep Rabha",
+        "mobile": "7099219481",
+        "email": "bandeeprabhaofficial@gmail.com",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000047",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Rosy Lhinglenkim Singson",
+        "mobile": "7002892409",
+        "email": "singsonaroi@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000048",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Biswajit Dutta",
+        "mobile": "8920476737",
+        "email": "duttabiswajit.1987@assam.gov.in",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000049",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Rajesh Singh",
+        "mobile": "8011266196",
+        "email": "samagurico@gmail.com",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000050",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Manish Bharali",
+        "mobile": "6002022813",
+        "email": "manishbharali04@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000051",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Partha Pratim Choudhury",
+        "mobile": "6900032868",
+        "email": "parthapchoudhury119@gmail.com",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000052",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Navajyoti Saharia",
+        "mobile": "9678001371",
+        "email": "navasaharia.alrs@assam.gov.in",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000053",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Gouranga Dutta",
+        "mobile": "9678885565",
+        "email": "trc.2021tinsukia@mail.com",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000054",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Gyanjyoti Dutta",
+        "mobile": "9954334953",
+        "email": "duttagyanjyoti78@gmail.com",
+        "cadreCode": "ALRS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000055",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Nimashri Dauka",
+        "mobile": "8720909939",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000056",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Jitu Kumar Barman",
+        "mobile": "6002517725",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000057",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Gopal Sharma",
+        "mobile": "7576899747",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000058",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Dipankar Barman",
+        "mobile": "7002645912",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000059",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Kamal Jeet Sarma",
+        "mobile": "8099972768",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000060",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Mridul Boro",
+        "mobile": "8638375323",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000061",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Dr. Priyanka Kashyap",
+        "mobile": "9957694135",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000062",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Praveen Kr. Mahato",
+        "mobile": "9368003926",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000063",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Anjali Kumari",
+        "mobile": "8800748105",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000064",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Rupak Mazumdar",
+        "mobile": "8721805734",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000065",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sikha Nath",
+        "mobile": "8638366734",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000066",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Dharmaraj Kalita",
+        "mobile": "8638645736",
+        "email": "dharmaraj111999@gmail.com",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000067",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Pankaj Kr. Nagbanshi",
+        "mobile": "7896188342",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000068",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Moushumi Chetia",
+        "mobile": "9957307996",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000069",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Jonti Deka",
+        "mobile": "9854525109",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000070",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sudeep Nath",
+        "mobile": "9706223053",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000071",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Mondira Boruah",
+        "mobile": "9864516953",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000072",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Ripanjyoti Nath",
+        "mobile": "9577985354",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000073",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Partha Pratim Khanikar",
+        "mobile": "8011001878",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000074",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Devajyoti Gogoi",
+        "mobile": "9707430898",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000075",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Kaustav Kalita",
+        "mobile": "9678539495",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000076",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Shilpi Shikha Thakuria",
+        "mobile": "7042115711",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000077",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Himadri Borah",
+        "mobile": "7086053706",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000078",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Raja Baishya",
+        "mobile": "7002422841",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000079",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Bubul Baishya",
+        "mobile": "8638691168",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000080",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Shekharan Phukan",
+        "mobile": "9127438876",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000081",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Abhijat Borah",
+        "mobile": "8800476558",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000082",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Sudip Gogoi",
+        "mobile": "8730874188",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000083",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Neihat Haolai",
+        "mobile": "9971970479",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "employee",
+      "key": "employee:R-000084",
+      "method": "POST",
+      "path": "/mdm/employees/mint",
+      "body": {
+        "name": "Jebin Gulnar",
+        "mobile": "9678849960",
+        "cadreCode": "ACS"
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:DC_OFFICE:DISTRICT_COMMISSIONER:ASSISTANT_COMMISSIONER",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "designationCode": "DISTRICT_COMMISSIONER",
+        "coveringDesignationCode": "ASSISTANT_COMMISSIONER",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:DC_OFFICE:ADC:ADC",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "designationCode": "ADC",
+        "coveringDesignationCode": "ADC",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:DC_OFFICE:ASSISTANT_COMMISSIONER:ADC",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "coveringDesignationCode": "ADC",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:DC_OFFICE:ASSISTANT_COMMISSIONER:ASSISTANT_COMMISSIONER",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "DC_OFFICE",
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "coveringDesignationCode": "ASSISTANT_COMMISSIONER",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:SUBDIV_OFFICE:CO_DISTRICT_COMMISSIONER:ADC",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "coveringDesignationCode": "ADC",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:SUBDIV_OFFICE:CO_DISTRICT_COMMISSIONER:ASSISTANT_COMMISSIONER",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "designationCode": "CO_DISTRICT_COMMISSIONER",
+        "coveringDesignationCode": "ASSISTANT_COMMISSIONER",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:SUBDIV_OFFICE:ADC:ADC",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "designationCode": "ADC",
+        "coveringDesignationCode": "ADC",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:SUBDIV_OFFICE:ADC:ASSISTANT_COMMISSIONER",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "designationCode": "ADC",
+        "coveringDesignationCode": "ASSISTANT_COMMISSIONER",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:SUBDIV_OFFICE:ASSISTANT_COMMISSIONER:ADC",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "coveringDesignationCode": "ADC",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:SUBDIV_OFFICE:ASSISTANT_COMMISSIONER:ASSISTANT_COMMISSIONER",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "SUBDIV_OFFICE",
+        "designationCode": "ASSISTANT_COMMISSIONER",
+        "coveringDesignationCode": "ASSISTANT_COMMISSIONER",
+        "priority": 1
+      },
+      "note": "",
+      "done": false
+    },
+    {
+      "kind": "link-officer-rule",
+      "key": "lor:CIRCLE_OFFICE:CIRCLE_OFFICER:SUB_REGISTRAR",
+      "method": "POST",
+      "path": "/mdm/entities/link-officer-rule",
+      "body": {
+        "officeTypeCode": "CIRCLE_OFFICE",
+        "designationCode": "CIRCLE_OFFICER",
+        "coveringDesignationCode": "SUB_REGISTRAR",
+        "priority": 2
+      },
+      "note": "",
+      "done": false
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+office_id,name,office_type,district_code,district_name,parent_office_id,establishment_actor,source
+ACMR-00ASM,Assam Council of Medical Registration (state office),DEPT_STATE_OFFICE,AS,State level,,ESTB@ACMR-00ASM,spec section 9 (office ID given in the spec); name from PoC_master_data.xlsx Service ID Blocks (ACM)

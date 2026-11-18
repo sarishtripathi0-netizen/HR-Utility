@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Officers{% endblock %}
+{% block asof %}Postings and availability shown <b>as of {{ at_label }}</b> (Asia/Kolkata){% endblock %}
+{% block body %}
+<h1>Officers <a href="/ui/officers/new"><button type="button" style="margin-left:12px">+ Add officer</button></a></h1>
+<form class="inline card" method="get">
+  <label>Search (name, Employee ID, email, mobile)<input name="q_" value="{{ text }}" size="30" autofocus></label>
+  <label>Posted in office
+    <select name="office_id"><option value="">any office</option>
+      {% for o in offices %}<option value="{{ o.office_id }}" {{ 'selected' if o.office_id == office_id }}>{{ o.office_id }} — {{ o.name }}</option>{% endfor %}
+    </select></label>
+  <label>Demo officers<select name="demo"><option value="1">include</option><option value="0" {{ 'selected' if not demo }}>hide</option></select></label>
+  <button>Search</button>
+</form>
+<p class="muted">{{ rows|length }} officer(s), in seniority order. Click a name to view, correct, post, relieve, allot functions or record leave.</p>
+<table>
+  <tr><th>Officer</th><th>Current chairs</th><th>Available?</th><th>Contact</th></tr>
+  {% for r in rows %}
+  <tr><td>{{ m.officer(r) }}</td>
+      <td>{% for p in r.posts %}<code>{{ p }}</code> {% else %}<span class="muted">not posted</span>{% endfor %}</td>
+      <td>{{ m.avail(r) }}</td>
+      <td class="muted">{{ r.email or '' }} {{ r.mobile or '' }}</td></tr>
+  {% else %}<tr><td colspan="4" class="muted">No officer matches.</td></tr>{% endfor %}
+</table>
+
+<h2>Recent onboarding requests</h2>
+<table>
+  <tr><th>#</th><th>When</th><th>Name</th><th>Source</th><th>Status</th><th>Employee ID</th><th>Submitted by</th><th>Note</th></tr>
+  {% for r in requests %}
+  <tr><td>{{ r.request_id }}</td><td>{{ r.created_at | ist }}</td><td>{{ r.name }}{% if r.is_demo %} <span class="badge demo">DEMO</span>{% endif %}</td>
+      <td>{{ r.source }}</td><td><b>{{ r.status }}</b></td>
+      <td>{% if r.employee_id %}<a href="/ui/officers/{{ r.employee_id }}">{{ r.employee_id }}</a>{% endif %}</td>
+      <td>{{ r.submitted_by }}</td><td class="muted">{{ r.reason or '' }}</td></tr>
+  {% else %}<tr><td colspan="8" class="muted">None yet.</td></tr>{% endfor %}
+</table>
+{% endblock %}

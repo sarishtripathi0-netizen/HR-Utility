@@ -1,0 +1,9 @@
+office_type,functions,is_demo,basis
+# The functions that exist in each type of office. "category:X" means every code of that category in function_codes.csv.
+# A function can be allotted in an office only if it is on that office type's list (BR-04).
+# Office types use MDM office-type codes (DC_OFFICE, SUBDIV_OFFICE, CIRCLE_OFFICE); co-district offices are SUBDIV_OFFICE in MDM.
+DC_OFFICE,category:E_DISTRICT|category:OFFICE|category:NAGAON_ALLOTMENT,False,"Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)"
+SUBDIV_OFFICE,SOCIAL_WELFARE|E_GOVERNANCE|HEALTH_FW|ARTPS|MAGISTRACY|REVENUE|ELECTION|DISASTER_MGMT|NAZARAT|ACCOUNTS|RTI|PUBLIC_GRIEVANCE,True,"DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office"
+CIRCLE_OFFICE,REVENUE|LAND_RECORDS|MUTATION_PARTITION|LAND_SETTLEMENT|BAKIJAI|DISASTER_MGMT|ELECTION|ARTPS,True,"DEMO: revenue-circle duties"
+DEPT_DISTRICT_OFFICE,AGRICULTURE|AGRI_LICENSING|ARTPS,True,"DEMO: District Agricultural Office"
+DEPT_STATE_OFFICE,MEDICAL_REGISTRATION|ARTPS,True,"DEMO: Assam Council of Medical Registration"

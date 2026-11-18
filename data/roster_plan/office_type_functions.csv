@@ -1,0 +1,71 @@
+office_type,function_code,is_demo,source
+CIRCLE_OFFICE,ARTPS,True,DEMO: revenue-circle duties
+CIRCLE_OFFICE,BAKIJAI,True,DEMO: revenue-circle duties
+CIRCLE_OFFICE,DISASTER_MGMT,True,DEMO: revenue-circle duties
+CIRCLE_OFFICE,ELECTION,True,DEMO: revenue-circle duties
+CIRCLE_OFFICE,LAND_RECORDS,True,DEMO: revenue-circle duties
+CIRCLE_OFFICE,LAND_SETTLEMENT,True,DEMO: revenue-circle duties
+CIRCLE_OFFICE,MUTATION_PARTITION,True,DEMO: revenue-circle duties
+CIRCLE_OFFICE,REVENUE,True,DEMO: revenue-circle duties
+DC_OFFICE,AADHAAR,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,ACCOUNTS,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,AGRICULTURE,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,ARTPS,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,BAKIJAI,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,BATADRABA_NODAL,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,CENSUS,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,CM_DASHBOARD,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,CULTURAL_AFFAIRS,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,DECENTRALIZED_PLANNING,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,DEVELOPMENT,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,DISASTER_MGMT,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,DMS,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,EDUCATION,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,ELECTION,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,EXCISE,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,E_GOVERNANCE,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,FOREST,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,FPDCA,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,HEALTH_FW,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,LABOUR,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,LAND_ACQUISITION,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,LINE_DEPARTMENTS,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,MAGISTRACY,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,MEDIA,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,NAZARAT,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,ORUNUDOI,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,PERSONNEL,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,PHE,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,POWER,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,PUBLIC_GRIEVANCE,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,RECORD_ROOM,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,RELIEF_REHABILITATION,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,REVENUE,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,RKG,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,RTI,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,RURAL_DEVELOPMENT,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,SKILL_DEVELOPMENT,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,SOCIAL_WELFARE,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,SPORTS,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,SUBDIVISIONAL_PLANNING,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,SUBDIVISIONAL_WELFARE,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,TRANSPORT,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,URBAN_AFFAIRS,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DC_OFFICE,WOMEN_CELL,False,Spec section 9 code list plus every branch in the Nagaon work-allotment order (13-03-2026)
+DEPT_DISTRICT_OFFICE,AGRICULTURE,True,DEMO: District Agricultural Office
+DEPT_DISTRICT_OFFICE,AGRI_LICENSING,True,DEMO: District Agricultural Office
+DEPT_DISTRICT_OFFICE,ARTPS,True,DEMO: District Agricultural Office
+DEPT_STATE_OFFICE,ARTPS,True,DEMO: Assam Council of Medical Registration
+DEPT_STATE_OFFICE,MEDICAL_REGISTRATION,True,DEMO: Assam Council of Medical Registration
+SUBDIV_OFFICE,ACCOUNTS,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,ARTPS,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,DISASTER_MGMT,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,ELECTION,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,E_GOVERNANCE,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,HEALTH_FW,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,MAGISTRACY,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,NAZARAT,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,PUBLIC_GRIEVANCE,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,REVENUE,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,RTI,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office
+SUBDIV_OFFICE,SOCIAL_WELFARE,True,DEMO: a co-district / sub-division office carries the e-District functions and the core office functions of a DC office

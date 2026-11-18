@@ -1,0 +1,32 @@
+code,holiday_date,name,holiday_type,district_code,is_active,source
+2025-01-14,2025-01-14,Magh Bihu,GAZETTED,,True,MDM holiday 2025-01-14
+2025-01-26,2025-01-26,Republic Day,GAZETTED,,True,MDM holiday 2025-01-26
+2025-03-31,2025-03-31,Id-ul-Fitr,GAZETTED,,True,MDM holiday 2025-03-31
+2025-04-14,2025-04-14,Bohag Bihu,GAZETTED,,True,MDM holiday 2025-04-14
+2025-04-15,2025-04-15,Bohag Bihu,GAZETTED,,True,MDM holiday 2025-04-15
+2025-04-16,2025-04-16,Bohag Bihu,GAZETTED,,True,MDM holiday 2025-04-16
+2025-04-18,2025-04-18,Good Friday,GAZETTED,,True,MDM holiday 2025-04-18
+2025-06-07,2025-06-07,Id-uz-Zuha,GAZETTED,,True,MDM holiday 2025-06-07
+2025-08-15,2025-08-15,Independence Day,GAZETTED,,True,MDM holiday 2025-08-15
+2025-09-30,2025-09-30,Durga Puja (Maha Ashtami),GAZETTED,,True,MDM holiday 2025-09-30
+2025-10-01,2025-10-01,Durga Puja (Maha Navami),GAZETTED,,True,MDM holiday 2025-10-01
+2025-10-02,2025-10-02,Gandhi Jayanti / Vijaya Dashami,GAZETTED,,True,MDM holiday 2025-10-02
+2025-10-20,2025-10-20,Diwali,GAZETTED,,True,MDM holiday 2025-10-20
+2025-12-25,2025-12-25,Christmas Day,GAZETTED,,True,MDM holiday 2025-12-25
+2026-01-15,2026-01-15,Magh Bihu,GAZETTED,,True,MDM holiday 2026-01-15
+2026-01-26,2026-01-26,Republic Day,GAZETTED,,True,MDM holiday 2026-01-26
+2026-03-20,2026-03-20,Id-ul-Fitr,GAZETTED,,True,MDM holiday 2026-03-20
+2026-04-03,2026-04-03,Good Friday,GAZETTED,,True,MDM holiday 2026-04-03
+2026-04-14,2026-04-14,Bohag Bihu,GAZETTED,,True,MDM holiday 2026-04-14
+2026-04-15,2026-04-15,Bohag Bihu,GAZETTED,,True,MDM holiday 2026-04-15
+2026-04-16,2026-04-16,Bohag Bihu,GAZETTED,,True,MDM holiday 2026-04-16
+2026-05-27,2026-05-27,Id-uz-Zuha,GAZETTED,,True,MDM holiday 2026-05-27
+2026-08-15,2026-08-15,Independence Day,GAZETTED,,True,MDM holiday 2026-08-15
+2026-10-02,2026-10-02,Gandhi Jayanti,GAZETTED,,True,MDM holiday 2026-10-02
+2026-10-19,2026-10-19,Durga Puja (Maha Ashtami),GAZETTED,,True,MDM holiday 2026-10-19
+2026-10-20,2026-10-20,Durga Puja (Maha Navami),GAZETTED,,True,MDM holiday 2026-10-20
+2026-10-21,2026-10-21,Vijaya Dashami,GAZETTED,,True,MDM holiday 2026-10-21
+2026-11-05:KAA,2026-11-05,Local holiday (Karbi Anglong),LOCAL,KAA,True,MDM holiday 2026-11-05:KAA
+2026-11-09,2026-11-09,Diwali (holiday),GAZETTED,,True,MDM holiday 2026-11-09
+2026-11-24,2026-11-24,Guru Nanak Jayanti,RESTRICTED,,True,MDM holiday 2026-11-24
+2026-12-25,2026-12-25,Christmas Day,GAZETTED,,True,MDM holiday 2026-12-25

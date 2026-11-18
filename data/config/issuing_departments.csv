@@ -1,0 +1,8 @@
+cadre,issuing_department,source
+IAS,Personnel Department,spec section 3
+ACS,Personnel Department,spec section 3
+ALRS,Revenue & Disaster Management Department,spec section 3
+AGRICULTURE,Agriculture Department,spec section 3
+DEMO,UNKNOWN (demo officer),synthetic
+DEMO_SR,Revenue & Disaster Management Department,"demo Sub Registrar; MDM designation SUB_REGISTRAR belongs to RDM"
+UNKNOWN,UNKNOWN (open item),cadre not found in any source

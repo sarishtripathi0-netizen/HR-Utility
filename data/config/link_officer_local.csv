@@ -1,0 +1,8 @@
+office_type,designation,covering,priority,required_function,basis
+# Link Officer rules come from MDM (link-officer-rule: office type + absent designation -> covering designation, by
+# priority; covering designations of equal priority compete on seniority). This file adds what MDM cannot express yet.
+# covering = "*" : a CONDITION on every MDM rule for that office type (and designation, or "*" for all designations).
+# covering = a designation : an extra local rule.
+DC_OFFICE,*,*,,ARTPS,"Business decision 03-11-2026: in a DC office the covering ADC/AC must hold ARTPS (MDM has no field for this yet)"
+SUBDIV_OFFICE,*,*,,ARTPS,"Business decision 03-11-2026: in a co-district office the covering ADC/AC must hold ARTPS"
+CIRCLE_OFFICE,SUB_REGISTRAR,CIRCLE_OFFICER,1,,"DEMO: the Circle Officer covers the Sub Registrar (not yet confirmed; not sent to MDM)"

@@ -1,0 +1,6 @@
+district_code,name,abbr,aliases,mdm_district_code,source
+27,Nalbari,NAL,nalbari,D-298,"code: spec section 9; abbr: spec example DCO-27NAL; MDM code: MDM PoC district D-298"
+20,Kamrup Metropolitan,KMM,kamrupm|kamrupmetro|kamrupmetropolitan|kamrupmahanagar|guwahati,KMM,"code: spec section 9; abbr + MDM code: KMM"
+11,Dhubri,DHU,dhubri,D-285,"code: spec section 9; abbr: Sewa_Setu_Master_Code_Lists.xlsx; MDM code: D-285"
+33,Tinsukia,TIN,tinsukia,D-302,"code: spec section 9; abbr: Sewa_Setu_Master_Code_Lists.xlsx; MDM code: D-302"
+26,Nagaon,NAG,nagaon,NGN,"code: spec section 9; abbr: Sewa_Setu_Master_Code_Lists.xlsx; MDM code: NGN"

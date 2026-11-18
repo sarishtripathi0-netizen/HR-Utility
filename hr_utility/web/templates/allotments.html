@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Function allotment{% endblock %}
+{% block asof %}Showing and saving functions <b>effective from {{ at_label }}</b> (Asia/Kolkata). Earlier dates are never changed.{% endblock %}
+{% block body %}
+<h1>Function allotment <span class="muted">— Establishment branch of {{ office_id }}</span></h1>
+<form class="inline card" method="get">
+  {{ m.office_picker(offices, office_id, at_local) }}
+  <label>Columns<select name="show_all"><option value="0">core + in use</option><option value="1" {{ 'selected' if show_all }}>all function codes</option></select></label>
+  <button class="secondary">Load grid</button>
+</form>
+<form method="post" class="card">
+  <input type="hidden" name="office_id" value="{{ office_id }}">
+  <input type="hidden" name="at" value="{{ at_local }}">
+  <input type="hidden" name="show_all" value="{{ 1 if show_all else 0 }}">
+  {% for c in cols %}<input type="hidden" name="col" value="{{ c }}">{% endfor %}
+  <div style="overflow-x:auto">
+  <table class="grid">
+    <tr><th class="name">Officer</th><th class="name">Chair</th>{% for c in cols %}<th class="rot">{{ c }}</th>{% endfor %}</tr>
+    {% for o in officers %}
+    <tr>
+      {% if o.holds_all_office_functions %}
+      <td class="name">{{ m.officer(o) }}<div><span class="badge link">holds every function of this office by post</span></div></td>
+      <td class="name"><code>{{ o.chair }}</code></td>
+      {% for c in cols %}<td><input type="checkbox" checked disabled title="{{ o.name }} holds {{ c }} by virtue of the post"></td>{% endfor %}
+      {% else %}
+      <td class="name">{{ m.officer(o) }}<input type="hidden" name="officer" value="{{ o.employee_id }}"></td>
+      <td class="name"><code>{{ o.chair }}</code></td>
+      {% for c in cols %}<td><input type="checkbox" name="cell" value="{{ o.employee_id }}|{{ c }}" {{ 'checked' if c in o.functions_allotted }}
+          title="{{ o.name }} — {{ c }}"></td>{% endfor %}
+      {% endif %}
+    </tr>
+    {% else %}<tr><td colspan="{{ cols|length + 2 }}" class="muted">No officer is posted in this office at this time.</td></tr>{% endfor %}
+  </table>
+  </div>
+  <p class="form inline" style="margin-top:12px">
+    <label>Entered by (must be this office's Establishment branch)<input name="entered_by" value="{{ data.establishment_actor }}" size="28"></label>
+    <button>Save allotments effective {{ at_label }}</button>
+  </p>
+  <p class="muted">Ticking a box allots from this moment; clearing one withdraws from this moment. Only officers posted in this
+     office can hold its functions, and only functions on this office type's list can be allotted (BR-04).
+     Greyed rows hold every function by virtue of their post (see <a href="/ui/functions">Functions by post</a>).</p>
+</form>
+{% endblock %}

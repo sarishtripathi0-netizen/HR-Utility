@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Leave entry{% endblock %}
+{% block asof %}Officers listed are those posted in the office <b>as of {{ at_label }}</b> (Asia/Kolkata); each window has its own dates.{% endblock %}
+{% block body %}
+<h1>Leave, tour, training and deputation</h1>
+<form class="inline card" method="get">{{ m.office_picker(offices, office_id, at_local) }}<button class="secondary">Show office</button></form>
+<div class="card">
+  <form method="post" class="inline">
+    <input type="hidden" name="office_id" value="{{ office_id }}">
+    <label>Officer<select name="employee_id">{% for eid, h in people.items() %}<option value="{{ eid }}">{{ h.name }}{{ ' (DEMO)' if h.is_demo }} — {{ eid }}</option>{% endfor %}</select></label>
+    <label>Kind<select name="kind"><option>LEAVE</option><option>TOUR</option><option>TRAINING</option><option>DEPUTATION</option></select></label>
+    <label>From (IST)<input type="datetime-local" name="from_ts" value="{{ at_local }}" required></label>
+    <label>To (IST, exclusive)<input type="datetime-local" name="to_ts"></label>
+    <label>Note<input name="note"></label>
+    <label>Entered by<input name="entered_by" value="ESTB@{{ office_id }}"></label>
+    <button>Record</button>
+  </form>
+  <p class="muted">Windows of the same kind may not overlap for one officer (BR-06). While a window covers a moment, the
+     officer is not available and the Link Officer takes the work.</p>
+</div>
+<h2>Recorded windows for officers of this office</h2>
+<table>
+  <tr><th>Officer</th><th>Kind</th><th>From</th><th>To</th><th>Entered by</th><th>Note</th><th>Action</th></tr>
+  {% for w in windows %}
+  {% set cancelled = w.to_ts and w.to_ts <= w.from_ts %}
+  <tr><td>{{ m.officer(people[w.employee_id]) }}</td><td>{{ w.kind }}</td><td>{{ w.from_ts | ist }}</td>
+      <td>{% if cancelled %}<span class="badge away">cancelled</span>{% else %}{{ w.to_ts | ist if w.to_ts else 'open' }}{% endif %}</td>
+      <td>{{ w.entered_by }}</td><td>{{ w.note or '' }}</td>
+      <td>{% if not cancelled %}<form method="post" action="/ui/officers/{{ w.employee_id }}/leave/{{ w.id }}/cancel" class="inline">
+          <input name="reason" placeholder="reason" required size="14"><input type="hidden" name="entered_by" value="ESTB@{{ office_id }}">
+          <button class="secondary">Cancel</button></form>{% endif %}</td></tr>
+  {% else %}<tr><td colspan="7" class="muted">None recorded.</td></tr>{% endfor %}
+</table>
+{% endblock %}

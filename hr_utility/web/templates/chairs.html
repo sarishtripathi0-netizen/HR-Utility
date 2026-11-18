@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Chairs{% endblock %}
+{% block asof %}Holders shown <b>as of {{ at_label }}</b> (Asia/Kolkata){% endblock %}
+{% block body %}
+<h1>Chairs <span class="muted">— sanctioned posts of an office</span></h1>
+<form class="inline card" method="get">
+  <label>Office
+    <select name="office_id">{% for o in offices %}<option value="{{ o.office_id }}" {{ 'selected' if o.office_id == office_id }}>{{ o.office_id }} — {{ o.name }}</option>{% endfor %}</select></label>
+  <label>Abolished chairs<select name="abolished"><option value="0">hide</option><option value="1" {{ 'selected' if abolished }}>show</option></select></label>
+  <button class="secondary">Show</button>
+</form>
+
+<h2>{{ office.name }} <span class="muted">{{ office.office_id }} · {{ office.office_type }}{% if office.provisional %} · provisional ID{% endif %}</span></h2>
+<table>
+  <tr><th>Chair</th><th>Post</th><th>Holder(s) now</th><th>Origin</th><th>Action</th></tr>
+  {% for c in rows %}
+  <tr{% if not c.is_active %} style="opacity:.55"{% endif %}>
+    <td><code>{{ c.sanctioned_post_id }}</code>{% if not c.is_active %} <span class="badge away">abolished</span>{% endif %}
+        {% if c.is_demo %} <span class="badge demo">DEMO</span>{% endif %}</td>
+    <td>{{ c.post_code }}</td>
+    <td>{% for h in c.holders %}{{ m.officer(h) }} {{ m.charge(h.charge_type) }}<br>
+        {% else %}{% if c.vacancy %}<span class="badge away">declared vacant</span>{% else %}<span class="muted">nobody</span>{% endif %}{% endfor %}</td>
+    <td class="muted">{{ 'derived' if c.derived else '' }} {{ c.source or '' }}</td>
+    <td>{% if c.is_active and not c.holders %}
+        <form method="post" action="/ui/chairs/{{ c.sanctioned_post_id }}/abolish" class="inline">
+          <input type="hidden" name="office_id" value="{{ office_id }}">
+          <input name="reason" placeholder="reason / order" required size="18">
+          <input name="entered_by" value="{{ office.establishment_actor }}" size="20">
+          <button class="secondary">Abolish</button></form>
+        {% elif c.is_active %}<span class="muted">relieve the holder to abolish</span>{% endif %}</td>
+  </tr>
+  {% else %}<tr><td colspan="5" class="muted">This office has no chairs yet.</td></tr>{% endfor %}
+</table>
+
+<div class="card">
+  <h2 style="margin-top:0">Add a chair</h2>
+  <form method="post" action="/ui/chairs/add" class="inline">
+    <input type="hidden" name="office_id" value="{{ office_id }}">
+    <label>Post<select name="post_code">{% for p in posts %}<option value="{{ p.post_code }}">{{ p.post_code }} — {{ p.name }}</option>{% endfor %}</select></label>
+    <label>Reason / sanction order *<input name="reason" required size="36"></label>
+    <label>Entered by (Establishment branch)<input name="entered_by" value="{{ office.establishment_actor }}" size="24"></label>
+    <button>Add chair</button>
+  </form>
+  <p class="muted">The chair gets the next number (e.g. a seventh ADC becomes <code>…-ADC-07</code>) and is marked derived until
+     MDM holds sanctioned strength. Then post an officer to it from the officer's page.</p>
+</div>
+{% endblock %}

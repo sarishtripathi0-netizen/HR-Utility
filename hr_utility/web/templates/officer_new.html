@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Add officer{% endblock %}
+{% block asof %}Submitted now: <b>{{ at_label }}</b> (Asia/Kolkata). MDM de-duplicates and mints the Employee ID.{% endblock %}
+{% block body %}
+<h1>Add officer</h1>
+<form method="post" class="card">
+  <p class="muted">MDM mints the Employee ID. If the FinAssam code, PAN or Aadhaar token matches an earlier onboarding, or
+     MDM already has the mobile or email, you are taken to that officer instead of creating a duplicate. The Aadhaar token
+     is hashed with a salt on arrival, never stored and never sent to MDM (BR-09).</p>
+  <div class="inline" style="display:flex;flex-wrap:wrap;gap:10px 14px">
+    <label>Source<select name="source">
+      <option value="MANUAL" {{ 'selected' if form.source != 'FINASSAM' }}>MANUAL (contractual / newly joined)</option>
+      <option value="FINASSAM" {{ 'selected' if form.source == 'FINASSAM' }}>FINASSAM (regular staff)</option></select></label>
+    <label>Full name *<input name="name" value="{{ form.name or '' }}" required size="30"></label>
+    <label>Gender<select name="gender"><option value="">—</option>
+      {% for g in ['MALE','FEMALE','OTHER'] %}<option {{ 'selected' if form.gender == g }}>{{ g }}</option>{% endfor %}</select></label>
+    <label>Cadre (MDM code)<input name="cadre" value="{{ form.cadre or '' }}" placeholder="IAS / ACS / ALRS ..." size="10"></label>
+    <label>Date of joining<input name="date_of_joining" type="date" value="{{ form.date_of_joining or '' }}"></label>
+    <label>Year of joining (seniority)<input name="year_of_joining" type="number" min="1950" max="2100" value="{{ form.year_of_joining or '' }}"></label>
+    <label>Date of birth<input name="date_of_birth" type="date" value="{{ form.date_of_birth or '' }}"></label>
+    <label>Date of retirement<input name="date_of_retirement" type="date" value="{{ form.date_of_retirement or '' }}"></label>
+    <label>Email<input name="email" type="email" value="{{ form.email or '' }}" size="26"></label>
+    <label>Mobile<input name="mobile" value="{{ form.mobile or '' }}" size="12"></label>
+  </div>
+  <h2>Identifiers (at least one)</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:10px 14px">
+    <label>FinAssam employee code (required for FINASSAM)<input name="finassam_code" value="{{ form.finassam_code or '' }}"></label>
+    <label>PAN<input name="pan" value="{{ form.pan or '' }}" size="12"></label>
+    <label>Aadhaar token (not stored)<input name="aadhaar_token" type="password" autocomplete="off"></label>
+  </div>
+  <h2>Submitted by</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end">
+    <label>Submitted by *<input name="submitted_by" value="{{ form.submitted_by or 'ESTB@AS-D-298' }}" required size="24"></label>
+    <label style="flex-direction:row;align-items:center;gap:6px"><input type="checkbox" name="is_demo" value="1" {{ 'checked' if form.is_demo == '1' }}> Demo / synthetic officer</label>
+    <button>Submit to MDM</button>
+  </div>
+</form>
+{% endblock %}

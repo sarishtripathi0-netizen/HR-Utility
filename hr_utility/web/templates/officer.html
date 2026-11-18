@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}{{ e.name }}{% endblock %}
+{% block asof %}Status shown <b>as of {{ at_label }}</b> (Asia/Kolkata). Every action below asks for its own effective date and time.{% endblock %}
+{% block body %}
+<p><a href="/ui/officers">← Officers</a></p>
+<h1>{{ e.name }} {% if e.is_demo %}<span class="badge demo">DEMO</span>{% endif %}
+  <span class="muted">{{ e.employee_id }}</span> {{ m.avail(d) }}</h1>
+
+<div class="card">
+  <h2 style="margin-top:0">Record <span class="muted">(golden record held by MDM)</span></h2>
+  <table>
+    <tr><th>Cadre</th><td>{{ e.cadre or '—' }}{% if e.issuing_department %} <span class="muted">(orders from {{ e.issuing_department }})</span>{% endif %}</td>
+        <th>Year of joining</th><td>{{ e.year_of_joining or 'unknown (sorts last for seniority)' }}</td></tr>
+    <tr><th>Gender</th><td>{{ e.gender or '—' }}</td><th>Date of joining</th><td>{{ e.date_of_joining or '—' }}</td></tr>
+    <tr><th>Date of birth</th><td>{{ e.date_of_birth or '—' }}</td><th>Date of retirement</th><td>{{ e.date_of_retirement or '—' }}</td></tr>
+    <tr><th>Email</th><td>{{ e.email or '—' }}</td><th>Mobile</th><td>{{ e.mobile or '—' }}</td></tr>
+    <tr><th>FinAssam code</th><td>{{ e.finassam_code or '—' }}</td><th>PAN / Aadhaar</th><td>{{ e.pan or '—' }} / {{ 'hash on file' if e.has_aadhaar_hash else '—' }}</td></tr>
+    <tr><th>Source</th><td colspan="3" class="muted">{{ e.source or '' }}</td></tr>
+  </table>
+  <details style="margin-top:10px"><summary><b>Correct this record</b></summary>
+    <form method="post" action="/ui/officers/{{ e.employee_id }}/edit" class="inline" style="margin-top:8px">
+      <label>Name<input name="name" value="{{ e.name }}" size="28"></label>
+      <label>Gender<select name="gender"><option value="">—</option>
+        {% for g in ['MALE','FEMALE','OTHER'] %}<option {{ 'selected' if e.gender == g }}>{{ g }}</option>{% endfor %}</select></label>
+      <label>Cadre<input name="cadre" value="{{ e.cadre or '' }}" size="10"></label>
+      <label>Date of joining<input name="date_of_joining" type="date" value="{{ e.date_of_joining or '' }}"></label>
+      <label>Year of joining (seniority)<input name="year_of_joining" type="number" value="{{ e.year_of_joining or '' }}"></label>
+      <label>Date of birth<input name="date_of_birth" type="date" value="{{ e.date_of_birth or '' }}"></label>
+      <label>Date of retirement<input name="date_of_retirement" type="date" value="{{ e.date_of_retirement or '' }}"></label>
+      <label>Email<input name="email" value="{{ e.email or '' }}" size="26"></label>
+      <label>Mobile<input name="mobile" value="{{ e.mobile or '' }}" size="12"></label>
+      <label>Submitted by<input name="submitted_by" value="ESTB@{{ current_offices[0] if current_offices else '' }}" required></label>
+      <button>Save correction</button>
+    </form>
+    <p class="muted">Name, gender, cadre, date of joining, email and mobile are corrected in MDM; year of joining, date of
+       birth and retirement are held by the HR Utility until MDM has them. Every correction is audited.</p>
+  </details>
+</div>
+
+<h2>Postings</h2>
+<table>
+  <tr><th>Chair</th><th>Charge</th><th>Period</th><th>Order</th><th>State</th><th>Actions</th></tr>
+  {% for p in d.postings %}
+  <tr>
+    <td><code>{{ p.sanctioned_post_id }}</code><div class="muted">{{ p.office_id }} · {{ p.post_code }}</div></td>
+    <td>{{ m.charge(p.charge_type) }}</td>
+    <td>{{ p['from'] | ist }} → {{ p['to'] | ist if p['to'] else 'open' }}</td>
+    <td>{{ p.order_ref }}<div class="muted">{{ p.issuing_department }}{% if p.note %} · {{ p.note }}{% endif %}</div></td>
+    <td><b>{{ p.state }}</b></td>
+    <td>
+      {% if p.state != 'ENDED' %}
+      <details><summary>Relieve</summary>
+        <form method="post" action="/ui/officers/{{ e.employee_id }}/postings/{{ p.posting_id }}/relieve" class="inline" style="margin-top:6px">
+          <label>At (IST)<input type="datetime-local" name="at" value="{{ at_local }}" required></label>
+          <label>Successor Employee ID{% if p.charge_type == 'SUBSTANTIVE' %} (needed, BR-03){% endif %}<input name="successor_id" placeholder="EMP-000123"></label>
+          <label>Successor charge<select name="successor_charge"><option>SUBSTANTIVE</option><option>ADDITIONAL</option></select></label>
+          <label>Order ref<input name="order_ref"></label>
+          <label>Issuing department<input name="issuing_department" value="{{ p.issuing_department }}"></label>
+          <label>Entered by<input name="entered_by" value="ESTB@{{ p.office_id }}"></label>
+          <button>Relieve</button>
+        </form>
+        <p class="muted">To leave the chair empty instead, use "Declare vacant" on the <a href="/ui/postings?office_id={{ p.office_id }}">Posting &amp; relieving</a> screen.</p>
+      </details>
+      {% endif %}
+      <details><summary>Correct paperwork</summary>
+        <form method="post" action="/ui/officers/{{ e.employee_id }}/postings/{{ p.posting_id }}/correct" class="inline" style="margin-top:6px">
+          <label>Order ref<input name="order_ref" value="{{ p.order_ref }}" size="30"></label>
+          <label>Issuing department<input name="issuing_department" value="{{ p.issuing_department }}"></label>
+          <label>Note<input name="note" value="{{ p.note or '' }}" size="30"></label>
+          <label>Entered by<input name="entered_by" value="ESTB@{{ p.office_id }}"></label>
+          <button>Save</button>
+        </form>
+      </details>
+    </td>
+  </tr>
+  {% else %}<tr><td colspan="6" class="muted">Never posted.</td></tr>{% endfor %}
+</table>
+<details class="card"><summary><b>Post to a chair</b> (join: substantive or additional charge)</summary>
+  <form method="post" action="/ui/officers/{{ e.employee_id }}/join" class="inline" style="margin-top:8px">
+    <label>Chair<input name="sanctioned_post_id" list="chairs" required placeholder="AS-D-298-ADC-03" size="24"></label>
+    <datalist id="chairs">{% for c in chair_ids %}<option value="{{ c }}">{% endfor %}</datalist>
+    <label>Charge<select name="charge_type"><option>SUBSTANTIVE</option><option>ADDITIONAL</option></select></label>
+    <label>From (IST)<input type="datetime-local" name="at" value="{{ at_local }}" required></label>
+    <label>Order ref *<input name="order_ref" required></label>
+    <label>Issuing department *<input name="issuing_department" value="{{ e.issuing_department or '' }}" required></label>
+    <label>Entered by<input name="entered_by" value="ESTB@" required></label>
+    <button>Post</button>
+  </form>
+  <p class="muted">A chair can have one substantive holder at a time (BR-01) and an officer one substantive posting (BR-02).
+     Need a new chair? Add it on <a href="/ui/chairs">Chairs</a>.</p>
+</details>
+
+<h2>Functions</h2>
+<table>
+  <tr><th>Office</th><th>Function</th><th>Period</th><th>State</th><th>Action</th></tr>
+  {% for f in d.function_allotments %}
+  <tr><td>{{ f.office_id }}</td><td><span class="fn">{{ f.function_code }}</span>{% if f.is_demo %} <span class="badge demo">DEMO</span>{% endif %}</td>
+      <td>{{ f['from'] | ist }} → {{ f['to'] | ist if f['to'] else 'open' }}</td><td>{{ 'current' if f.current else 'not in force' }}</td>
+      <td>{% if not f['to'] %}
+        <form method="post" action="/ui/officers/{{ e.employee_id }}/allotments/{{ f.allotment_id }}/withdraw" class="inline">
+          <input type="datetime-local" name="at" value="{{ at_local }}" required>
+          <input name="entered_by" value="{{ estb.get(f.office_id, 'ESTB@' ~ f.office_id) }}" size="20">
+          <button class="secondary">Withdraw</button></form>{% endif %}</td></tr>
+  {% else %}<tr><td colspan="5" class="muted">No allotted functions. (Posts such as Circle Officer hold every function of their office without allotment.)</td></tr>{% endfor %}
+</table>
+{% if current_offices %}
+<details class="card"><summary><b>Allot a function</b></summary>
+  <form method="post" action="/ui/officers/{{ e.employee_id }}/allot" class="inline" style="margin-top:8px">
+    <label>Office<select name="office_id">{% for o in current_offices %}<option>{{ o }}</option>{% endfor %}</select></label>
+    <label>Function<input name="function_code" list="fns" required size="24"></label>
+    <datalist id="fns">{% for o, fns in fn_by_office.items() %}{% for c in fns %}<option value="{{ c }}">{{ o }}</option>{% endfor %}{% endfor %}</datalist>
+    <label>From (IST)<input type="datetime-local" name="at" value="{{ at_local }}" required></label>
+    <label>Entered by (Establishment branch)<input name="entered_by" value="{{ estb[current_offices[0]] }}"></label>
+    <button>Allot</button>
+  </form>
+</details>
+{% endif %}
+
+<h2>Leave, tour, training, deputation</h2>
+<table>
+  <tr><th>Kind</th><th>Period</th><th>Note</th><th>Entered by</th><th>Action</th></tr>
+  {% for a in d.availability %}
+  <tr><td>{{ a.kind }}</td><td>{% if a.cancelled %}<s>{{ a['from'] | ist }}</s> <span class="badge away">cancelled</span>{% else %}{{ a['from'] | ist }} → {{ a['to'] | ist if a['to'] else 'open' }}{% endif %}</td>
+      <td class="muted">{{ a.note or '' }}</td><td>{{ a.entered_by }}</td>
+      <td>{% if not a.cancelled %}<form method="post" action="/ui/officers/{{ e.employee_id }}/leave/{{ a.availability_id }}/cancel" class="inline">
+            <input name="reason" placeholder="reason" required size="16"><input name="entered_by" value="ESTB@{{ current_offices[0] if current_offices else '' }}" size="18">
+            <button class="secondary">Cancel</button></form>{% endif %}</td></tr>
+  {% else %}<tr><td colspan="5" class="muted">None recorded.</td></tr>{% endfor %}
+</table>
+<details class="card"><summary><b>Record leave / tour / training / deputation</b></summary>
+  <form method="post" action="/ui/officers/{{ e.employee_id }}/leave" class="inline" style="margin-top:8px">
+    <label>Kind<select name="kind"><option>LEAVE</option><option>TOUR</option><option>TRAINING</option><option>DEPUTATION</option></select></label>
+    <label>From (IST)<input type="datetime-local" name="from_ts" value="{{ at_local }}" required></label>
+    <label>To (IST, exclusive)<input type="datetime-local" name="to_ts"></label>
+    <label>Note<input name="note"></label>
+    <label>Entered by<input name="entered_by" value="ESTB@{{ current_offices[0] if current_offices else '' }}"></label>
+    <button>Record</button>
+  </form>
+</details>
+
+{% if d.onboarding %}
+<h2>Onboarding</h2>
+<table><tr><th>#</th><th>When</th><th>Source</th><th>Status</th><th>Submitted by</th></tr>
+  {% for r in d.onboarding %}<tr><td>{{ r.request_id }}</td><td>{{ r.created_at | ist }}</td><td>{{ r.source }}</td><td>{{ r.status }}</td><td>{{ r.submitted_by }}</td></tr>{% endfor %}
+</table>
+{% endif %}
+
+<h2>Audit trail</h2>
+<table><tr><th>When</th><th>Actor</th><th>Action</th><th>Record</th></tr>
+  {% for a in audit_rows %}<tr><td>{{ a.ts | ist }}</td><td>{{ a.actor }}</td><td>{{ a.action }}</td>
+    <td><a href="/ui/audit?entity={{ a.entity }}&entity_id={{ a.entity_id }}">{{ a.entity }} {{ a.entity_id }}</a></td></tr>
+  {% else %}<tr><td colspan="4" class="muted">Nothing yet.</td></tr>{% endfor %}
+</table>
+{% endblock %}

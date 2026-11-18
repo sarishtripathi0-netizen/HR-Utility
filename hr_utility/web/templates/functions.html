@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Functions by post{% endblock %}
+{% block asof %}Reference data from MDM (configuration), as loaded at <b>{{ at_label }}</b> (Asia/Kolkata){% endblock %}
+{% block body %}
+<h1>Functions by post</h1>
+<div class="card">
+  <p>Functions vary by service, so each office type has its own function list. A post holds functions in one of two ways:</p>
+  <ul>
+    <li><span class="badge sub">ALLOTTED</span> The Establishment branch allots functions to the officer (ADC, AC), effective-dated, on the
+        <a href="/ui/allotments">allotment grid</a>.</li>
+    <li><span class="badge link">ALL_OFFICE_FUNCTIONS</span> The officer holds every function of the office for as long as they
+        are posted (e.g. the Circle Officer). No allotment is entered, and a successor inherits them on transfer.</li>
+  </ul>
+  <p class="muted">Maintained in <b>MDM</b>: function codes, office-type functions, <code>designation.holdsAllFunctions</code>
+     and designation functions. The HR Utility copies them and refreshes when MDM changes. Only the demo bundles for ADCs
+     and ACs outside Nagaon are local (<code>data/config/demo_function_bundles.csv</code>).</p>
+</div>
+
+<h2>How each post holds functions</h2>
+<table>
+  <tr><th>Post</th><th>Rank</th><th>Mode</th><th>Basis</th></tr>
+  {% for r in cat.post_rules %}
+  <tr><td><b>{{ r.post_code }}</b> — {{ r.post_name }}</td><td>{{ r.rank_order }}</td>
+      <td>{% if r.mode == 'ALLOTTED' %}<span class="badge sub">ALLOTTED</span>{% else %}<span class="badge link">ALL_OFFICE_FUNCTIONS</span>{% endif %}
+          {% if r.is_demo %}<span class="badge demo">DEMO</span>{% endif %}</td>
+      <td class="muted">{{ r.basis }}</td></tr>
+  {% endfor %}
+</table>
+
+<h2>Functions of each office type</h2>
+{% for ot in cat.office_types %}
+<div class="card">
+  <b>{{ ot.office_type }}</b> <span class="muted">{{ ot.functions|length }} functions</span>
+  {% if ot.functions and ot.functions[0].is_demo %}<span class="badge demo">DEMO list</span>{% endif %}
+  <div style="margin-top:6px">{% for f in ot.functions %}<span class="fn" title="{{ f.name }}">{{ f.function_code }}</span>{% endfor %}</div>
+</div>
+{% endfor %}
+
+<h2>Demo allotments in force</h2>
+<p class="muted">ADCs and ACs in offices with no real work-allotment order hold demo bundles, patterned on the Nagaon order of 13-03-2026.
+   Every such allotment is flagged demo.</p>
+<table>
+  <tr><th>Office</th><th>Demo allotments</th></tr>
+  {% for office, n in demo_counts|dictsort %}
+  <tr><td><a href="/ui/roster?office_id={{ office }}">{{ office }}</a></td><td>{{ n }}</td></tr>
+  {% else %}<tr><td colspan="2" class="muted">None.</td></tr>{% endfor %}
+</table>
+{% endblock %}

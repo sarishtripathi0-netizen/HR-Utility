@@ -1,0 +1,23 @@
+{
+  "base_url": "http://172.16.5.151:4001",
+  "consumer_code": "hr-utility-poc",
+  "consumer_name": "HR Utility PoC (who sits in which chair)",
+  "note": "A consumer 'hr-service' (HR Utility, localhost:4002) is already registered in MDM by another build; this PoC registers under its own code so it never overwrites that entry.",
+  "office_type_map": {
+    "CO_DISTRICT_OFFICE": "SUBDIV_OFFICE"
+  },
+  "office_name_prefixes": [
+    "Office of the District Commissioner,",
+    "Office of the Circle Officer,",
+    "Co-District Office,",
+    "Sub-district Office,",
+    "Sadar Sub-division Office,"
+  ],
+  "office_name_suffixes": ["Revenue Circle Office"],
+  "district_scope": ["D-298", "KMM", "D-285", "D-302", "NGN"],
+  "district_scope_note": "PoC districts: Nalbari, Kamrup Metropolitan, Dhubri, Tinsukia, Nagaon. Offices, chairs and their holders are copied for these.",
+  "designation_display_order": ["DISTRICT_COMMISSIONER", "ADC", "ADC_EGOV", "ADC_SUBDISTRICT", "CO_DISTRICT_COMMISSIONER",
+    "SDO_SADAR", "ACMR", "ASSISTANT_COMMISSIONER", "SETTLEMENT_OFFICER", "DISTRICT_AGRICULTURE_OFFICER", "REGISTRAR",
+    "PRESIDENT", "CIRCLE_OFFICER", "SUB_REGISTRAR", "SUPERVISOR_KANUNGO", "LOT_MONDOL", "DEALING_ASSISTANT"],
+  "display_order_note": "Order chairs are listed in on screens only; the Link Officer comes from MDM link-officer-rule."
+}

@@ -1,0 +1,129 @@
+sanctioned_post_id,office_id,post_code,seq,derived,is_demo,source
+ACMR-00ASM-PRES-01,ACMR-00ASM,PRES,1,True,True,spec section 9
+ACMR-00ASM-REG-01,ACMR-00ASM,REG,1,True,True,spec section 9
+AS-CR-285-01-CO-01,AS-CR-285-01,CO,1,True,False,List_of_DCs.xlsx COs!row5.1
+AS-CR-285-01-SR-01,AS-CR-285-01,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-285-02-CO-01,AS-CR-285-02,CO,1,True,False,List_of_DCs.xlsx COs!row7.1
+AS-CR-285-02-SR-01,AS-CR-285-02,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-285-03-CO-01,AS-CR-285-03,CO,1,True,False,List_of_DCs.xlsx COs!row9.1
+AS-CR-285-03-SR-01,AS-CR-285-03,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-285-04-CO-01,AS-CR-285-04,CO,1,True,False,List_of_DCs.xlsx COs!row6.1
+AS-CR-285-04-SR-01,AS-CR-285-04,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-285-05-CO-01,AS-CR-285-05,CO,1,True,False,List_of_DCs.xlsx COs!row3.1
+AS-CR-285-05-SR-01,AS-CR-285-05,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-285-06-CO-01,AS-CR-285-06,CO,1,True,True,List_of_DCs.xlsx COs!row4.1
+AS-CR-285-06-SR-01,AS-CR-285-06,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-285-07-CO-01,AS-CR-285-07,CO,1,True,False,List_of_DCs.xlsx COs!row8.1
+AS-CR-285-07-SR-01,AS-CR-285-07,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-285-08-CO-01,AS-CR-285-08,CO,1,True,False,List_of_DCs.xlsx COs!row10.1
+AS-CR-285-08-SR-01,AS-CR-285-08,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-297-01-CO-01,AS-CR-297-01,CO,1,True,False,List_of_DCs.xlsx COs!row75.1
+AS-CR-297-01-SR-01,AS-CR-297-01,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-297-03-CO-01,AS-CR-297-03,CO,1,True,False,List_of_DCs.xlsx COs!row70.1
+AS-CR-297-03-SR-01,AS-CR-297-03,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-297-06-CO-01,AS-CR-297-06,CO,1,True,True,List_of_DCs.xlsx COs!row73.1
+AS-CR-297-06-SR-01,AS-CR-297-06,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-298-01-CO-01,AS-CR-298-01,CO,1,True,False,List_of_DCs.xlsx COs!row42.1
+AS-CR-298-01-SR-01,AS-CR-298-01,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-298-02-CO-01,AS-CR-298-02,CO,1,True,False,List_of_DCs.xlsx COs!row40.1
+AS-CR-298-02-SR-01,AS-CR-298-02,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-298-03-CO-01,AS-CR-298-03,CO,1,True,False,List_of_DCs.xlsx COs!row39.1
+AS-CR-298-03-SR-01,AS-CR-298-03,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-298-04-CO-01,AS-CR-298-04,CO,1,True,False,List_of_DCs.xlsx COs!row37.1
+AS-CR-298-04-SR-01,AS-CR-298-04,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-298-05-CO-01,AS-CR-298-05,CO,1,True,False,List_of_DCs.xlsx COs!row38.1
+AS-CR-298-05-SR-01,AS-CR-298-05,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-298-06-CO-01,AS-CR-298-06,CO,1,True,False,List_of_DCs.xlsx COs!row43.1
+AS-CR-298-06-SR-01,AS-CR-298-06,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-298-07-CO-01,AS-CR-298-07,CO,1,True,False,List_of_DCs.xlsx COs!row41.1
+AS-CR-298-07-SR-01,AS-CR-298-07,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-302-01-CO-01,AS-CR-302-01,CO,1,True,False,List_of_DCs.xlsx COs!row121.1
+AS-CR-302-01-SR-01,AS-CR-302-01,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-302-02-CO-01,AS-CR-302-02,CO,1,True,False,List_of_DCs.xlsx COs!row123.1
+AS-CR-302-02-SR-01,AS-CR-302-02,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-302-03-CO-01,AS-CR-302-03,CO,1,True,False,List_of_DCs.xlsx COs!row124.1
+AS-CR-302-03-SR-01,AS-CR-302-03,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-CR-302-04-CO-01,AS-CR-302-04,CO,1,True,False,List_of_DCs.xlsx COs!row122.1
+AS-CR-302-04-SR-01,AS-CR-302-04,SR,1,True,True,demo Sub Registrar (no source names one)
+AS-D-285-DC-01,AS-D-285,DC,1,True,False,List_of_DCs.xlsx DC!row12
+AS-D-285-ADC-01,AS-D-285,ADC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row397
+AS-D-285-ADC-02,AS-D-285,ADC,2,True,False,ACS_Gradation_List_Aug_2026.xlsx row382
+AS-D-285-ADC-03,AS-D-285,ADC,3,True,False,List_of_DCs.xlsx ADC!row8
+AS-D-285-ADC-04,AS-D-285,ADC,4,True,True,demo (no real allotment)
+AS-D-285-ADC-05,AS-D-285,ADC,5,True,True,demo (no real allotment)
+AS-D-298-DC-01,AS-D-298,DC,1,True,False,List_of_DCs.xlsx DC!row27
+AS-D-298-ADC-01,AS-D-298,ADC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row281
+AS-D-298-ADC-02,AS-D-298,ADC,2,True,False,ACS_Gradation_List_Aug_2026.xlsx row341
+AS-D-298-ADC-03,AS-D-298,ADC,3,True,False,ACS_Gradation_List_Aug_2026.xlsx row387
+AS-D-298-ADC-04,AS-D-298,ADC,4,True,False,ACS_Gradation_List_Aug_2026.xlsx row426
+AS-D-298-ADC-05,AS-D-298,ADC,5,True,False,List_of_DCs.xlsx ADC!row21
+AS-D-298-ADC-06,AS-D-298,ADC,6,True,False,ACS_Gradation_List_Aug_2026.xlsx row475
+AS-D-298-ADC-07,AS-D-298,ADC,7,True,True,demo (no real allotment)
+AS-D-298-ADC-08,AS-D-298,ADC,8,True,True,demo (no real allotment)
+AS-D-298-AC-01,AS-D-298,AC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row686
+AS-D-302-DC-01,AS-D-302,DC,1,True,False,List_of_DCs.xlsx DC!row33
+AS-D-302-ADC-01,AS-D-302,ADC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row279
+AS-D-302-ADC-02,AS-D-302,ADC,2,True,False,ACS_Gradation_List_Aug_2026.xlsx row346
+AS-D-302-ADC-03,AS-D-302,ADC,3,True,False,List_of_DCs.xlsx ADC!row26
+AS-D-302-ADC-04,AS-D-302,ADC,4,True,False,ACS_Gradation_List_Aug_2026.xlsx row478
+AS-D-302-ADC-05,AS-D-302,ADC,5,True,True,demo (no real allotment)
+AS-D-302-ADC-06,AS-D-302,ADC,6,True,True,demo (no real allotment)
+AS-D-302-AC-01,AS-D-302,AC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row664
+CDO-20NEW-CDC-01,CDO-20NEW,CDC,1,True,False,List_of_DCs.xlsx CDC!row17.2
+CO_AZARA-CO-01,CO_AZARA,CO,1,True,False,List_of_DCs.xlsx COs!row57.1
+CO_AZARA-SR-01,CO_AZARA,SR,1,True,True,demo Sub Registrar (no source names one)
+CO_CHANDRAPUR-CO-01,CO_CHANDRAPUR,CO,1,True,False,List_of_DCs.xlsx COs!row61.1
+CO_CHANDRAPUR-SR-01,CO_CHANDRAPUR,SR,1,True,True,demo Sub Registrar (no source names one)
+CO_DISPUR-CO-01,CO_DISPUR,CO,1,True,False,List_of_DCs.xlsx COs!row59.1
+CO_DISPUR-CO-02,CO_DISPUR,CO,2,True,False,List_of_DCs.xlsx COs!row59.2
+CO_DISPUR-SR-01,CO_DISPUR,SR,1,True,True,demo Sub Registrar (no source names one)
+CO_GUWAHATI-CO-01,CO_GUWAHATI,CO,1,True,False,List_of_DCs.xlsx COs!row58.1
+CO_GUWAHATI-CO-02,CO_GUWAHATI,CO,2,True,False,List_of_DCs.xlsx COs!row58.2
+CO_GUWAHATI-SR-01,CO_GUWAHATI,SR,1,True,True,demo Sub Registrar (no source names one)
+CO_KALIABOR-CO-01,CO_KALIABOR,CO,1,True,False,List_of_DCs.xlsx COs!row74.1
+CO_KALIABOR-SR-01,CO_KALIABOR,SR,1,True,True,demo Sub Registrar (no source names one)
+CO_NAGAON-CO-01,CO_NAGAON,CO,1,True,False,List_of_DCs.xlsx COs!row69.1
+CO_NAGAON-SR-01,CO_NAGAON,SR,1,True,True,demo Sub Registrar (no source names one)
+CO_RAHA-CO-01,CO_RAHA,CO,1,True,False,List_of_DCs.xlsx COs!row71.1
+CO_RAHA-SR-01,CO_RAHA,SR,1,True,True,demo Sub Registrar (no source names one)
+CO_SAMAGURI-CO-01,CO_SAMAGURI,CO,1,True,False,List_of_DCs.xlsx COs!row72.1
+CO_SAMAGURI-SR-01,CO_SAMAGURI,SR,1,True,True,demo Sub Registrar (no source names one)
+CO_SONAPUR-CO-01,CO_SONAPUR,CO,1,True,False,List_of_DCs.xlsx COs!row60.1
+CO_SONAPUR-CO-02,CO_SONAPUR,CO,2,True,False,List_of_DCs.xlsx COs!row60.2
+CO_SONAPUR-SR-01,CO_SONAPUR,SR,1,True,True,demo Sub Registrar (no source names one)
+DAO_D-298-DAO-01,DAO_D-298,DAO,1,True,True,spec section 9
+DC_KMM-DC-01,DC_KMM,DC,1,True,False,List_of_DCs.xlsx DC!row22
+DC_KMM-ADC-01,DC_KMM,ADC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row320
+DC_KMM-ADC-02,DC_KMM,ADC,2,True,False,List_of_DCs.xlsx ADC!row17
+DC_KMM-ADC-03,DC_KMM,ADC,3,True,False,ACS_Gradation_List_Aug_2026.xlsx row507
+DC_KMM-ADC-04,DC_KMM,ADC,4,True,False,ACS_Gradation_List_Aug_2026.xlsx row485
+DC_KMM-ADC-05,DC_KMM,ADC,5,True,True,demo (no real allotment)
+DC_KMM-ADC-06,DC_KMM,ADC,6,True,True,demo (no real allotment)
+DC_NGN-DC-01,DC_NGN,DC,1,True,False,List_of_DCs.xlsx DC!row28
+DC_NGN-ADC-01,DC_NGN,ADC,1,True,False,Officers_Workallotment_13_03_26.pdf Sl 3
+DC_NGN-ADC-02,DC_NGN,ADC,2,True,False,List_of_DCs.xlsx ADC!row22
+DC_NGN-ADC-03,DC_NGN,ADC,3,True,False,Officers_Workallotment_13_03_26.pdf Sl 6
+DC_NGN-ADC-04,DC_NGN,ADC,4,True,False,Officers_Workallotment_13_03_26.pdf Sl 7
+DC_NGN-ADC-05,DC_NGN,ADC,5,True,False,Officers_Workallotment_13_03_26.pdf Sl 8
+DC_NGN-ADC-06,DC_NGN,ADC,6,True,False,Officers_Workallotment_13_03_26.pdf Sl 9
+DC_NGN-AC-01,DC_NGN,AC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row633
+DC_NGN-AC-02,DC_NGN,AC,2,True,False,Officers_Workallotment_13_03_26.pdf Sl 14
+DC_NGN-AC-03,DC_NGN,AC,3,True,False,Officers_Workallotment_13_03_26.pdf Sl 12
+DC_NGN-AC-04,DC_NGN,AC,4,True,False,Officers_Workallotment_13_03_26.pdf Sl 13
+DC_NGN-AC-05,DC_NGN,AC,5,True,False,Officers_Workallotment_13_03_26.pdf Sl 15
+DC_NGN-AC-06,DC_NGN,AC,6,True,False,Officers_Workallotment_13_03_26.pdf Sl 16
+DC_NGN-AC-07,DC_NGN,AC,7,True,False,Officers_Workallotment_13_03_26.pdf Sl 17
+SDO_D-285-BILASI-CDC-01,SDO_D-285-BILASI,CDC,1,True,False,List_of_DCs.xlsx CDC!row8.1
+SDO_D-285-GOL-CDC-01,SDO_D-285-GOL,CDC,1,True,False,List_of_DCs.xlsx CDC!row8.2
+SDO_D-302-DIG-CDC-01,SDO_D-302-DIG,CDC,1,True,False,List_of_DCs.xlsx CDC!row26.4
+SDO_D-302-DOO-CDC-01,SDO_D-302-DOO,CDC,1,True,False,List_of_DCs.xlsx CDC!row26.2
+SDO_D-302-MAK-CDC-01,SDO_D-302-MAK,CDC,1,True,False,List_of_DCs.xlsx CDC!row26.5
+SDO_D-302-MAR-CDC-01,SDO_D-302-MAR,CDC,1,True,False,List_of_DCs.xlsx CDC!row26.1
+SDO_D-302-SAD-CDC-01,SDO_D-302-SAD,CDC,1,True,False,List_of_DCs.xlsx CDC!row26.3
+SDO_D-302-SAD-AC-01,SDO_D-302-SAD,AC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row652
+SDO_KMM-DIM-CDC-01,SDO_KMM-DIM,CDC,1,True,False,List_of_DCs.xlsx CDC!row17.4
+SDO_KMM-DIS-CDC-01,SDO_KMM-DIS,CDC,1,True,False,List_of_DCs.xlsx CDC!row17.3
+SDO_KMM-JAL-CDC-01,SDO_KMM-JAL,CDC,1,True,False,List_of_DCs.xlsx CDC!row17.1
+SDO_NGN-KLB-CDC-01,SDO_NGN-KLB,CDC,1,True,False,List_of_DCs.xlsx CDC!row22.2
+SDO_NGN-KLB-AC-01,SDO_NGN-KLB,AC,1,True,False,ACS_Gradation_List_Aug_2026.xlsx row678
+SDO_NGN-RAHA-CDC-01,SDO_NGN-RAHA,CDC,1,True,False,List_of_DCs.xlsx CDC!row22.1

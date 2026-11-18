@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Seat lookup{% endblock %}
+{% block body %}
+<h1>Seat lookup <span class="muted">— the Rule Engine's question, as a form</span></h1>
+<form class="inline card" method="get">
+  <input type="hidden" name="go" value="1">
+  {{ m.office_picker(offices, office_id, at_local) }}
+  <label>Post
+    <select name="post_code">{% for p in posts %}<option value="{{ p.post_code }}" {{ 'selected' if p.post_code == post_code }}>{{ p.post_code }} — {{ p.name }} (rank {{ p.rank_order }})</option>{% endfor %}</select>
+  </label>
+  <label>Function
+    <select name="function_code">{% for f in fns %}<option value="{{ f.code }}" {{ 'selected' if f.code == function_code }}>{{ f.code }}{% if f.category == 'E_DISTRICT' %} (e-District){% endif %}</option>{% endfor %}</select>
+  </label>
+  <button>Who holds this seat?</button>
+</form>
+{% if settings.roster_mode %}<div class="msg err">Roster mode (Option B) is ON: the function is ignored.</div>{% endif %}
+{% if result %}
+<div class="card">
+  <p>In <b>{{ result.office_id }}</b>, post <b>{{ result.post_code }}</b> with function <b>{{ result.function_code }}</b>,
+     as of <b>{{ at_label }}</b>:
+     <span class="status {{ result.status }}">{{ result.status }}</span></p>
+  {% if result.reason %}<p>{{ result.reason }}</p>{% endif %}
+  {% if result.holders %}
+  <table>
+    <tr><th>#</th><th>Officer (seniority order)</th><th>Chair</th><th>Charge</th><th>Available?</th></tr>
+    {% for h in result.holders %}
+    <tr><td>{{ loop.index }}</td><td>{{ m.officer(h) }}</td><td><code>{{ h.sanctioned_post_id }}</code></td>
+        <td>{{ m.charge(h.charge_type) }}</td><td>{{ m.avail(h) }}</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  {% if result.link_officer %}
+  <h2>Link Officer (no holder is available)</h2>
+  <p><b>{{ result.link_officer.name }}</b> {% if result.link_officer.is_demo %}<span class="badge demo">DEMO</span>{% endif %}
+     <span class="muted">{{ result.link_officer.employee_id }}</span> through chair <code>{{ result.link_officer.sanctioned_post_id }}</code><br>
+     Rule step: <b>{{ result.link_officer.rule_step }}</b> · deemed under rule 3(3): <b>{{ 'yes' if result.link_officer.deemed_dps_under_rule_3_3 }}</b></p>
+  <p class="muted">ARTPS_HOLDER = the ADC/AC holding ARTPS in the office (DC and co-district offices, senior-most if several) ·
+     SAME_POST = another holder of the same post (e.g. the other Circle Officer) · SUB_REGISTRAR = the Sub Registrar of
+     the circle office. Rules: MDM link-officer-rule, plus <code>data/config/link_officer_local.csv</code> for the ARTPS condition.</p>
+  {% endif %}
+  <p class="muted">The HR Utility never falls back to another office; that is the Rule Engine's decision.
+     JSON: <a href="/v1/seat-holders?office_id={{ result.office_id }}&post_code={{ result.post_code }}&function_code={{ result.function_code }}&at={{ result.at | urlencode }}">/v1/seat-holders</a></p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+employee_id,name,cadre,year_of_joining,source
+DEMO-0001,Demo Officer G01,DEMO,,"Fills the chair List_of_DCs.xlsx gives to Jayanta Dutta (COs!row4.1), who is seeded at ADC at Dhubri (Dhubri)."
+DEMO-0002,Demo Officer G02,DEMO,,"Fills the chair List_of_DCs.xlsx gives to Sontush kumar Nath (COs!row73.1), who is seeded at CO at Barkhetri (Nalbari)."
+DEMO-0003,Demo Officer G03,AGRICULTURE,,No officer data supplied for DAO_D-298; demo DAO.
+DEMO-0004,Demo Officer G04,UNKNOWN,,No officer data supplied for ACMR-00ASM; demo REG.
+DEMO-0005,Demo Officer G05,UNKNOWN,,No officer data supplied for ACMR-00ASM; demo PRES.
+DEMO-0006,Demo Officer NAL-1,DEMO,,"Synthetic ADC so DCO Nalbari has a holder of SOCIAL_WELFARE, E_GOVERNANCE."
+DEMO-0007,Demo Officer NAL-2,DEMO,,Synthetic ADC so DCO Nalbari has a holder of ARTPS.
+DEMO-0008,Demo Officer KMM-1,DEMO,,"Synthetic ADC so DCO Kamrup Metropolitan has a holder of SOCIAL_WELFARE, E_GOVERNANCE."
+DEMO-0009,Demo Officer KMM-2,DEMO,,Synthetic ADC so DCO Kamrup Metropolitan has a holder of ARTPS.
+DEMO-0010,Demo Officer DHU-1,DEMO,,"Synthetic ADC so DCO Dhubri has a holder of SOCIAL_WELFARE, E_GOVERNANCE."
+DEMO-0011,Demo Officer DHU-2,DEMO,,Synthetic ADC so DCO Dhubri has a holder of ARTPS.
+DEMO-0012,Demo Officer TIN-1,DEMO,,"Synthetic ADC so DCO Tinsukia has a holder of SOCIAL_WELFARE, E_GOVERNANCE."
+DEMO-0013,Demo Officer TIN-2,DEMO,,Synthetic ADC so DCO Tinsukia has a holder of ARTPS.
+DEMO-0014,"Demo Sub Registrar, Agomani",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0015,"Demo Sub Registrar, Athani",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0016,"Demo Sub Registrar, Bilasipara",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0017,"Demo Sub Registrar, Chapar",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0018,"Demo Sub Registrar, Dhubri",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0019,"Demo Sub Registrar, Gauripur",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0020,"Demo Sub Registrar, Golakganj",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0021,"Demo Sub Registrar, South Salmara (Pt)",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0022,"Demo Sub Registrar, Dhing",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0023,"Demo Sub Registrar, Kampur",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0024,"Demo Sub Registrar, Rupahi",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0025,"Demo Sub Registrar, Banekuchi",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0026,"Demo Sub Registrar, Barbhag",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0027,"Demo Sub Registrar, Barkhetri",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0028,"Demo Sub Registrar, Ghograpar",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0029,"Demo Sub Registrar, Nalbari",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0030,"Demo Sub Registrar, Paschim Nalbari",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0031,"Demo Sub Registrar, Tihu",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0032,"Demo Sub Registrar, Doomdooma",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0033,"Demo Sub Registrar, Margherita",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0034,"Demo Sub Registrar, Sadiya",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0035,"Demo Sub Registrar, Tinsukia",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0036,"Demo Sub Registrar, Azara",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0037,"Demo Sub Registrar, Chandrapur",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0038,"Demo Sub Registrar, Dispur",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0039,"Demo Sub Registrar, Guwahati",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0040,"Demo Sub Registrar, Kaliabor",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0041,"Demo Sub Registrar, Sadar Nagaon",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0042,"Demo Sub Registrar, Raha",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0043,"Demo Sub Registrar, Samaguri",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+DEMO-0044,"Demo Sub Registrar, Sonapur",DEMO_SR,,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."

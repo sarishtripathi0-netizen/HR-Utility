@@ -1,0 +1,11 @@
+sanctioned_post_id,office_id,post_code,seq,is_demo,source
+ACMR-00ASM-PRESIDENT-D01,ACMR-00ASM,PRESIDENT,901,True,local demo chair (spec section 9)
+ACMR-00ASM-REGISTRAR-D01,ACMR-00ASM,REGISTRAR,901,True,local demo chair (spec section 9)
+AS-D-285-ADC-D01,AS-D-285,ADC,901,True,local demo chair (demo (no real allotment))
+AS-D-285-ADC-D02,AS-D-285,ADC,902,True,local demo chair (demo (no real allotment))
+AS-D-298-ADC-D01,AS-D-298,ADC,901,True,local demo chair (demo (no real allotment))
+AS-D-298-ADC-D02,AS-D-298,ADC,902,True,local demo chair (demo (no real allotment))
+AS-D-302-ADC-D01,AS-D-302,ADC,901,True,local demo chair (demo (no real allotment))
+AS-D-302-ADC-D02,AS-D-302,ADC,902,True,local demo chair (demo (no real allotment))
+DC_KMM-ADC-D01,DC_KMM,ADC,901,True,local demo chair (demo (no real allotment))
+DC_KMM-ADC-D02,DC_KMM,ADC,902,True,local demo chair (demo (no real allotment))

@@ -1,0 +1,150 @@
+{
+  "entityType": "department",
+  "asOfVersion": 39019,
+  "count": 13,
+  "records": [
+    {
+      "id": "16fe8276-0252-46e7-87e1-3a85d43be153",
+      "code": "AGRI",
+      "name": "Agriculture Department",
+      "shortName": "Agriculture",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 37741,
+      "updatedAt": "2026-11-03T11:08:08.685Z"
+    },
+    {
+      "id": "925ab441-19d9-4694-94a1-78b2188452da",
+      "code": "AHV",
+      "name": "Animal Husbandry and Veterinary",
+      "shortName": "AH&V",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 413,
+      "updatedAt": "2026-10-30T15:35:17.049Z"
+    },
+    {
+      "id": "e64bf08f-4870-4203-b1c0-f26bbc8ea9ec",
+      "code": "ARTPPG",
+      "name": "Administrative Reforms, Training, Pension & Public Grievances Department",
+      "shortName": "ARTPPG",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 414,
+      "updatedAt": "2026-10-30T15:35:17.052Z"
+    },
+    {
+      "id": "3b53fdce-fd3d-414b-9e46-36e86655f79b",
+      "code": "GAD",
+      "name": "General Administration Department",
+      "shortName": "GAD",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 405,
+      "updatedAt": "2026-10-30T15:35:17.026Z"
+    },
+    {
+      "id": "df8afd84-21fa-46fe-a7b1-eabd05cb0d96",
+      "code": "HOME",
+      "name": "Home & Political",
+      "shortName": "Home & Political",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 410,
+      "updatedAt": "2026-10-30T15:35:17.042Z"
+    },
+    {
+      "id": "6f31b7f4-1863-46ce-9376-e8f6d680a3b8",
+      "code": "PERSONNEL",
+      "name": "Personnel Department",
+      "shortName": "Personnel",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 37740,
+      "updatedAt": "2026-11-03T11:08:08.657Z"
+    },
+    {
+      "id": "15ff46df-f5a9-4df8-a512-012ae917b341",
+      "code": "PNRD",
+      "name": "Panchayat & Rural Development Department",
+      "shortName": "P&RD",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 37742,
+      "updatedAt": "2026-11-03T11:08:08.690Z"
+    },
+    {
+      "id": "78ebaa58-1ef2-4693-b216-6b426579ae71",
+      "code": "RDM",
+      "name": "Revenue & Disaster Management Department",
+      "shortName": "R&DM",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 406,
+      "updatedAt": "2026-10-30T15:35:17.029Z"
+    },
+    {
+      "id": "33b04366-c047-4097-b142-c03b2d0beb1a",
+      "code": "SEE",
+      "name": "Department of Skill, Employment and Entrepreneurship",
+      "shortName": "SEE",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 411,
+      "updatedAt": "2026-10-30T15:35:17.045Z"
+    },
+    {
+      "id": "44eafdcb-97cf-4274-9b75-b66ef351dde0",
+      "code": "SJE",
+      "name": "Department of Social Justice & Empowerment",
+      "shortName": "SJ&E",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 407,
+      "updatedAt": "2026-10-30T15:35:17.032Z"
+    },
+    {
+      "id": "a7786ef2-761d-4699-a4ac-7856f56b4084",
+      "code": "SOIL",
+      "name": "Assam Soil Conservation Department",
+      "shortName": "Soil Conservation",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 412,
+      "updatedAt": "2026-10-30T15:35:17.047Z"
+    },
+    {
+      "id": "3c519f51-14d9-4479-b438-5e9a7aac7d47",
+      "code": "TAP",
+      "name": "Department of Tribal Affairs (Plain)",
+      "shortName": "TA(P)",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 408,
+      "updatedAt": "2026-10-30T15:35:17.035Z"
+    },
+    {
+      "id": "1790c5c1-254a-4274-bb92-41e376af6577",
+      "code": "WMD",
+      "name": "Welfare of Minorities and Development Department",
+      "shortName": "WMD",
+      "isActive": true,
+      "validFrom": "2000-01-01",
+      "validTo": null,
+      "mdmVersion": 409,
+      "updatedAt": "2026-10-30T15:35:17.039Z"
+    }
+  ]
+}

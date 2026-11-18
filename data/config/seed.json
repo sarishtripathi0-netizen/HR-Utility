@@ -1,0 +1,17 @@
+{
+  "posting_effective_from": "2026-03-13T00:00:00+05:30",
+  "posting_effective_from_reason": "Source lists are snapshots with no start dates. 13-03-2026 is the date of the Nagaon work-allotment order, the earliest dated order in the data, so seeded allotments are covered by seeded postings (BR-04). Open item.",
+  "nagaon_allotment_effective_from": "2026-03-13T00:00:00+05:30",
+  "nagaon_allotment_order_ref": "CA-24/1/2023-PA-NGN I/466138/2026 dt 13-03-2026 (Memo eCF No 19271/73-A)",
+  "fuzzy_name_threshold": 0.85,
+  "demo_functions_required_in_dc_offices": ["SOCIAL_WELFARE", "E_GOVERNANCE", "ARTPS"],
+  "demo_sub_registrar_post": "SR",
+  "demo_sub_registrar_reason": "Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one.",
+  "department_offices": [
+    {"office_id": "DAO_D-298", "name": "District Agriculture Office, Nalbari", "office_type": "DEPT_DISTRICT_OFFICE",
+     "district_code": "27", "posts": ["DAO"], "cadre": "AGRICULTURE"},
+    {"office_id": "ACMR-00ASM", "name": "ACMR (state-level office; full name per MDM, open item)", "office_type": "DEPT_STATE_OFFICE",
+     "district_code": "00", "posts": ["REG", "PRES"], "cadre": "UNKNOWN",
+     "mdm_dept_code": "ACM", "name_from_dept": "{dept} (state office)"}
+  ]
+}

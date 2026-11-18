@@ -1,0 +1,10 @@
+post_code,name,rank_order,mdm_designation_code,source
+DC,District Commissioner,10,DISTRICT_COMMISSIONER,spec section 9
+ADC,Additional District Commissioner,20,ADC,spec section 9
+CDC,Co-District Commissioner,20,CO_DISTRICT_COMMISSIONER,spec section 9
+AC,Assistant Commissioner,30,ASSISTANT_COMMISSIONER,spec section 9
+CO,Circle Officer,40,CIRCLE_OFFICER,spec section 9
+SR,Sub Registrar,45,SUB_REGISTRAR,Business decision 03-11-2026: the Sub Registrar sits in the circle office
+DAO,District Agricultural Officer,10,,spec section 9 (configurable; open item; not in MDM)
+REG,Registrar,10,,spec section 9 (configurable; open item; not in MDM)
+PRES,President,10,,spec section 9 (configurable; open item; not in MDM)

@@ -1,0 +1,85 @@
+employee_id,year_of_joining,date_of_birth,date_of_retirement,is_demo,source
+EMP-0007,2015,1987-05-07,2047-05-31,False,roster R-000001: IAS_Gradation_List_Aug_2026.xlsx row116; List_of_DCs.xlsx DC!row12
+EMP-0008,2018,1989-11-12,2049-11-30,False,roster R-000002: IAS_Gradation_List_Aug_2026.xlsx row135; List_of_DCs.xlsx DC!row22
+EMP-0009,1997,1971-04-10,2031-04-30,False,roster R-000003: ACS_Gradation_List_Aug_2026.xlsx row65; List_of_DCs.xlsx DC!row27
+EMP-0010,2011,1967-02-23,2027-02-28,False,roster R-000004: IAS_Gradation_List_Aug_2026.xlsx row83; List_of_DCs.xlsx DC!row28
+EMP-0011,2015,1987-02-10,2047-02-28,False,roster R-000005: IAS_Gradation_List_Aug_2026.xlsx row122; List_of_DCs.xlsx DC!row33
+EMP-0012,2013,1982-01-08,2042-01-31,False,roster R-000006: ACS_Gradation_List_Aug_2026.xlsx row236; List_of_DCs.xlsx CDC!row8.1
+EMP-0013,2023,,,False,roster R-000007: IAS_Gradation_List_Aug_2026.xlsx row175; List_of_DCs.xlsx CDC!row8.2
+EMP-0014,,,,False,roster R-000008: List_of_DCs.xlsx CDC!row17.1
+EMP-0015,2013,1980-01-01,2040-01-31,False,roster R-000009: ACS_Gradation_List_Aug_2026.xlsx row285; List_of_DCs.xlsx CDC!row17.2
+EMP-0016,2016,1985-08-25,2045-08-31,False,roster R-000010: ACS_Gradation_List_Aug_2026.xlsx row368; List_of_DCs.xlsx CDC!row17.3
+EMP-0017,2015,1988-09-05,2048-09-30,False,roster R-000011: ACS_Gradation_List_Aug_2026.xlsx row423; List_of_DCs.xlsx CDC!row17.4
+EMP-0018,2016,1990-11-20,2050-11-30,False,roster R-000012: ACS_Gradation_List_Aug_2026.xlsx row356; List_of_DCs.xlsx CDC!row22.1; Officers_Workallotment_13_03_26.pdf Sl 5
+EMP-0019,2015,1985-12-28,2045-12-31,False,roster R-000013: ACS_Gradation_List_Aug_2026.xlsx row337; List_of_DCs.xlsx CDC!row22.2; Officers_Workallotment_13_03_26.pdf Sl 4
+EMP-0020,2016,1982-01-05,2042-01-31,False,roster R-000014: ACS_Gradation_List_Aug_2026.xlsx row408; List_of_DCs.xlsx CDC!row26.1
+EMP-0021,2017,1984-02-04,2044-02-29,False,roster R-000015: ACS_Gradation_List_Aug_2026.xlsx row434; List_of_DCs.xlsx CDC!row26.2
+EMP-0022,2016,1991-11-09,2051-11-30,False,roster R-000016: ACS_Gradation_List_Aug_2026.xlsx row365; List_of_DCs.xlsx CDC!row26.3
+EMP-0023,2016,1987-03-09,2047-03-31,False,roster R-000017: ACS_Gradation_List_Aug_2026.xlsx row409; List_of_DCs.xlsx CDC!row26.4
+EMP-0024,2019,1992-12-04,2052-12-31,False,roster R-000018: ACS_Gradation_List_Aug_2026.xlsx row474; List_of_DCs.xlsx CDC!row26.5
+EMP-0025,2019,1982-01-01,2042-01-31,False,roster R-000019: ACS_Gradation_List_Aug_2026.xlsx row471; List_of_DCs.xlsx ADC!row8; List_of_DCs.xlsx COs!row4.1
+EMP-0026,2017,1982-02-08,2042-02-28,False,roster R-000020: ACS_Gradation_List_Aug_2026.xlsx row428; List_of_DCs.xlsx ADC!row17
+EMP-0027,2019,1991-01-28,2051-01-31,False,roster R-000021: ACS_Gradation_List_Aug_2026.xlsx row486; List_of_DCs.xlsx ADC!row21
+EMP-0028,2013,1981-05-15,2041-05-31,False,roster R-000022: ACS_Gradation_List_Aug_2026.xlsx row275; List_of_DCs.xlsx ADC!row22; Officers_Workallotment_13_03_26.pdf Sl 2
+EMP-0029,2015,1987-06-14,2047-06-30,False,roster R-000023: ACS_Gradation_List_Aug_2026.xlsx row305; List_of_DCs.xlsx ADC!row26
+EMP-0030,2021,1985-11-23,2045-11-30,False,roster R-000024: ACS_Gradation_List_Aug_2026.xlsx row573; List_of_DCs.xlsx COs!row3.1
+EMP-0031,,,,False,roster R-000025: List_of_DCs.xlsx COs!row5.1
+EMP-0032,2019,1975-03-01,2035-03-31,False,roster R-000026: ACS_Gradation_List_Aug_2026.xlsx row541; List_of_DCs.xlsx COs!row6.1
+EMP-0033,2019,1987-05-06,2047-05-31,False,roster R-000027: ACS_Gradation_List_Aug_2026.xlsx row481; List_of_DCs.xlsx COs!row7.1
+EMP-0034,,,,False,roster R-000028: List_of_DCs.xlsx COs!row8.1
+EMP-0035,2019,1986-11-17,2046-11-30,False,roster R-000029: ACS_Gradation_List_Aug_2026.xlsx row513; List_of_DCs.xlsx COs!row9.1
+EMP-0036,,,,False,roster R-000030: List_of_DCs.xlsx COs!row10.1
+EMP-0037,2019,1991-01-28,2051-01-31,False,roster R-000031: ACS_Gradation_List_Aug_2026.xlsx row517; List_of_DCs.xlsx COs!row37.1
+EMP-0038,2021,1991-11-17,2051-11-30,False,roster R-000032: ACS_Gradation_List_Aug_2026.xlsx row583; List_of_DCs.xlsx COs!row38.1
+EMP-0039,,,,False,roster R-000033: List_of_DCs.xlsx COs!row39.1; List_of_DCs.xlsx COs!row73.1
+EMP-0040,,,,False,roster R-000034: List_of_DCs.xlsx COs!row40.1
+EMP-0041,2021,1993-11-28,2053-11-30,False,roster R-000035: ACS_Gradation_List_Aug_2026.xlsx row588; List_of_DCs.xlsx COs!row41.1
+EMP-0042,,,,False,roster R-000036: List_of_DCs.xlsx COs!row42.1
+EMP-0043,,,,False,roster R-000037: List_of_DCs.xlsx COs!row43.1
+EMP-0044,,,,False,roster R-000038: List_of_DCs.xlsx COs!row57.1
+EMP-0045,2021,1984-07-03,2044-07-31,False,roster R-000039: ACS_Gradation_List_Aug_2026.xlsx row589; List_of_DCs.xlsx COs!row58.1
+EMP-0046,,,,False,roster R-000040: List_of_DCs.xlsx COs!row58.2
+EMP-0047,,,,False,roster R-000041: List_of_DCs.xlsx COs!row59.1
+EMP-0048,,,,False,roster R-000042: List_of_DCs.xlsx COs!row59.2
+EMP-0049,,,,False,roster R-000043: List_of_DCs.xlsx COs!row60.1
+EMP-0050,,,,False,roster R-000044: List_of_DCs.xlsx COs!row60.2
+EMP-0051,2021,1989-01-03,2049-01-31,False,roster R-000045: ACS_Gradation_List_Aug_2026.xlsx row575; List_of_DCs.xlsx COs!row61.1
+EMP-0052,2021,1991-06-12,2051-06-30,False,roster R-000046: ACS_Gradation_List_Aug_2026.xlsx row561; List_of_DCs.xlsx COs!row69.1
+EMP-0053,,,,False,roster R-000047: List_of_DCs.xlsx COs!row70.1
+EMP-0054,2021,1987-09-18,2047-09-30,False,roster R-000048: ACS_Gradation_List_Aug_2026.xlsx row607; List_of_DCs.xlsx COs!row71.1
+EMP-0055,2021,1988-12-31,2048-12-31,False,roster R-000049: ACS_Gradation_List_Aug_2026.xlsx row580; List_of_DCs.xlsx COs!row72.1
+EMP-0056,,,,False,roster R-000050: List_of_DCs.xlsx COs!row74.1
+EMP-0057,2021,1992-12-01,2052-12-31,False,roster R-000051: ACS_Gradation_List_Aug_2026.xlsx row556; List_of_DCs.xlsx COs!row75.1
+EMP-0058,,,,False,roster R-000052: List_of_DCs.xlsx COs!row121.1
+EMP-0059,2021,1990-12-01,2050-12-31,False,roster R-000053: ACS_Gradation_List_Aug_2026.xlsx row558; List_of_DCs.xlsx COs!row122.1
+EMP-0060,,,,False,roster R-000054: List_of_DCs.xlsx COs!row123.1
+EMP-0061,2021,1993-09-03,2053-09-30,False,roster R-000055: ACS_Gradation_List_Aug_2026.xlsx row554; List_of_DCs.xlsx COs!row124.1
+EMP-0062,2013,1974-05-01,2034-05-31,False,roster R-000056: ACS_Gradation_List_Aug_2026.xlsx row292; Officers_Workallotment_13_03_26.pdf Sl 3
+EMP-0063,2016,1989-02-14,2049-02-28,False,roster R-000057: ACS_Gradation_List_Aug_2026.xlsx row385; Officers_Workallotment_13_03_26.pdf Sl 6
+EMP-0064,2019,1988-12-28,2048-12-31,False,roster R-000058: ACS_Gradation_List_Aug_2026.xlsx row456; Officers_Workallotment_13_03_26.pdf Sl 7
+EMP-0065,2019,1982-01-04,2042-01-31,False,roster R-000059: ACS_Gradation_List_Aug_2026.xlsx row464; Officers_Workallotment_13_03_26.pdf Sl 8
+EMP-0066,2019,1989-09-10,2049-09-30,False,roster R-000060: ACS_Gradation_List_Aug_2026.xlsx row480; Officers_Workallotment_13_03_26.pdf Sl 9
+EMP-0067,2022,1986-04-08,,False,roster R-000061: ACS_Gradation_List_Aug_2026.xlsx row695; Officers_Workallotment_13_03_26.pdf Sl 12
+EMP-0068,2022,1990-06-24,,False,roster R-000062: ACS_Gradation_List_Aug_2026.xlsx row705; Officers_Workallotment_13_03_26.pdf Sl 13
+EMP-0069,2022,1998-05-14,,False,roster R-000063: ACS_Gradation_List_Aug_2026.xlsx row717; Officers_Workallotment_13_03_26.pdf Sl 14
+EMP-0070,2022,1993-06-12,,False,roster R-000064: ACS_Gradation_List_Aug_2026.xlsx row723; Officers_Workallotment_13_03_26.pdf Sl 15
+EMP-0071,2022,1994-06-13,,False,roster R-000065: ACS_Gradation_List_Aug_2026.xlsx row739; Officers_Workallotment_13_03_26.pdf Sl 16
+EMP-0072,2025,1992-03-25,2048-12-31,False,roster R-000066: ACS_Gradation_List_Aug_2026.xlsx row918; Officers_Workallotment_13_03_26.pdf Sl 17
+EMP-0073,2013,1984-04-14,2044-04-30,False,roster R-000067: ACS_Gradation_List_Aug_2026.xlsx row279
+EMP-0074,2013,1977-08-16,2037-08-31,False,roster R-000068: ACS_Gradation_List_Aug_2026.xlsx row281
+EMP-0075,2015,1979-07-12,2039-07-31,False,roster R-000069: ACS_Gradation_List_Aug_2026.xlsx row320
+EMP-0076,2015,1987-01-17,2047-01-31,False,roster R-000070: ACS_Gradation_List_Aug_2026.xlsx row341
+EMP-0077,2015,1987-01-01,2047-01-31,False,roster R-000071: ACS_Gradation_List_Aug_2026.xlsx row346
+EMP-0078,2016,1987-03-01,2047-03-31,False,roster R-000072: ACS_Gradation_List_Aug_2026.xlsx row382
+EMP-0079,2016,1984-11-02,2044-11-30,False,roster R-000073: ACS_Gradation_List_Aug_2026.xlsx row387
+EMP-0080,2016,1976-09-28,2036-09-30,False,roster R-000074: ACS_Gradation_List_Aug_2026.xlsx row397
+EMP-0081,2017,1992-08-07,2052-08-31,False,roster R-000075: ACS_Gradation_List_Aug_2026.xlsx row426
+EMP-0082,2019,1992-03-04,2052-03-31,False,roster R-000076: ACS_Gradation_List_Aug_2026.xlsx row475
+EMP-0083,2019,1992-12-17,2052-12-31,False,roster R-000077: ACS_Gradation_List_Aug_2026.xlsx row478
+EMP-0084,2019,1988-10-05,2048-10-31,False,roster R-000078: ACS_Gradation_List_Aug_2026.xlsx row485
+EMP-0085,2019,1989-11-09,2049-11-30,False,roster R-000079: ACS_Gradation_List_Aug_2026.xlsx row507
+EMP-0086,2021,1989-10-01,2049-10-31,False,roster R-000080: ACS_Gradation_List_Aug_2026.xlsx row633; Officers_Workallotment_13_03_26.pdf Sl 11
+EMP-0087,2021,1993-09-16,2053-09-30,False,roster R-000081: ACS_Gradation_List_Aug_2026.xlsx row652
+EMP-0088,2021,1986-08-31,2046-08-31,False,roster R-000082: ACS_Gradation_List_Aug_2026.xlsx row664
+EMP-0089,2021,1991-11-16,2051-11-30,False,roster R-000083: ACS_Gradation_List_Aug_2026.xlsx row678
+EMP-0090,2022,1996-12-14,,False,roster R-000084: ACS_Gradation_List_Aug_2026.xlsx row686

@@ -1,0 +1,32 @@
+{
+  "global": 39019,
+  "prunedUpTo": 0,
+  "updatedAt": "2026-11-03T18:06:37.261Z",
+  "entities": {
+    "state": 401,
+    "council-area": 404,
+    "district": 882,
+    "sub-division": 1008,
+    "circle": 37780,
+    "mouza": 37733,
+    "lot": 37734,
+    "block": 674,
+    "village": 37735,
+    "ward": 698,
+    "department": 37742,
+    "office-type": 37744,
+    "designation": 37753,
+    "office": 38716,
+    "office-jurisdiction": 37777,
+    "cadre": 37790,
+    "function": 38705,
+    "office-type-function": 38782,
+    "designation-function": 38872,
+    "sanctioned-post": 38924,
+    "link-officer-rule": 39019,
+    "employee": 39008,
+    "service-role-type": 470,
+    "service": 789,
+    "holiday": 756
+  }
+}

@@ -1,0 +1,13 @@
+post_code,mode,is_demo,basis
+# ALLOTTED: the officer holds only the functions the Establishment branch allots (function_allotment rows).
+# ALL_OFFICE_FUNCTIONS: while posted, the officer holds every function on the office type's list, with no allotment
+# rows; a transfer hands them to the successor automatically.
+ADC,ALLOTTED,False,"Spec section 3: the Establishment branch allots functions"
+AC,ALLOTTED,False,"Spec section 3: the Establishment branch allots functions"
+CO,ALL_OFFICE_FUNCTIONS,False,"Business instruction (03-11-2026): the Circle Officer holds all functions of the circle office"
+CDC,ALL_OFFICE_FUNCTIONS,False,"Nagaon order 13-03-2026: the CDC 'will manage all tasks related to the co-district'"
+DC,ALL_OFFICE_FUNCTIONS,True,"DEMO: head of office; the Nagaon order allots branches 'subject to the overall supervision of the undersigned'"
+DAO,ALL_OFFICE_FUNCTIONS,True,"DEMO: single-officer department office"
+REG,ALL_OFFICE_FUNCTIONS,True,"DEMO: council office"
+PRES,ALL_OFFICE_FUNCTIONS,True,"DEMO: council office"
+SR,ALLOTTED,True,"DEMO: the Sub Registrar's own functions are not defined yet; none allotted"

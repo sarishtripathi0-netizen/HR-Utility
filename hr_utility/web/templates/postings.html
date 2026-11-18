@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Posting & relieving{% endblock %}
+{% block asof %}Roster below is <b>as of {{ at_label }}</b> (Asia/Kolkata); actions take effect at the time you enter in each form.{% endblock %}
+{% block body %}
+<h1>Posting &amp; relieving</h1>
+<form class="inline card" method="get">{{ m.office_picker(offices, office_id, at_local) }}<button class="secondary">Show office</button></form>
+
+<h2>{{ data.name }} as of {{ at_label }}</h2>
+<table>
+  <tr><th>Chair</th><th>Holder</th><th>Charge</th><th>Posting id</th><th>Since</th></tr>
+  {% for c in data.chairs %}{% for h in c.holders %}
+  <tr><td><code>{{ c.sanctioned_post_id }}</code></td><td>{{ m.officer(h) }}</td><td>{{ m.charge(h.charge_type) }}</td>
+      <td>{{ h.posting_id }}</td><td>{{ h.since | ist }}</td></tr>
+  {% else %}<tr><td><code>{{ c.sanctioned_post_id }}</code></td><td colspan="4">{% if c.vacancy %}<span class="badge away">declared vacant</span> {{ c.vacancy.reason }}{% else %}<span class="muted">not held</span>{% endif %}</td></tr>{% endfor %}{% endfor %}
+</table>
+
+<div class="card">
+  <h2>Relieve an officer</h2>
+  <p class="muted">A substantive holder can only be relieved if someone takes over at the same instant (BR-03).</p>
+  <form method="post" class="inline">
+    <input type="hidden" name="action" value="relieve"><input type="hidden" name="office_id" value="{{ office_id }}">
+    <label>Posting id<input name="posting_id" size="6" required></label>
+    <label>Relieve at (IST)<input type="datetime-local" name="at" value="{{ at_local }}" required></label>
+    <label>Successor employee id (optional)<input name="successor_id" placeholder="EMP-000123"></label>
+    <label>Successor charge<select name="successor_charge"><option>SUBSTANTIVE</option><option>ADDITIONAL</option></select></label>
+    <label>Order ref<input name="order_ref" value="{{ form.order_ref if form else '' }}"></label>
+    <label>Issuing department<input name="issuing_department" value="Personnel Department"></label>
+    <label>Entered by<input name="entered_by" value="ESTB@{{ office_id }}"></label>
+    <button>Relieve</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>Join an officer to a chair</h2>
+  <form method="post" class="inline">
+    <input type="hidden" name="action" value="join"><input type="hidden" name="office_id" value="{{ office_id }}">
+    <label>Employee id<input name="employee_id" required placeholder="EMP-000123"></label>
+    <label>Chair<select name="sanctioned_post_id">{% for c in chairs %}<option>{{ c }}</option>{% endfor %}</select></label>
+    <label>Charge<select name="charge_type"><option>SUBSTANTIVE</option><option>ADDITIONAL</option></select></label>
+    <label>From (IST)<input type="datetime-local" name="at" value="{{ at_local }}" required></label>
+    <label>Order ref<input name="order_ref" required></label>
+    <label>Issuing department<input name="issuing_department" value="Personnel Department" required></label>
+    <label>Entered by<input name="entered_by" value="ESTB@{{ office_id }}"></label>
+    <button>Join</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>Declare a chair vacant</h2>
+  <p class="muted">The only way to leave a chair without a holder. A reason is required and audited.</p>
+  <form method="post" class="inline">
+    <input type="hidden" name="action" value="vacant"><input type="hidden" name="office_id" value="{{ office_id }}">
+    <label>Chair<select name="sanctioned_post_id">{% for c in chairs %}<option>{{ c }}</option>{% endfor %}</select></label>
+    <label>From (IST)<input type="datetime-local" name="at" value="{{ at_local }}" required></label>
+    <label>Reason<input name="reason" size="40" required></label>
+    <label>Entered by<input name="entered_by" value="ESTB@{{ office_id }}"></label>
+    <button>Declare vacant</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,129 @@
+employee_id,name,cadre,year_of_joining,date_of_birth,date_of_retirement,email,mobile,finassam_code,pan,aadhaar_token_hash,is_demo,source
+R-000001,Megha NidhiDahal,IAS,2015,1987-05-07,2047-05-31,2015arpandhal@gmail.com,8826605380,,,,False,IAS_Gradation_List_Aug_2026.xlsx row116; List_of_DCs.xlsx DC!row12
+R-000002,Swapnil Paul,IAS,2018,1989-11-12,2049-11-30,,9971835061,,,,False,IAS_Gradation_List_Aug_2026.xlsx row135; List_of_DCs.xlsx DC!row22
+R-000003,Nivedan Das Patowari,ACS,1997,1971-04-10,2031-04-30,,9435087272,,,,False,ACS_Gradation_List_Aug_2026.xlsx row65; List_of_DCs.xlsx DC!row27
+R-000004,Devasish Sharma,IAS,2011,1967-02-23,2027-02-28,2022rangmanch9@yahoo.comdevasishsharma9,9819744446,,,,False,IAS_Gradation_List_Aug_2026.xlsx row83; List_of_DCs.xlsx DC!row28
+R-000005,Sumit Sattawan,IAS,2015,1987-02-10,2047-02-28,2015sumitsattawan@gmail.com,9958373505,,,,False,IAS_Gradation_List_Aug_2026.xlsx row122; List_of_DCs.xlsx DC!row33
+R-000006,Preety Lekha Deka,ACS,2013,1982-01-08,2042-01-31,,8876490263,,,,False,ACS_Gradation_List_Aug_2026.xlsx row236; List_of_DCs.xlsx CDC!row8.1
+R-000007,Yimkum I. Ozukum,IAS,2023,,,,8837072492,,,,False,IAS_Gradation_List_Aug_2026.xlsx row175; List_of_DCs.xlsx CDC!row8.2
+R-000008,Apurba Kr. Das,UNKNOWN,,,,,9854067475,,,,False,List_of_DCs.xlsx CDC!row17.1
+R-000009,Arundhuti Narah Mipun,ACS,2013,1980-01-01,2040-01-31,,8638182349,,,,False,ACS_Gradation_List_Aug_2026.xlsx row285; List_of_DCs.xlsx CDC!row17.2
+R-000010,Biman Das,ACS,2016,1985-08-25,2045-08-31,,8402883038,,,,False,ACS_Gradation_List_Aug_2026.xlsx row368; List_of_DCs.xlsx CDC!row17.3
+R-000011,Kankan Sarmah,ACS,2015,1988-09-05,2048-09-30,,8723942087,,,,False,ACS_Gradation_List_Aug_2026.xlsx row423; List_of_DCs.xlsx CDC!row17.4
+R-000012,Ankita Bora,ACS,2016,1990-11-20,2050-11-30,,7896256019,,,,False,ACS_Gradation_List_Aug_2026.xlsx row356; List_of_DCs.xlsx CDC!row22.1; Officers_Workallotment_13_03_26.pdf Sl 5
+R-000013,Raj Boruah,ACS,2015,1985-12-28,2045-12-31,,8638160255,,,,False,ACS_Gradation_List_Aug_2026.xlsx row337; List_of_DCs.xlsx CDC!row22.2; Officers_Workallotment_13_03_26.pdf Sl 4
+R-000014,Rahul Doley,ACS,2016,1982-01-05,2042-01-31,,7086049160,,,,False,ACS_Gradation_List_Aug_2026.xlsx row408; List_of_DCs.xlsx CDC!row26.1
+R-000015,Nuzhat Nasreen,ACS,2017,1984-02-04,2044-02-29,,8486710960,,,,False,ACS_Gradation_List_Aug_2026.xlsx row434; List_of_DCs.xlsx CDC!row26.2
+R-000016,Syed Wasbir Subhani,ACS,2016,1991-11-09,2051-11-30,,7896256196,,,,False,ACS_Gradation_List_Aug_2026.xlsx row365; List_of_DCs.xlsx CDC!row26.3
+R-000017,Phyllis V L Hmunsiami Hrangchal,ACS,2016,1987-03-09,2047-03-31,,7896118599,,,,False,ACS_Gradation_List_Aug_2026.xlsx row409; List_of_DCs.xlsx CDC!row26.4
+R-000018,Jangmir Rongpharpi,ACS,2019,1992-12-04,2052-12-31,,8876224874,,,,False,ACS_Gradation_List_Aug_2026.xlsx row474; List_of_DCs.xlsx CDC!row26.5
+R-000019,Jayanta Dutta,ACS,2019,1982-01-01,2042-01-31,jdutta.acs@assam.gov.in,8638828566,,,,False,ACS_Gradation_List_Aug_2026.xlsx row471; List_of_DCs.xlsx ADC!row8; List_of_DCs.xlsx COs!row4.1
+R-000020,Hemanga Nabish,ACS,2017,1982-02-08,2042-02-28,,8638600125,,,,False,ACS_Gradation_List_Aug_2026.xlsx row428; List_of_DCs.xlsx ADC!row17
+R-000021,Kaustubh Roy,ACS,2019,1991-01-28,2051-01-31,,7002707756,,,,False,ACS_Gradation_List_Aug_2026.xlsx row486; List_of_DCs.xlsx ADC!row21
+R-000022,Pallavi Gogoi,ACS,2013,1981-05-15,2041-05-31,,9864055226,,,,False,ACS_Gradation_List_Aug_2026.xlsx row275; List_of_DCs.xlsx ADC!row22; Officers_Workallotment_13_03_26.pdf Sl 2
+R-000023,Sanghamitra Baruah,ACS,2015,1987-06-14,2047-06-30,,7086761135,,,,False,ACS_Gradation_List_Aug_2026.xlsx row305; List_of_DCs.xlsx ADC!row26
+R-000024,Nandita Saharia,ACS,2021,1985-11-23,2045-11-30,nandita.acs2021@assam.gov.in,8638230565,,,,False,ACS_Gradation_List_Aug_2026.xlsx row573; List_of_DCs.xlsx COs!row3.1
+R-000025,Reetimoni Das,ALRS,,,,reetimoni.das18@assam.gov.in,8876614740,,,,False,List_of_DCs.xlsx COs!row5.1
+R-000026,Shashee Bhusan Raj Konwar,ACS,2019,1975-03-01,2035-03-31,sb.rajkonwar@assam.gov.in,9435109110,,,,False,ACS_Gradation_List_Aug_2026.xlsx row541; List_of_DCs.xlsx COs!row6.1
+R-000027,Ranjumoni Dutta,ACS,2019,1987-05-06,2047-05-31,,6003590325,,,,False,ACS_Gradation_List_Aug_2026.xlsx row481; List_of_DCs.xlsx COs!row7.1
+R-000028,Amarjyoti Nath,ALRS,,,,amarj.alrs@assam.gov.in,6003650061,,,,False,List_of_DCs.xlsx COs!row8.1
+R-000029,Sari Lalruotkim Lungtau,ACS,2019,1986-11-17,2046-11-30,sari.luntau@assam.gov.in,9127369710,,,,False,ACS_Gradation_List_Aug_2026.xlsx row513; List_of_DCs.xlsx COs!row9.1
+R-000030,Sajjad Hussain,ALRS,,,,hussain.sajjad@assam.gov.in,7002240629,,,,False,List_of_DCs.xlsx COs!row10.1
+R-000031,Namrata Das,ACS,2019,1991-01-28,2051-01-31,das.namrata@assam.gov.in,8486974467,,,,False,ACS_Gradation_List_Aug_2026.xlsx row517; List_of_DCs.xlsx COs!row37.1
+R-000032,Debasena Barman,ACS,2021,1991-11-17,2051-11-30,debasena.barman@assam.gov.in,9706953321,,,,False,ACS_Gradation_List_Aug_2026.xlsx row583; List_of_DCs.xlsx COs!row38.1
+R-000033,Sontush kumar Nath,ALRS,,,,san22ghy@gmail.com,6001997519,,,,False,List_of_DCs.xlsx COs!row39.1; List_of_DCs.xlsx COs!row73.1
+R-000034,Shahnawaz Ikbal,ALRS,,,,shazhnawazikbal@gmail.com,8822601677,,,,False,List_of_DCs.xlsx COs!row40.1
+R-000035,Himanshu Saloi,ACS,2021,1993-11-28,2053-11-30,himanshu.saloi123@gmail.com,9954192947,,,,False,ACS_Gradation_List_Aug_2026.xlsx row588; List_of_DCs.xlsx COs!row41.1
+R-000036,Rituparna Bhadra,ALRS,,,,bhadraritu@gmail.com,9435010459,,,,False,List_of_DCs.xlsx COs!row42.1
+R-000037,Sangeeta Sarmah,ALRS,,,,sangeetasarma90@gmail.com,8761802187,,,,False,List_of_DCs.xlsx COs!row43.1
+R-000038,Bilaob Sarma Bordoloi,ALRS,,,,biplob.sbordoloi@assam.gov.in,8638155497,,,,False,List_of_DCs.xlsx COs!row57.1
+R-000039,Manoj Kr. Dutta,ACS,2021,1984-07-03,2044-07-31,er.mkdutta@gmail.com,9678222652,,,,False,ACS_Gradation_List_Aug_2026.xlsx row589; List_of_DCs.xlsx COs!row58.1
+R-000040,Bipul Deka,ALRS,,,,bipuldeka.du@assam.gov.in,7002498375,,,,False,List_of_DCs.xlsx COs!row58.2
+R-000041,Jaideep Rajak,ALRS,,,,jaideeprajak@gmail.com,7086442900,,,,False,List_of_DCs.xlsx COs!row59.1
+R-000042,Rantu Borah,ALRS,,,,rantuboruah12@gmail.com,9954556295,,,,False,List_of_DCs.xlsx COs!row59.2
+R-000043,Bikramjit Bora,ALRS,,,,sonapurcircle@gmail.com,7637955577,,,,False,List_of_DCs.xlsx COs!row60.1
+R-000044,Upasane Deka,ALRS,,,,upasanadeka94@gmail.com,8753841844,,,,False,List_of_DCs.xlsx COs!row60.2
+R-000045,Bikrom Chasha,ACS,2021,1989-01-03,2049-01-31,,7002763282,,,,False,ACS_Gradation_List_Aug_2026.xlsx row575; List_of_DCs.xlsx COs!row61.1
+R-000046,Bandeep Rabha,ACS,2021,1991-06-12,2051-06-30,bandeeprabhaofficial@gmail.com,7099219481,,,,False,ACS_Gradation_List_Aug_2026.xlsx row561; List_of_DCs.xlsx COs!row69.1
+R-000047,Rosy Lhinglenkim Singson,ALRS,,,,singsonaroi@gmail.com,7002892409,,,,False,List_of_DCs.xlsx COs!row70.1
+R-000048,Biswajit Dutta,ACS,2021,1987-09-18,2047-09-30,duttabiswajit.1987@assam.gov.in,8920476737,,,,False,ACS_Gradation_List_Aug_2026.xlsx row607; List_of_DCs.xlsx COs!row71.1
+R-000049,Rajesh Singh,ACS,2021,1988-12-31,2048-12-31,samagurico@gmail.com,8011266196,,,,False,ACS_Gradation_List_Aug_2026.xlsx row580; List_of_DCs.xlsx COs!row72.1
+R-000050,Manish Bharali,ALRS,,,,manishbharali04@gmail.com,6002022813,,,,False,List_of_DCs.xlsx COs!row74.1
+R-000051,Partha Pratim Choudhury,ACS,2021,1992-12-01,2052-12-31,parthapchoudhury119@gmail.com,6900032868,,,,False,ACS_Gradation_List_Aug_2026.xlsx row556; List_of_DCs.xlsx COs!row75.1
+R-000052,Navajyoti Saharia,ALRS,,,,navasaharia.alrs@assam.gov.in,9678001371,,,,False,List_of_DCs.xlsx COs!row121.1
+R-000053,Gouranga Dutta,ACS,2021,1990-12-01,2050-12-31,trc.2021tinsukia@mail.com,9678885565,,,,False,ACS_Gradation_List_Aug_2026.xlsx row558; List_of_DCs.xlsx COs!row122.1
+R-000054,Gyanjyoti Dutta,ALRS,,,,duttagyanjyoti78@gmail.com,9954334953,,,,False,List_of_DCs.xlsx COs!row123.1
+R-000055,Nimashri Dauka,ACS,2021,1993-09-03,2053-09-30,,8720909939,,,,False,ACS_Gradation_List_Aug_2026.xlsx row554; List_of_DCs.xlsx COs!row124.1
+R-000056,Jitu Kumar Barman,ACS,2013,1974-05-01,2034-05-31,,6002517725,,,,False,ACS_Gradation_List_Aug_2026.xlsx row292; Officers_Workallotment_13_03_26.pdf Sl 3
+R-000057,Gopal Sharma,ACS,2016,1989-02-14,2049-02-28,,7576899747,,,,False,ACS_Gradation_List_Aug_2026.xlsx row385; Officers_Workallotment_13_03_26.pdf Sl 6
+R-000058,Dipankar Barman,ACS,2019,1988-12-28,2048-12-31,,7002645912,,,,False,ACS_Gradation_List_Aug_2026.xlsx row456; Officers_Workallotment_13_03_26.pdf Sl 7
+R-000059,Kamal Jeet Sarma,ACS,2019,1982-01-04,2042-01-31,,8099972768,,,,False,ACS_Gradation_List_Aug_2026.xlsx row464; Officers_Workallotment_13_03_26.pdf Sl 8
+R-000060,Mridul Boro,ACS,2019,1989-09-10,2049-09-30,,8638375323,,,,False,ACS_Gradation_List_Aug_2026.xlsx row480; Officers_Workallotment_13_03_26.pdf Sl 9
+R-000061,Dr. Priyanka Kashyap,ACS,2022,1986-04-08,,,9957694135,,,,False,ACS_Gradation_List_Aug_2026.xlsx row695; Officers_Workallotment_13_03_26.pdf Sl 12
+R-000062,Praveen Kr. Mahato,ACS,2022,1990-06-24,,,9368003926,,,,False,ACS_Gradation_List_Aug_2026.xlsx row705; Officers_Workallotment_13_03_26.pdf Sl 13
+R-000063,Anjali Kumari,ACS,2022,1998-05-14,,,8800748105,,,,False,ACS_Gradation_List_Aug_2026.xlsx row717; Officers_Workallotment_13_03_26.pdf Sl 14
+R-000064,Rupak Mazumdar,ACS,2022,1993-06-12,,,8721805734,,,,False,ACS_Gradation_List_Aug_2026.xlsx row723; Officers_Workallotment_13_03_26.pdf Sl 15
+R-000065,Sikha Nath,ACS,2022,1994-06-13,,,8638366734,,,,False,ACS_Gradation_List_Aug_2026.xlsx row739; Officers_Workallotment_13_03_26.pdf Sl 16
+R-000066,Dharmaraj Kalita,ACS,2025,1992-03-25,2048-12-31,dharmaraj111999@gmail.com,8638645736,,,,False,ACS_Gradation_List_Aug_2026.xlsx row918; Officers_Workallotment_13_03_26.pdf Sl 17
+R-000067,Pankaj Kr. Nagbanshi,ACS,2013,1984-04-14,2044-04-30,,7896188342,,,,False,ACS_Gradation_List_Aug_2026.xlsx row279
+R-000068,Moushumi Chetia,ACS,2013,1977-08-16,2037-08-31,,9957307996,,,,False,ACS_Gradation_List_Aug_2026.xlsx row281
+R-000069,Jonti Deka,ACS,2015,1979-07-12,2039-07-31,,9854525109,,,,False,ACS_Gradation_List_Aug_2026.xlsx row320
+R-000070,Sudeep Nath,ACS,2015,1987-01-17,2047-01-31,,9706223053,,,,False,ACS_Gradation_List_Aug_2026.xlsx row341
+R-000071,Mondira Boruah,ACS,2015,1987-01-01,2047-01-31,,9864516953,,,,False,ACS_Gradation_List_Aug_2026.xlsx row346
+R-000072,Ripanjyoti Nath,ACS,2016,1987-03-01,2047-03-31,,9577985354,,,,False,ACS_Gradation_List_Aug_2026.xlsx row382
+R-000073,Partha Pratim Khanikar,ACS,2016,1984-11-02,2044-11-30,,8011001878,,,,False,ACS_Gradation_List_Aug_2026.xlsx row387
+R-000074,Devajyoti Gogoi,ACS,2016,1976-09-28,2036-09-30,,9707430898,,,,False,ACS_Gradation_List_Aug_2026.xlsx row397
+R-000075,Kaustav Kalita,ACS,2017,1992-08-07,2052-08-31,,9678539495,,,,False,ACS_Gradation_List_Aug_2026.xlsx row426
+R-000076,Shilpi Shikha Thakuria,ACS,2019,1992-03-04,2052-03-31,,7042115711,,,,False,ACS_Gradation_List_Aug_2026.xlsx row475
+R-000077,Himadri Borah,ACS,2019,1992-12-17,2052-12-31,,7086053706,,,,False,ACS_Gradation_List_Aug_2026.xlsx row478
+R-000078,Raja Baishya,ACS,2019,1988-10-05,2048-10-31,,7002422841,,,,False,ACS_Gradation_List_Aug_2026.xlsx row485
+R-000079,Bubul Baishya,ACS,2019,1989-11-09,2049-11-30,,8638691168,,,,False,ACS_Gradation_List_Aug_2026.xlsx row507
+R-000080,Shekharan Phukan,ACS,2021,1989-10-01,2049-10-31,,9127438876,,,,False,ACS_Gradation_List_Aug_2026.xlsx row633; Officers_Workallotment_13_03_26.pdf Sl 11
+R-000081,Abhijat Borah,ACS,2021,1993-09-16,2053-09-30,,8800476558,,,,False,ACS_Gradation_List_Aug_2026.xlsx row652
+R-000082,Sudip Gogoi,ACS,2021,1986-08-31,2046-08-31,,8730874188,,,,False,ACS_Gradation_List_Aug_2026.xlsx row664
+R-000083,Neihat Haolai,ACS,2021,1991-11-16,2051-11-30,,9971970479,,,,False,ACS_Gradation_List_Aug_2026.xlsx row678
+R-000084,Jebin Gulnar,ACS,2022,1996-12-14,,,9678849960,,,,False,ACS_Gradation_List_Aug_2026.xlsx row686
+R-000085,Demo Officer G01,DEMO,,,,,,,,,True,"Fills the chair List_of_DCs.xlsx gives to Jayanta Dutta (COs!row4.1), who is seeded at ADC at Dhubri (Dhubri)."
+R-000086,Demo Officer G02,DEMO,,,,,,,,,True,"Fills the chair List_of_DCs.xlsx gives to Sontush kumar Nath (COs!row73.1), who is seeded at CO at Barkhetri (Nalbari)."
+R-000087,Demo Officer G03,AGRICULTURE,,,,,,,,,True,No officer data supplied for DAO_D-298; demo DAO.
+R-000088,Demo Officer G04,UNKNOWN,,,,,,,,,True,No officer data supplied for ACMR-00ASM; demo REG.
+R-000089,Demo Officer G05,UNKNOWN,,,,,,,,,True,No officer data supplied for ACMR-00ASM; demo PRES.
+R-000090,Demo Officer NAL-1,DEMO,,,,,,,,,True,"Synthetic ADC so DCO Nalbari has a holder of SOCIAL_WELFARE, E_GOVERNANCE."
+R-000091,Demo Officer NAL-2,DEMO,,,,,,,,,True,Synthetic ADC so DCO Nalbari has a holder of ARTPS.
+R-000092,Demo Officer KMM-1,DEMO,,,,,,,,,True,"Synthetic ADC so DCO Kamrup Metropolitan has a holder of SOCIAL_WELFARE, E_GOVERNANCE."
+R-000093,Demo Officer KMM-2,DEMO,,,,,,,,,True,Synthetic ADC so DCO Kamrup Metropolitan has a holder of ARTPS.
+R-000094,Demo Officer DHU-1,DEMO,,,,,,,,,True,"Synthetic ADC so DCO Dhubri has a holder of SOCIAL_WELFARE, E_GOVERNANCE."
+R-000095,Demo Officer DHU-2,DEMO,,,,,,,,,True,Synthetic ADC so DCO Dhubri has a holder of ARTPS.
+R-000096,Demo Officer TIN-1,DEMO,,,,,,,,,True,"Synthetic ADC so DCO Tinsukia has a holder of SOCIAL_WELFARE, E_GOVERNANCE."
+R-000097,Demo Officer TIN-2,DEMO,,,,,,,,,True,Synthetic ADC so DCO Tinsukia has a holder of ARTPS.
+R-000098,"Demo Sub Registrar, Agomani",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000099,"Demo Sub Registrar, Athani",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000100,"Demo Sub Registrar, Bilasipara",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000101,"Demo Sub Registrar, Chapar",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000102,"Demo Sub Registrar, Dhubri",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000103,"Demo Sub Registrar, Gauripur",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000104,"Demo Sub Registrar, Golakganj",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000105,"Demo Sub Registrar, South Salmara (Pt)",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000106,"Demo Sub Registrar, Dhing",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000107,"Demo Sub Registrar, Kampur",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000108,"Demo Sub Registrar, Rupahi",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000109,"Demo Sub Registrar, Banekuchi",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000110,"Demo Sub Registrar, Barbhag",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000111,"Demo Sub Registrar, Barkhetri",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000112,"Demo Sub Registrar, Ghograpar",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000113,"Demo Sub Registrar, Nalbari",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000114,"Demo Sub Registrar, Paschim Nalbari",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000115,"Demo Sub Registrar, Tihu",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000116,"Demo Sub Registrar, Doomdooma",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000117,"Demo Sub Registrar, Margherita",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000118,"Demo Sub Registrar, Sadiya",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000119,"Demo Sub Registrar, Tinsukia",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000120,"Demo Sub Registrar, Azara",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000121,"Demo Sub Registrar, Chandrapur",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000122,"Demo Sub Registrar, Dispur",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000123,"Demo Sub Registrar, Guwahati",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000124,"Demo Sub Registrar, Kaliabor",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000125,"Demo Sub Registrar, Sadar Nagaon",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000126,"Demo Sub Registrar, Raha",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000127,"Demo Sub Registrar, Samaguri",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."
+R-000128,"Demo Sub Registrar, Sonapur",DEMO_SR,,,,,,,,,True,"Business decision 03-11-2026: the Sub Registrar sits in the circle office; no Sub Registrar is named in any source, so each circle office with a CO gets a demo one."

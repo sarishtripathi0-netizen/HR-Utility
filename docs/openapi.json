@@ -1,0 +1,6838 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Sewa Setu 2.0 — HR Utility (PoC)",
+    "description": "\n**Sewa Setu 2.0 — HR Utility (PoC).** Answers: *who sits in which chair, holding which functions, as of any time.*\n\n* Every read accepts `?at=` (ISO-8601; naive = IST; date = 00:00 IST). Default: now.\n* Timestamps are returned in Asia/Kolkata (+05:30). Every officer object carries `is_demo`.\n* Business-rule refusals return **409** `{\"error\": {\"rule\": \"BR-xx\", \"message\": \"...\"}}`.\n* Offices, office types, designations and holidays come from the **MDM PoC**; every response carries\n  `X-MDM-Source`, `X-MDM-Version` and `X-MDM-Synced-At` (freshness of that copy).\n* The IAM endpoints are a **stub** with no authentication.\n* Nothing is ever deleted: ends and corrections write a new row and keep the old one (BR-10).\n\nReference: `docs/api.md` (endpoints with examples) and `docs/integration.md` (how each consumer calls this service).\n",
+    "contact": {
+      "name": "Sewa Setu 2.0 — HR Utility PoC team"
+    },
+    "version": "0.3.0"
+  },
+  "paths": {
+    "/v1/seat-holders": {
+      "get": {
+        "tags": [
+          "Rule Engine"
+        ],
+        "summary": "Who holds post P with function F in office O at time t, and the Link Officer if none is available",
+        "operationId": "seat_holders_v1_seat_holders_get",
+        "parameters": [
+          {
+            "name": "office_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "MDM office code",
+              "examples": [
+                "DC_NGN"
+              ],
+              "title": "Office Id"
+            },
+            "description": "MDM office code"
+          },
+          {
+            "name": "post_code",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "MDM designation code or short name",
+              "examples": [
+                "ADC"
+              ],
+              "title": "Post Code"
+            },
+            "description": "MDM designation code or short name"
+          },
+          {
+            "name": "function_code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Required unless roster mode is on",
+              "examples": [
+                "SOCIAL_WELFARE"
+              ],
+              "title": "Function Code"
+            },
+            "description": "Required unless roster mode is on"
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive values are IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive values are IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeatHoldersResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/posts/{sanctioned_post_id}/holder": {
+      "get": {
+        "tags": [
+          "Rule Engine"
+        ],
+        "summary": "Holder(s) of one chair at time t, with availability and vacancy",
+        "operationId": "post_holder_v1_posts__sanctioned_post_id__holder_get",
+        "parameters": [
+          {
+            "name": "sanctioned_post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Chair ID `<office>-<designation>-NN`",
+              "examples": [
+                "DC_NGN-ADC-05"
+              ],
+              "title": "Sanctioned Post Id"
+            },
+            "description": "Chair ID `<office>-<designation>-NN`"
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive values are IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive values are IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChairResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/posts/{sanctioned_post_id}/history": {
+      "get": {
+        "tags": [
+          "Rule Engine"
+        ],
+        "summary": "BR-08: holders, sub-intervals and working days over [from, to]",
+        "operationId": "post_history_v1_posts__sanctioned_post_id__history_get",
+        "parameters": [
+          {
+            "name": "sanctioned_post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Chair ID `<office>-<designation>-NN`",
+              "examples": [
+                "DC_NGN-ADC-05"
+              ],
+              "title": "Sanctioned Post Id"
+            },
+            "description": "Chair ID `<office>-<designation>-NN`"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Start (a date means 00:00 IST)",
+              "examples": [
+                "2026-10-01"
+              ],
+              "title": "From"
+            },
+            "description": "Start (a date means 00:00 IST)"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "End (a date is inclusive: up to 24:00 IST that day)",
+              "examples": [
+                "2026-10-31"
+              ],
+              "title": "To"
+            },
+            "description": "End (a date is inclusive: up to 24:00 IST that day)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoryResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/posts/{sanctioned_post_id}/link-officer": {
+      "get": {
+        "tags": [
+          "Rule Engine"
+        ],
+        "summary": "BR-07: Link Officer under rule 3(1) for this chair at time t",
+        "operationId": "post_link_officer_v1_posts__sanctioned_post_id__link_officer_get",
+        "parameters": [
+          {
+            "name": "sanctioned_post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Chair ID `<office>-<designation>-NN`",
+              "examples": [
+                "DC_NGN-ADC-05"
+              ],
+              "title": "Sanctioned Post Id"
+            },
+            "description": "Chair ID `<office>-<designation>-NN`"
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive values are IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive values are IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkOfficerResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/employees/{employee_id}/posts": {
+      "get": {
+        "tags": [
+          "IAM"
+        ],
+        "summary": "Substantive, additional and link charges held at time t",
+        "operationId": "employee_posts_v1_employees__employee_id__posts_get",
+        "parameters": [
+          {
+            "name": "employee_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "EMP-0065"
+              ],
+              "title": "Employee Id"
+            }
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive values are IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive values are IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeePostsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/offices/{office_id}/roster": {
+      "get": {
+        "tags": [
+          "Workflow"
+        ],
+        "summary": "Every chair of an office at time t: holders, functions, availability",
+        "operationId": "office_roster_v1_offices__office_id__roster_get",
+        "parameters": [
+          {
+            "name": "office_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "MDM office code",
+              "examples": [
+                "DC_NGN"
+              ],
+              "title": "Office Id"
+            },
+            "description": "MDM office code"
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive values are IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive values are IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RosterResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/function-allotments": {
+      "get": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "Function allotments in force in an office at time t",
+        "operationId": "list_allotments_v1_function_allotments_get",
+        "parameters": [
+          {
+            "name": "office_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "DC_NGN"
+              ],
+              "title": "Office Id"
+            }
+          },
+          {
+            "name": "employee_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Employee Id"
+            }
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive values are IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive values are IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllotmentsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "Allot a function (BR-04)",
+        "operationId": "allot_v1_function_allotments_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AllotBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllotOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/function-catalogue": {
+      "get": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "Functions of each office type, and whether each post holds them by allotment or by being posted",
+        "operationId": "function_catalogue_v1_function_catalogue_get",
+        "parameters": [
+          {
+            "name": "office_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "examples": [
+                "DC_OFFICE"
+              ],
+              "title": "Office Type"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FunctionCatalogueResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/events": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Outbox events after the given id (posting.*, charge.*, function.*, availability.*, employee.onboarded)",
+        "operationId": "events_v1_events_get",
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "title": "After"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 5000,
+              "default": 500,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/employees": {
+      "get": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Search officers (name, ID, email, mobile; optionally by office)",
+        "operationId": "list_employees_v1_employees_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "examples": [
+                "Kamal"
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "office_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "examples": [
+                "DC_NGN"
+              ],
+              "title": "Office Id"
+            }
+          },
+          {
+            "name": "include_demo",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true,
+              "title": "Include Demo"
+            }
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive = IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive = IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/employees/{employee_id}": {
+      "get": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "One officer: record, postings, functions, leave, onboarding",
+        "operationId": "get_employee_v1_employees__employee_id__get",
+        "parameters": [
+          {
+            "name": "employee_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Employee Id"
+            }
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive = IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive = IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeDetailResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Correct the officer's record (MDM fields sent to MDM; identifiers excluded)",
+        "operationId": "correct_employee_v1_employees__employee_id__put",
+        "parameters": [
+          {
+            "name": "employee_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Employee Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeCorrectBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeCorrected"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/onboarding": {
+      "get": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Onboarding requests, newest first",
+        "operationId": "list_onboarding_v1_onboarding_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 2000,
+              "default": 200,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "Submit a new employee to MDM; returns MINTED, DUPLICATE or REJECTED with the Employee ID",
+        "operationId": "onboard_v1_onboarding_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnboardingBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnboardingResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/offices": {
+      "get": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Offices (MDM copy plus any held locally)",
+        "operationId": "list_offices_v1_offices_get",
+        "parameters": [
+          {
+            "name": "office_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "examples": [
+                "DC_OFFICE"
+              ],
+              "title": "Office Type"
+            }
+          },
+          {
+            "name": "district_code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "examples": [
+                "NGN"
+              ],
+              "title": "District Code"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficeListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/offices/{office_id}/chairs": {
+      "get": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Chairs of an office with their holders at time t",
+        "operationId": "list_chairs_v1_offices__office_id__chairs_get",
+        "parameters": [
+          {
+            "name": "office_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Office Id"
+            }
+          },
+          {
+            "name": "include_abolished",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Abolished"
+            }
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive = IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive = IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChairListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Add a chair: raises MDM's sanctioned count for office x post by one (Establishment branch)",
+        "operationId": "add_chair_v1_offices__office_id__chairs_post",
+        "parameters": [
+          {
+            "name": "office_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Office Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChairCreateBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChairOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/posts/{sanctioned_post_id}/abolish": {
+      "post": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Abolish the highest-numbered empty chair: lowers MDM's count (kept on record)",
+        "operationId": "abolish_chair_v1_posts__sanctioned_post_id__abolish_post",
+        "parameters": [
+          {
+            "name": "sanctioned_post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Sanctioned Post Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReasonBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChairOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/postings": {
+      "get": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Postings by office, officer or chair (current, future and ended)",
+        "operationId": "list_postings_v1_postings_get",
+        "parameters": [
+          {
+            "name": "office_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "examples": [
+                "DC_NGN"
+              ],
+              "title": "Office Id"
+            }
+          },
+          {
+            "name": "employee_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Employee Id"
+            }
+          },
+          {
+            "name": "sanctioned_post_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Sanctioned Post Id"
+            }
+          },
+          {
+            "name": "include_ended",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true,
+              "title": "Include Ended"
+            }
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive = IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive = IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostingListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "Join: substantive or additional charge (BR-01, BR-02; checked live with MDM)",
+        "operationId": "join_v1_postings_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostingBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostingOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/postings/{posting_id}/correct": {
+      "post": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Correct order reference, issuing department or note (the old version is kept)",
+        "operationId": "correct_posting_v1_postings__posting_id__correct_post",
+        "parameters": [
+          {
+            "name": "posting_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Posting Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostingCorrectBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostingOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/availability": {
+      "get": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Leave / tour / training / deputation windows by office or officer",
+        "operationId": "list_availability_v1_availability_get",
+        "parameters": [
+          {
+            "name": "office_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Office Id"
+            }
+          },
+          {
+            "name": "employee_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Employee Id"
+            }
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "ISO-8601 timestamp or date; naive = IST; default now",
+              "examples": [
+                "2026-11-04T10:00:00+05:30"
+              ],
+              "title": "At"
+            },
+            "description": "ISO-8601 timestamp or date; naive = IST; default now"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailabilityListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "Leave, tour, training or deputation (BR-06)",
+        "operationId": "add_availability_v1_availability_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AvailabilityBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailabilityOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/availability/{availability_id}/cancel": {
+      "post": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Cancel a window (it collapses to nothing; both rows are kept)",
+        "operationId": "cancel_availability_v1_availability__availability_id__cancel_post",
+        "parameters": [
+          {
+            "name": "availability_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Availability Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReasonBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailabilityOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/audit": {
+      "get": {
+        "tags": [
+          "Records"
+        ],
+        "summary": "Append-only audit log, newest first",
+        "operationId": "list_audit_v1_audit_get",
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "examples": [
+                "posting"
+              ],
+              "title": "Entity"
+            }
+          },
+          {
+            "name": "entity_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Entity Id"
+            }
+          },
+          {
+            "name": "actor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Actor"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 2000,
+              "default": 200,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuditListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/postings/{posting_id}/relieve": {
+      "post": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "End a posting; a substantive one needs a successor or same-instant additional charge (BR-03)",
+        "operationId": "relieve_v1_postings__posting_id__relieve_post",
+        "parameters": [
+          {
+            "name": "posting_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Posting Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelieveBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelieveOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/function-allotments/{allotment_id}/withdraw": {
+      "post": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "Withdraw a function allotment from time t (the allotment row is kept, BR-10)",
+        "operationId": "withdraw_v1_function_allotments__allotment_id__withdraw_post",
+        "parameters": [
+          {
+            "name": "allotment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Allotment Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllotOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/posts/{sanctioned_post_id}/declare-vacant": {
+      "post": {
+        "tags": [
+          "Establishment"
+        ],
+        "summary": "The only exception to BR-03: an explicit, reasoned vacancy",
+        "operationId": "declare_vacant_v1_posts__sanctioned_post_id__declare_vacant_post",
+        "parameters": [
+          {
+            "name": "sanctioned_post_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Sanctioned Post Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacantBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VacantOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/iam/login": {
+      "post": {
+        "tags": [
+          "IAM stub"
+        ],
+        "summary": "STUB login: lists posts held now, incl. link charges",
+        "description": "**STUB — no authentication.** Returns a session_id; send it as X-Stub-Session on later calls.",
+        "operationId": "login_v1_iam_login_post",
+        "parameters": [
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "At"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IamSessionOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/iam/switch": {
+      "post": {
+        "tags": [
+          "IAM stub"
+        ],
+        "summary": "STUB: set the active post",
+        "description": "**STUB — no authentication.**",
+        "operationId": "switch_v1_iam_switch_post",
+        "parameters": [
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "At"
+            }
+          },
+          {
+            "name": "x-stub-session",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Stub-Session"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IamSessionOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/iam/sessions/{session_id}": {
+      "get": {
+        "tags": [
+          "IAM stub"
+        ],
+        "summary": "STUB: re-check a session; access is revoked once posting.ended / availability.ended applies",
+        "description": "**STUB — no authentication.** ?at= simulates the clock for demonstration.",
+        "operationId": "check_v1_iam_sessions__session_id__get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "At"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IamSessionOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hr/usage/{entity_type}/{code}": {
+      "get": {
+        "tags": [
+          "MDM integration"
+        ],
+        "summary": "MDM usage callback: is this MDM record still used by HR?",
+        "description": "Called by MDM before it deactivates a record. `inUse` is true while officers are posted, or functions allotted, under it. Supported: office, district, designation, sanctioned-post, employee, function, cadre, holiday.",
+        "operationId": "mdm_usage_hr_usage__entity_type___code__get",
+        "parameters": [
+          {
+            "name": "entity_type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Entity Type"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsageResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/mdm/status": {
+      "get": {
+        "tags": [
+          "MDM integration"
+        ],
+        "summary": "Freshness of the HR Utility's copy of MDM data",
+        "operationId": "mdm_status_v1_mdm_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MdmStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AbsentHolder": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "cadre",
+          "year_of_joining",
+          "is_demo",
+          "unavailable_reason"
+        ],
+        "title": "AbsentHolder"
+      },
+      "AllotBody": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "function_code": {
+            "type": "string",
+            "title": "Function Code"
+          },
+          "effective_from": {
+            "type": "string",
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By",
+            "description": "Must be the Establishment branch of office_id, e.g. ESTB@DCO-27NAL"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "office_id",
+          "function_code",
+          "effective_from",
+          "entered_by"
+        ],
+        "title": "AllotBody",
+        "examples": [
+          {
+            "effective_from": "2026-11-04T10:00:00+05:30",
+            "employee_id": "EMP-0065",
+            "entered_by": "ESTB@DC_NGN",
+            "function_code": "CENSUS",
+            "office_id": "DC_NGN"
+          }
+        ]
+      },
+      "AllotOut": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "lineage_id": {
+            "type": "integer",
+            "title": "Lineage Id"
+          },
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo",
+            "description": "True for demo allotments or demo officers"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "function_code": {
+            "type": "string",
+            "title": "Function Code"
+          },
+          "effective_from": {
+            "type": "string",
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "lineage_id",
+          "employee_id",
+          "is_demo",
+          "office_id",
+          "function_code",
+          "effective_from",
+          "effective_to",
+          "entered_by"
+        ],
+        "title": "AllotOut"
+      },
+      "AllotmentsResponse": {
+        "properties": {
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "allotments": {
+            "items": {
+              "$ref": "#/components/schemas/AllotOut"
+            },
+            "type": "array",
+            "title": "Allotments"
+          }
+        },
+        "type": "object",
+        "required": [
+          "office_id",
+          "at",
+          "allotments"
+        ],
+        "title": "AllotmentsResponse"
+      },
+      "AuditEntry": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "ts": {
+            "type": "string",
+            "title": "Ts"
+          },
+          "actor": {
+            "type": "string",
+            "title": "Actor"
+          },
+          "action": {
+            "type": "string",
+            "title": "Action"
+          },
+          "entity": {
+            "type": "string",
+            "title": "Entity"
+          },
+          "entity_id": {
+            "type": "string",
+            "title": "Entity Id"
+          },
+          "before_json": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Before Json",
+            "description": "JSON of the row before the change"
+          },
+          "after_json": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "After Json",
+            "description": "JSON of the row after the change"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "ts",
+          "actor",
+          "action",
+          "entity",
+          "entity_id",
+          "before_json",
+          "after_json"
+        ],
+        "title": "AuditEntry"
+      },
+      "AuditListResponse": {
+        "properties": {
+          "entries": {
+            "items": {
+              "$ref": "#/components/schemas/AuditEntry"
+            },
+            "type": "array",
+            "title": "Entries"
+          }
+        },
+        "type": "object",
+        "required": [
+          "entries"
+        ],
+        "title": "AuditListResponse"
+      },
+      "AvailabilityBody": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "LEAVE",
+              "TOUR",
+              "TRAINING",
+              "DEPUTATION"
+            ],
+            "title": "Kind"
+          },
+          "from_ts": {
+            "type": "string",
+            "title": "From Ts"
+          },
+          "to_ts": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Ts"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id",
+            "description": "Correct an earlier window; both rows are kept (BR-10)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "kind",
+          "from_ts",
+          "entered_by"
+        ],
+        "title": "AvailabilityBody",
+        "examples": [
+          {
+            "employee_id": "EMP-0065",
+            "entered_by": "ESTB@DC_NGN",
+            "from_ts": "2026-11-10",
+            "kind": "LEAVE",
+            "note": "earned leave",
+            "to_ts": "2026-11-15"
+          }
+        ]
+      },
+      "AvailabilityListResponse": {
+        "properties": {
+          "windows": {
+            "items": {
+              "$ref": "#/components/schemas/WindowRow"
+            },
+            "type": "array",
+            "title": "Windows"
+          }
+        },
+        "type": "object",
+        "required": [
+          "windows"
+        ],
+        "title": "AvailabilityListResponse"
+      },
+      "AvailabilityOut": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "lineage_id": {
+            "type": "integer",
+            "title": "Lineage Id"
+          },
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "from_ts": {
+            "type": "string",
+            "title": "From Ts"
+          },
+          "to_ts": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Ts"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "lineage_id",
+          "employee_id",
+          "is_demo",
+          "kind",
+          "from_ts",
+          "to_ts",
+          "entered_by",
+          "note"
+        ],
+        "title": "AvailabilityOut"
+      },
+      "CatalogueFunction": {
+        "properties": {
+          "function_code": {
+            "type": "string",
+            "title": "Function Code"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "category": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Category"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          }
+        },
+        "type": "object",
+        "required": [
+          "function_code",
+          "name",
+          "category",
+          "is_demo"
+        ],
+        "title": "CatalogueFunction"
+      },
+      "ChairCreateBody": {
+        "properties": {
+          "post_code": {
+            "type": "string",
+            "title": "Post Code",
+            "description": "MDM designation code or short name"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By",
+            "description": "Establishment branch of the office, e.g. ESTB@AS-D-298"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason",
+            "description": "Sanction order or other basis for the new chair"
+          }
+        },
+        "type": "object",
+        "required": [
+          "post_code",
+          "entered_by",
+          "reason"
+        ],
+        "title": "ChairCreateBody",
+        "examples": [
+          {
+            "entered_by": "ESTB@DC_NGN",
+            "post_code": "ADC",
+            "reason": "GAD sanction order 45/2026"
+          }
+        ]
+      },
+      "ChairHolder": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "posting_id": {
+            "type": "integer",
+            "title": "Posting Id"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          },
+          "since": {
+            "type": "string",
+            "title": "Since"
+          },
+          "until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Until"
+          },
+          "order_ref": {
+            "type": "string",
+            "title": "Order Ref"
+          },
+          "issuing_department": {
+            "type": "string",
+            "title": "Issuing Department"
+          },
+          "available": {
+            "type": "boolean",
+            "title": "Available"
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          },
+          "unavailable_until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Until"
+          },
+          "functions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Functions",
+            "description": "Every function held in this office: allotted plus held by post"
+          },
+          "functions_allotted": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Functions Allotted",
+            "description": "Functions from function_allotment rows only"
+          },
+          "holds_all_office_functions": {
+            "type": "boolean",
+            "title": "Holds All Office Functions",
+            "description": "True when the post holds every function of the office (e.g. Circle Officer)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "cadre",
+          "year_of_joining",
+          "is_demo",
+          "posting_id",
+          "charge_type",
+          "since",
+          "until",
+          "order_ref",
+          "issuing_department",
+          "available",
+          "unavailable_reason",
+          "unavailable_until",
+          "functions",
+          "functions_allotted",
+          "holds_all_office_functions"
+        ],
+        "title": "ChairHolder"
+      },
+      "ChairHolderBrief": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "posting_id": {
+            "type": "integer",
+            "title": "Posting Id"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "cadre",
+          "year_of_joining",
+          "is_demo",
+          "posting_id",
+          "charge_type"
+        ],
+        "title": "ChairHolderBrief"
+      },
+      "ChairListResponse": {
+        "properties": {
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "chairs": {
+            "items": {
+              "$ref": "#/components/schemas/ChairRow"
+            },
+            "type": "array",
+            "title": "Chairs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "office_id",
+          "chairs"
+        ],
+        "title": "ChairListResponse"
+      },
+      "ChairOut": {
+        "properties": {
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "post_code": {
+            "type": "string",
+            "title": "Post Code"
+          },
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          },
+          "derived": {
+            "type": "boolean",
+            "title": "Derived",
+            "description": "True = local demo chair (not MDM sanctioned strength)"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active",
+            "description": "False = abolished (kept for history)"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanctioned_post_id",
+          "office_id",
+          "post_code",
+          "seq",
+          "derived",
+          "is_demo",
+          "is_active",
+          "source"
+        ],
+        "title": "ChairOut"
+      },
+      "ChairResponse": {
+        "properties": {
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "post_code": {
+            "type": "string",
+            "title": "Post Code"
+          },
+          "rank_order": {
+            "type": "integer",
+            "title": "Rank Order"
+          },
+          "derived": {
+            "type": "boolean",
+            "title": "Derived"
+          },
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "HELD",
+              "DECLARED_VACANT",
+              "UNHELD"
+            ],
+            "title": "Status"
+          },
+          "holders": {
+            "items": {
+              "$ref": "#/components/schemas/ChairHolder"
+            },
+            "type": "array",
+            "title": "Holders"
+          },
+          "vacancy": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Vacancy"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "link_officer": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LinkOfficer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "link_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Link Status"
+          },
+          "link_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Link Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanctioned_post_id",
+          "office_id",
+          "post_code",
+          "rank_order",
+          "derived",
+          "at",
+          "status",
+          "holders",
+          "vacancy",
+          "link_officer"
+        ],
+        "title": "ChairResponse"
+      },
+      "ChairRow": {
+        "properties": {
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "post_code": {
+            "type": "string",
+            "title": "Post Code"
+          },
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          },
+          "derived": {
+            "type": "boolean",
+            "title": "Derived",
+            "description": "True = local demo chair (not MDM sanctioned strength)"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active",
+            "description": "False = abolished (kept for history)"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          },
+          "holders": {
+            "items": {
+              "$ref": "#/components/schemas/ChairHolderBrief"
+            },
+            "type": "array",
+            "title": "Holders"
+          },
+          "vacancy": {
+            "type": "boolean",
+            "title": "Vacancy",
+            "description": "A vacancy declaration is in force"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanctioned_post_id",
+          "office_id",
+          "post_code",
+          "seq",
+          "derived",
+          "is_demo",
+          "is_active",
+          "source",
+          "holders",
+          "vacancy"
+        ],
+        "title": "ChairRow"
+      },
+      "CoveredHolder": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "unavailable_reason",
+          "is_demo"
+        ],
+        "title": "CoveredHolder"
+      },
+      "EmployeeAllotment": {
+        "properties": {
+          "from": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From",
+            "description": "Start, ISO-8601 IST"
+          },
+          "to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To",
+            "description": "End (exclusive), ISO-8601 IST; null = open"
+          },
+          "allotment_id": {
+            "type": "integer",
+            "title": "Allotment Id"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "function_code": {
+            "type": "string",
+            "title": "Function Code"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "current": {
+            "type": "boolean",
+            "title": "Current"
+          }
+        },
+        "type": "object",
+        "required": [
+          "allotment_id",
+          "office_id",
+          "function_code",
+          "is_demo",
+          "current"
+        ],
+        "title": "EmployeeAllotment"
+      },
+      "EmployeeCorrectBody": {
+        "properties": {
+          "submitted_by": {
+            "type": "string",
+            "title": "Submitted By"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "gender": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "MALE",
+                  "FEMALE",
+                  "OTHER"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gender"
+          },
+          "date_of_joining": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Joining"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "date_of_birth": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Birth"
+          },
+          "date_of_retirement": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Retirement"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "mobile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile"
+          }
+        },
+        "type": "object",
+        "required": [
+          "submitted_by"
+        ],
+        "title": "EmployeeCorrectBody",
+        "examples": [
+          {
+            "email": "kamal.sarma@assam.gov.in",
+            "submitted_by": "ESTB@DC_NGN",
+            "year_of_joining": 2019
+          }
+        ]
+      },
+      "EmployeeCorrected": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "mobile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "cadre",
+          "year_of_joining",
+          "is_demo",
+          "email",
+          "mobile"
+        ],
+        "title": "EmployeeCorrected"
+      },
+      "EmployeeDetailResponse": {
+        "properties": {
+          "employee": {
+            "$ref": "#/components/schemas/EmployeeRecord"
+          },
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "available": {
+            "type": "boolean",
+            "title": "Available"
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          },
+          "postings": {
+            "items": {
+              "$ref": "#/components/schemas/EmployeePosting"
+            },
+            "type": "array",
+            "title": "Postings"
+          },
+          "function_allotments": {
+            "items": {
+              "$ref": "#/components/schemas/EmployeeAllotment"
+            },
+            "type": "array",
+            "title": "Function Allotments"
+          },
+          "availability": {
+            "items": {
+              "$ref": "#/components/schemas/EmployeeWindow"
+            },
+            "type": "array",
+            "title": "Availability"
+          },
+          "onboarding": {
+            "items": {
+              "$ref": "#/components/schemas/EmployeeOnboarding"
+            },
+            "type": "array",
+            "title": "Onboarding"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee",
+          "at",
+          "available",
+          "unavailable_reason",
+          "postings",
+          "function_allotments",
+          "availability",
+          "onboarding"
+        ],
+        "title": "EmployeeDetailResponse"
+      },
+      "EmployeeListResponse": {
+        "properties": {
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "employees": {
+            "items": {
+              "$ref": "#/components/schemas/EmployeeSummary"
+            },
+            "type": "array",
+            "title": "Employees",
+            "description": "Seniority order"
+          }
+        },
+        "type": "object",
+        "required": [
+          "at",
+          "employees"
+        ],
+        "title": "EmployeeListResponse"
+      },
+      "EmployeeOnboarding": {
+        "properties": {
+          "request_id": {
+            "type": "integer",
+            "title": "Request Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "submitted_by": {
+            "type": "string",
+            "title": "Submitted By"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request_id",
+          "status",
+          "source",
+          "submitted_by",
+          "created_at",
+          "reason"
+        ],
+        "title": "EmployeeOnboarding"
+      },
+      "EmployeePost": {
+        "properties": {
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "post_code": {
+            "type": "string",
+            "title": "Post Code"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL",
+              "LINK"
+            ],
+            "title": "Charge Type"
+          },
+          "posting_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Posting Id"
+          },
+          "since": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Since"
+          },
+          "until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Until"
+          },
+          "rule_step": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rule Step"
+          },
+          "deemed_dps_under_rule_3_3": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deemed under rule 3(3)"
+          },
+          "covering_for": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CoveredHolder"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Covering For"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanctioned_post_id",
+          "office_id",
+          "post_code",
+          "charge_type"
+        ],
+        "title": "EmployeePost"
+      },
+      "EmployeePosting": {
+        "properties": {
+          "from": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From",
+            "description": "Start, ISO-8601 IST"
+          },
+          "to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To",
+            "description": "End (exclusive), ISO-8601 IST; null = open"
+          },
+          "posting_id": {
+            "type": "integer",
+            "title": "Posting Id"
+          },
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "post_code": {
+            "type": "string",
+            "title": "Post Code"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          },
+          "order_ref": {
+            "type": "string",
+            "title": "Order Ref"
+          },
+          "issuing_department": {
+            "type": "string",
+            "title": "Issuing Department"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "CURRENT",
+              "FUTURE",
+              "ENDED"
+            ],
+            "title": "State"
+          }
+        },
+        "type": "object",
+        "required": [
+          "posting_id",
+          "sanctioned_post_id",
+          "office_id",
+          "post_code",
+          "charge_type",
+          "order_ref",
+          "issuing_department",
+          "note",
+          "state"
+        ],
+        "title": "EmployeePosting"
+      },
+      "EmployeePostsResponse": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "available": {
+            "type": "boolean",
+            "title": "Available"
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          },
+          "posts": {
+            "items": {
+              "$ref": "#/components/schemas/EmployeePost"
+            },
+            "type": "array",
+            "title": "Posts"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "cadre",
+          "year_of_joining",
+          "is_demo",
+          "at",
+          "available",
+          "unavailable_reason",
+          "posts"
+        ],
+        "title": "EmployeePostsResponse"
+      },
+      "EmployeeRecord": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "gender": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gender"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "date_of_joining": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Joining"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining",
+            "description": "Batch year; drives seniority (HR-held until MDM has it)"
+          },
+          "date_of_birth": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Birth"
+          },
+          "date_of_retirement": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Retirement"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "mobile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile"
+          },
+          "finassam_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finassam Code"
+          },
+          "pan": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pan"
+          },
+          "issuing_department": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issuing Department",
+            "description": "Cadre-controlling department (MDM cadre)"
+          },
+          "has_aadhaar_hash": {
+            "type": "boolean",
+            "title": "Has Aadhaar Hash"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "gender",
+          "cadre",
+          "date_of_joining",
+          "year_of_joining",
+          "date_of_birth",
+          "date_of_retirement",
+          "email",
+          "mobile",
+          "finassam_code",
+          "pan",
+          "issuing_department",
+          "has_aadhaar_hash",
+          "is_demo",
+          "source"
+        ],
+        "title": "EmployeeRecord"
+      },
+      "EmployeeSummary": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "mobile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile"
+          },
+          "posts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Posts",
+            "description": "Chairs held at `at`"
+          },
+          "available": {
+            "type": "boolean",
+            "title": "Available"
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "cadre",
+          "year_of_joining",
+          "is_demo",
+          "email",
+          "mobile",
+          "posts",
+          "available",
+          "unavailable_reason"
+        ],
+        "title": "EmployeeSummary"
+      },
+      "EmployeeWindow": {
+        "properties": {
+          "from": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From",
+            "description": "Start, ISO-8601 IST"
+          },
+          "to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To",
+            "description": "End (exclusive), ISO-8601 IST; null = open"
+          },
+          "availability_id": {
+            "type": "integer",
+            "title": "Availability Id"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "cancelled": {
+            "type": "boolean",
+            "title": "Cancelled"
+          }
+        },
+        "type": "object",
+        "required": [
+          "availability_id",
+          "kind",
+          "note",
+          "entered_by",
+          "cancelled"
+        ],
+        "title": "EmployeeWindow"
+      },
+      "ErrorBody": {
+        "properties": {
+          "rule": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rule",
+            "description": "Business rule that refused the request, e.g. BR-03"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "ErrorBody"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorBody"
+          }
+        },
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse"
+      },
+      "Event": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "ts": {
+            "type": "string",
+            "title": "Ts"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "effective_at": {
+            "type": "string",
+            "title": "Effective At"
+          },
+          "payload": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Payload"
+          },
+          "delivered": {
+            "type": "boolean",
+            "title": "Delivered"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "ts",
+          "type",
+          "effective_at",
+          "payload",
+          "delivered"
+        ],
+        "title": "Event"
+      },
+      "EventsResponse": {
+        "properties": {
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/Event"
+            },
+            "type": "array",
+            "title": "Events"
+          },
+          "next_after": {
+            "type": "integer",
+            "title": "Next After"
+          }
+        },
+        "type": "object",
+        "required": [
+          "events",
+          "next_after"
+        ],
+        "title": "EventsResponse"
+      },
+      "FunctionCatalogueResponse": {
+        "properties": {
+          "office_types": {
+            "items": {
+              "$ref": "#/components/schemas/OfficeTypeFunctions"
+            },
+            "type": "array",
+            "title": "Office Types"
+          },
+          "post_rules": {
+            "items": {
+              "$ref": "#/components/schemas/PostFunctionRule"
+            },
+            "type": "array",
+            "title": "Post Rules"
+          }
+        },
+        "type": "object",
+        "required": [
+          "office_types",
+          "post_rules"
+        ],
+        "title": "FunctionCatalogueResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HistoryHolder": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          },
+          "intervals": {
+            "items": {
+              "$ref": "#/components/schemas/Interval"
+            },
+            "type": "array",
+            "title": "Intervals"
+          },
+          "working_days": {
+            "type": "integer",
+            "title": "Working Days"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "cadre",
+          "year_of_joining",
+          "is_demo",
+          "charge_type",
+          "intervals",
+          "working_days"
+        ],
+        "title": "HistoryHolder"
+      },
+      "HistoryResponse": {
+        "properties": {
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "post_code": {
+            "type": "string",
+            "title": "Post Code"
+          },
+          "from": {
+            "type": "string",
+            "title": "From"
+          },
+          "to": {
+            "type": "string",
+            "title": "To"
+          },
+          "holders": {
+            "items": {
+              "$ref": "#/components/schemas/HistoryHolder"
+            },
+            "type": "array",
+            "title": "Holders"
+          },
+          "unheld_intervals": {
+            "items": {
+              "$ref": "#/components/schemas/Interval"
+            },
+            "type": "array",
+            "title": "Unheld Intervals"
+          },
+          "working_days_in_interval": {
+            "type": "integer",
+            "title": "Working Days In Interval"
+          },
+          "working_day_rule": {
+            "type": "string",
+            "title": "Working Day Rule"
+          },
+          "holidays_in_interval": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Holidays In Interval"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanctioned_post_id",
+          "office_id",
+          "post_code",
+          "from",
+          "to",
+          "holders",
+          "unheld_intervals",
+          "working_days_in_interval",
+          "working_day_rule",
+          "holidays_in_interval"
+        ],
+        "title": "HistoryResponse"
+      },
+      "IamSessionOut": {
+        "properties": {
+          "stub": {
+            "type": "boolean",
+            "title": "Stub",
+            "default": true
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          },
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "active_post_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Post Id"
+          },
+          "revoked": {
+            "type": "boolean",
+            "title": "Revoked"
+          },
+          "revoked_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revoked At"
+          },
+          "revoke_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revoke Reason"
+          },
+          "posts": {
+            "items": {
+              "$ref": "#/components/schemas/EmployeePost"
+            },
+            "type": "array",
+            "title": "Posts"
+          }
+        },
+        "type": "object",
+        "required": [
+          "notice",
+          "session_id",
+          "employee_id",
+          "is_demo",
+          "at",
+          "active_post_id",
+          "revoked",
+          "revoked_at",
+          "revoke_reason",
+          "posts"
+        ],
+        "title": "IamSessionOut"
+      },
+      "Interval": {
+        "properties": {
+          "from": {
+            "type": "string",
+            "title": "From"
+          },
+          "to": {
+            "type": "string",
+            "title": "To"
+          }
+        },
+        "type": "object",
+        "required": [
+          "from",
+          "to"
+        ],
+        "title": "Interval"
+      },
+      "LinkOfficer": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id",
+            "description": "The chair through which the Link Officer qualifies"
+          },
+          "rule_step": {
+            "type": "string",
+            "title": "Rule Step"
+          },
+          "deemed_dps_under_rule_3_3": {
+            "type": "boolean",
+            "title": "Deemed under rule 3(3)",
+            "default": true
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "name",
+          "sanctioned_post_id",
+          "rule_step",
+          "is_demo"
+        ],
+        "title": "LinkOfficer"
+      },
+      "LinkOfficerResponse": {
+        "properties": {
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "RESOLVED",
+              "NOT_REQUIRED",
+              "NO_LINK_OFFICER",
+              "NOT_APPLICABLE"
+            ],
+            "title": "Status"
+          },
+          "link_officer": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LinkOfficer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "absent_holders": {
+            "items": {
+              "$ref": "#/components/schemas/AbsentHolder"
+            },
+            "type": "array",
+            "title": "Absent Holders"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanctioned_post_id",
+          "at",
+          "status",
+          "link_officer",
+          "reason",
+          "absent_holders"
+        ],
+        "title": "LinkOfficerResponse"
+      },
+      "LoginBody": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id"
+        ],
+        "title": "LoginBody",
+        "examples": [
+          {
+            "employee_id": "EMP-0065"
+          }
+        ]
+      },
+      "MdmStatusResponse": {
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "LIVE",
+              "OFFLINE_SEED"
+            ],
+            "title": "Mode"
+          },
+          "base_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Base Url"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source",
+            "description": "Where the copy came from: the MDM URL, or SNAPSHOT"
+          },
+          "applied_version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applied Version"
+          },
+          "entity_versions": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Entity Versions"
+          },
+          "last_checked_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Checked At"
+          },
+          "last_synced_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Synced At"
+          },
+          "last_error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Error"
+          },
+          "last_check": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Last Check"
+          },
+          "consumer_code": {
+            "type": "string",
+            "title": "Consumer Code"
+          },
+          "copied_from_mdm": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Copied From Mdm"
+          },
+          "local_until_mdm_has_them": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Local Until Mdm Has Them"
+          }
+        },
+        "type": "object",
+        "required": [
+          "mode",
+          "base_url",
+          "source",
+          "applied_version",
+          "entity_versions",
+          "last_checked_at",
+          "last_synced_at",
+          "last_error",
+          "last_check",
+          "consumer_code",
+          "copied_from_mdm",
+          "local_until_mdm_has_them"
+        ],
+        "title": "MdmStatusResponse"
+      },
+      "OfficeListResponse": {
+        "properties": {
+          "offices": {
+            "items": {
+              "$ref": "#/components/schemas/OfficeRow"
+            },
+            "type": "array",
+            "title": "Offices"
+          }
+        },
+        "type": "object",
+        "required": [
+          "offices"
+        ],
+        "title": "OfficeListResponse"
+      },
+      "OfficeRow": {
+        "properties": {
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "office_type": {
+            "type": "string",
+            "title": "Office Type"
+          },
+          "district_code": {
+            "type": "string",
+            "title": "District Code"
+          },
+          "district_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "District Name"
+          },
+          "parent_office_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Office Id"
+          },
+          "provisional": {
+            "type": "boolean",
+            "title": "Provisional",
+            "description": "True = not in MDM (held locally)"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          },
+          "establishment_actor": {
+            "type": "string",
+            "title": "Establishment Actor"
+          }
+        },
+        "type": "object",
+        "required": [
+          "office_id",
+          "name",
+          "office_type",
+          "district_code",
+          "district_name",
+          "parent_office_id",
+          "provisional",
+          "is_active",
+          "establishment_actor"
+        ],
+        "title": "OfficeRow"
+      },
+      "OfficeTypeFunctions": {
+        "properties": {
+          "office_type": {
+            "type": "string",
+            "title": "Office Type"
+          },
+          "functions": {
+            "items": {
+              "$ref": "#/components/schemas/CatalogueFunction"
+            },
+            "type": "array",
+            "title": "Functions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "office_type",
+          "functions"
+        ],
+        "title": "OfficeTypeFunctions"
+      },
+      "OnboardingBody": {
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": [
+              "FINASSAM",
+              "MANUAL"
+            ],
+            "title": "Source"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "submitted_by": {
+            "type": "string",
+            "title": "Submitted By"
+          },
+          "finassam_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finassam Code"
+          },
+          "pan": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pan"
+          },
+          "aadhaar_token": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aadhaar Token",
+            "description": "Hashed with a salt on arrival; never stored (BR-09)"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "date_of_birth": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Birth"
+          },
+          "date_of_retirement": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Retirement"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "mobile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mobile",
+            "description": "10 digits; MDM rejects a mobile already on record (DUPLICATE)"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo",
+            "default": false
+          },
+          "gender": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "MALE",
+                  "FEMALE",
+                  "OTHER"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gender"
+          },
+          "date_of_joining": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Of Joining",
+            "description": "ISO date; sent to MDM"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source",
+          "name",
+          "submitted_by"
+        ],
+        "title": "OnboardingBody",
+        "examples": [
+          {
+            "cadre": "ACS",
+            "date_of_joining": "2024-07-01",
+            "email": "rupjyoti.bora@example.in",
+            "gender": "MALE",
+            "is_demo": true,
+            "mobile": "9435011223",
+            "name": "Rupjyoti Bora",
+            "pan": "ABCPB1234K",
+            "source": "MANUAL",
+            "submitted_by": "ESTB@DC_NGN",
+            "year_of_joining": 2024
+          }
+        ]
+      },
+      "OnboardingListResponse": {
+        "properties": {
+          "requests": {
+            "items": {
+              "$ref": "#/components/schemas/OnboardingRequestRow"
+            },
+            "type": "array",
+            "title": "Requests"
+          }
+        },
+        "type": "object",
+        "required": [
+          "requests"
+        ],
+        "title": "OnboardingListResponse"
+      },
+      "OnboardingRequestRow": {
+        "properties": {
+          "request_id": {
+            "type": "integer",
+            "title": "Request Id"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "employee_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Employee Id"
+          },
+          "submitted_by": {
+            "type": "string",
+            "title": "Submitted By"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request_id",
+          "source",
+          "name",
+          "status",
+          "employee_id",
+          "submitted_by",
+          "reason",
+          "is_demo",
+          "created_at"
+        ],
+        "title": "OnboardingRequestRow"
+      },
+      "OnboardingResponse": {
+        "properties": {
+          "request_id": {
+            "type": "integer",
+            "title": "Request Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "MINTED",
+              "DUPLICATE",
+              "REJECTED"
+            ],
+            "title": "Status"
+          },
+          "employee_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Employee Id"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request_id",
+          "status",
+          "employee_id",
+          "reason",
+          "is_demo"
+        ],
+        "title": "OnboardingResponse"
+      },
+      "PostFunctionRule": {
+        "properties": {
+          "post_code": {
+            "type": "string",
+            "title": "Post Code"
+          },
+          "post_name": {
+            "type": "string",
+            "title": "Post Name"
+          },
+          "rank_order": {
+            "type": "integer",
+            "title": "Rank Order"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "ALLOTTED",
+              "ALL_OFFICE_FUNCTIONS"
+            ],
+            "title": "Mode"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "basis": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Basis"
+          }
+        },
+        "type": "object",
+        "required": [
+          "post_code",
+          "post_name",
+          "rank_order",
+          "mode",
+          "is_demo",
+          "basis"
+        ],
+        "title": "PostFunctionRule"
+      },
+      "PostingBody": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          },
+          "effective_from": {
+            "type": "string",
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "order_ref": {
+            "type": "string",
+            "title": "Order Ref",
+            "description": "Transfer order reference"
+          },
+          "issuing_department": {
+            "type": "string",
+            "title": "Issuing Department",
+            "description": "Cadre-controlling department that issued the order"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "sanctioned_post_id",
+          "charge_type",
+          "effective_from",
+          "order_ref",
+          "issuing_department",
+          "entered_by"
+        ],
+        "title": "PostingBody",
+        "examples": [
+          {
+            "charge_type": "ADDITIONAL",
+            "effective_from": "2026-11-04T10:00:00+05:30",
+            "employee_id": "EMP-0062",
+            "entered_by": "ESTB@DC_NGN",
+            "issuing_department": "Personnel Department",
+            "order_ref": "PERS/E/2026/112",
+            "sanctioned_post_id": "DC_NGN-SETTLEMENT_OFFICER-01"
+          }
+        ]
+      },
+      "PostingCorrectBody": {
+        "properties": {
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "order_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Order Ref"
+          },
+          "issuing_department": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issuing Department"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "entered_by"
+        ],
+        "title": "PostingCorrectBody",
+        "examples": [
+          {
+            "entered_by": "ESTB@DC_NGN",
+            "note": "order copy received",
+            "order_ref": "PERS/E/2026/112-A"
+          }
+        ]
+      },
+      "PostingListResponse": {
+        "properties": {
+          "postings": {
+            "items": {
+              "$ref": "#/components/schemas/PostingRow"
+            },
+            "type": "array",
+            "title": "Postings"
+          }
+        },
+        "type": "object",
+        "required": [
+          "postings"
+        ],
+        "title": "PostingListResponse"
+      },
+      "PostingOut": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "lineage_id": {
+            "type": "integer",
+            "title": "Lineage Id"
+          },
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          },
+          "effective_from": {
+            "type": "string",
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "order_ref": {
+            "type": "string",
+            "title": "Order Ref"
+          },
+          "issuing_department": {
+            "type": "string",
+            "title": "Issuing Department"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "lineage_id",
+          "employee_id",
+          "is_demo",
+          "sanctioned_post_id",
+          "charge_type",
+          "effective_from",
+          "effective_to",
+          "order_ref",
+          "issuing_department",
+          "entered_by",
+          "note"
+        ],
+        "title": "PostingOut"
+      },
+      "PostingRow": {
+        "properties": {
+          "from": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From",
+            "description": "Start, ISO-8601 IST"
+          },
+          "to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To",
+            "description": "End (exclusive), ISO-8601 IST; null = open"
+          },
+          "posting_id": {
+            "type": "integer",
+            "title": "Posting Id"
+          },
+          "lineage_id": {
+            "type": "integer",
+            "title": "Lineage Id"
+          },
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          },
+          "order_ref": {
+            "type": "string",
+            "title": "Order Ref"
+          },
+          "issuing_department": {
+            "type": "string",
+            "title": "Issuing Department"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "CURRENT",
+              "FUTURE",
+              "ENDED"
+            ],
+            "title": "State"
+          }
+        },
+        "type": "object",
+        "required": [
+          "posting_id",
+          "lineage_id",
+          "employee_id",
+          "name",
+          "is_demo",
+          "sanctioned_post_id",
+          "charge_type",
+          "order_ref",
+          "issuing_department",
+          "entered_by",
+          "note",
+          "state"
+        ],
+        "title": "PostingRow"
+      },
+      "ReasonBody": {
+        "properties": {
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "entered_by",
+          "reason"
+        ],
+        "title": "ReasonBody",
+        "examples": [
+          {
+            "entered_by": "ESTB@DC_NGN",
+            "reason": "Leave withdrawn"
+          }
+        ]
+      },
+      "RelieveBody": {
+        "properties": {
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "successor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SuccessorBody"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Joins the same post at the same instant (BR-03)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "at",
+          "entered_by"
+        ],
+        "title": "RelieveBody",
+        "examples": [
+          {
+            "at": "2026-11-20T10:00:00+05:30",
+            "entered_by": "ESTB@DC_NGN"
+          }
+        ]
+      },
+      "RelieveOut": {
+        "properties": {
+          "ended": {
+            "$ref": "#/components/schemas/PostingOut"
+          },
+          "successor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PostingOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "ended",
+          "successor"
+        ],
+        "title": "RelieveOut"
+      },
+      "RosterResponse": {
+        "properties": {
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "office_type": {
+            "type": "string",
+            "title": "Office Type"
+          },
+          "district_code": {
+            "type": "string",
+            "title": "District Code"
+          },
+          "district_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "District Name"
+          },
+          "parent_office_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Office Id"
+          },
+          "provisional_id": {
+            "type": "boolean",
+            "title": "Provisional Id"
+          },
+          "external_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Ref",
+            "description": "Cross-walk to another code list, e.g. a Geo Master circle code"
+          },
+          "establishment_actor": {
+            "type": "string",
+            "title": "Establishment Actor"
+          },
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "chairs": {
+            "items": {
+              "$ref": "#/components/schemas/ChairResponse"
+            },
+            "type": "array",
+            "title": "Chairs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "office_id",
+          "name",
+          "office_type",
+          "district_code",
+          "district_name",
+          "parent_office_id",
+          "provisional_id",
+          "establishment_actor",
+          "at",
+          "chairs"
+        ],
+        "title": "RosterResponse"
+      },
+      "SeatHolder": {
+        "properties": {
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "cadre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cadre"
+          },
+          "year_of_joining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year Of Joining"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          },
+          "available": {
+            "type": "boolean",
+            "title": "Available"
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason",
+            "description": "LEAVE | TOUR | TRAINING | DEPUTATION | NOT_POSTED"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanctioned_post_id",
+          "employee_id",
+          "name",
+          "cadre",
+          "year_of_joining",
+          "charge_type",
+          "available",
+          "is_demo"
+        ],
+        "title": "SeatHolder"
+      },
+      "SeatHoldersResponse": {
+        "properties": {
+          "office_id": {
+            "type": "string",
+            "title": "Office Id"
+          },
+          "post_code": {
+            "type": "string",
+            "title": "Post Code"
+          },
+          "function_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Function Code"
+          },
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "holders": {
+            "items": {
+              "$ref": "#/components/schemas/SeatHolder"
+            },
+            "type": "array",
+            "title": "Holders",
+            "description": "Seniority order: year_of_joining ascending, then name"
+          },
+          "link_officer": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LinkOfficer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Set only when no holder is available"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "RESOLVED",
+              "NO_HOLDER",
+              "NO_LINK_OFFICER"
+            ],
+            "title": "Status"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "roster_mode": {
+            "type": "boolean",
+            "title": "Roster Mode",
+            "description": "True when Option B (ignore function) is configured",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "office_id",
+          "post_code",
+          "function_code",
+          "at",
+          "holders",
+          "link_officer",
+          "status",
+          "reason"
+        ],
+        "title": "SeatHoldersResponse"
+      },
+      "SuccessorBody": {
+        "properties": {
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "charge_type": {
+            "type": "string",
+            "enum": [
+              "SUBSTANTIVE",
+              "ADDITIONAL"
+            ],
+            "title": "Charge Type"
+          },
+          "order_ref": {
+            "type": "string",
+            "title": "Order Ref"
+          },
+          "issuing_department": {
+            "type": "string",
+            "title": "Issuing Department"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "employee_id",
+          "charge_type",
+          "order_ref",
+          "issuing_department"
+        ],
+        "title": "SuccessorBody"
+      },
+      "SwitchBody": {
+        "properties": {
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "session_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Id",
+            "description": "Or send the X-Stub-Session header returned by login"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanctioned_post_id"
+        ],
+        "title": "SwitchBody",
+        "examples": [
+          {
+            "sanctioned_post_id": "DC_NGN-ADC-05"
+          }
+        ]
+      },
+      "UsageResponse": {
+        "properties": {
+          "inUse": {
+            "type": "boolean",
+            "title": "Inuse"
+          },
+          "details": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Details"
+          }
+        },
+        "type": "object",
+        "required": [
+          "inUse",
+          "details"
+        ],
+        "title": "UsageResponse",
+        "description": "Shape required by MDM integration.md (\"Usage endpoint you must expose\")."
+      },
+      "Vacancy": {
+        "properties": {
+          "since": {
+            "type": "string",
+            "title": "Since"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          }
+        },
+        "type": "object",
+        "required": [
+          "since",
+          "reason",
+          "entered_by"
+        ],
+        "title": "Vacancy"
+      },
+      "VacantBody": {
+        "properties": {
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          }
+        },
+        "type": "object",
+        "required": [
+          "at",
+          "reason",
+          "entered_by"
+        ],
+        "title": "VacantBody",
+        "examples": [
+          {
+            "at": "2026-11-04T10:00:00+05:30",
+            "entered_by": "ESTB@DC_NGN",
+            "reason": "Officer retired; no posting order yet"
+          }
+        ]
+      },
+      "VacantOut": {
+        "properties": {
+          "vacancy_id": {
+            "type": "integer",
+            "title": "Vacancy Id"
+          },
+          "sanctioned_post_id": {
+            "type": "string",
+            "title": "Sanctioned Post Id"
+          },
+          "since": {
+            "type": "string",
+            "title": "Since"
+          },
+          "until": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Until"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "ended": {
+            "items": {
+              "$ref": "#/components/schemas/PostingOut"
+            },
+            "type": "array",
+            "title": "Ended"
+          }
+        },
+        "type": "object",
+        "required": [
+          "vacancy_id",
+          "sanctioned_post_id",
+          "since",
+          "until",
+          "reason",
+          "entered_by",
+          "ended"
+        ],
+        "title": "VacantOut"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WindowRow": {
+        "properties": {
+          "from": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From",
+            "description": "Start, ISO-8601 IST"
+          },
+          "to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To",
+            "description": "End (exclusive), ISO-8601 IST; null = open"
+          },
+          "availability_id": {
+            "type": "integer",
+            "title": "Availability Id"
+          },
+          "employee_id": {
+            "type": "string",
+            "title": "Employee Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "CURRENT",
+              "FUTURE",
+              "ENDED",
+              "CANCELLED"
+            ],
+            "title": "State"
+          }
+        },
+        "type": "object",
+        "required": [
+          "availability_id",
+          "employee_id",
+          "name",
+          "is_demo",
+          "kind",
+          "note",
+          "entered_by",
+          "state"
+        ],
+        "title": "WindowRow"
+      },
+      "WithdrawBody": {
+        "properties": {
+          "at": {
+            "type": "string",
+            "title": "At"
+          },
+          "entered_by": {
+            "type": "string",
+            "title": "Entered By"
+          }
+        },
+        "type": "object",
+        "required": [
+          "at",
+          "entered_by"
+        ],
+        "title": "WithdrawBody",
+        "examples": [
+          {
+            "at": "2026-11-10T00:00:00+05:30",
+            "entered_by": "ESTB@DC_NGN"
+          }
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Rule Engine",
+      "description": "The core question: who holds post P with function F in office O at time t, are they available, and if not, who is the Link Officer (BR-06, BR-07, BR-08)."
+    },
+    {
+      "name": "IAM",
+      "description": "Posts an officer holds at time t (substantive, additional, link charge) — what IAM offers the officer to act as."
+    },
+    {
+      "name": "Workflow",
+      "description": "Office roster: every chair, its holders, their functions and availability."
+    },
+    {
+      "name": "Establishment",
+      "description": "Writes by the Establishment branch: onboarding (BR-09), joining and relieving (BR-01..03), function allotment (BR-04), leave and tour (BR-06), declare vacant. Refusals return 409 with the rule number."
+    },
+    {
+      "name": "Records",
+      "description": "Record management: search and view officers, correct records, chairs (MDM sanctioned count), postings, leave windows, audit log. No deletes — ends are new rows."
+    },
+    {
+      "name": "Events",
+      "description": "Outbox of posting.*, charge.*, function.*, availability.*, employee.onboarded events. Poll with `?after=<last id>`; act when `effective_at <= now`."
+    },
+    {
+      "name": "IAM stub",
+      "description": "Login / switch post / revoke — a **stub** with no authentication, for demos only."
+    },
+    {
+      "name": "MDM integration",
+      "description": "The usage callback MDM calls before deactivating a record, and the freshness of this service's copy of MDM masters."
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://172.16.5.210:8000",
+      "description": "This PoC on the network"
+    },
+    {
+      "url": "http://127.0.0.1:8000",
+      "description": "Local PoC (python run.py)"
+    }
+  ]
+}

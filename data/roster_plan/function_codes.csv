@@ -1,0 +1,51 @@
+code,name,category,source
+E_GOVERNANCE,e-Governance,E_DISTRICT,spec section 9
+SOCIAL_WELFARE,Social Welfare,E_DISTRICT,spec section 9
+HEALTH_FW,Health & Family Welfare,E_DISTRICT,spec section 9
+ARTPS,ARTPS certificates and matters,E_DISTRICT,spec section 9
+NAZARAT,Nazarat,OFFICE,spec section 9
+MAGISTRACY,Magistracy,OFFICE,spec section 9
+ACCOUNTS,Accounts,OFFICE,spec section 9
+REVENUE,Revenue,OFFICE,spec section 9
+ELECTION,Election,OFFICE,spec section 9
+DISASTER_MGMT,Disaster Management (CEO DDMA),OFFICE,spec section 9
+DECENTRALIZED_PLANNING,Decentralized Planning,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+SUBDIVISIONAL_PLANNING,Sub-Divisional Planning (SDPLO),NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+CENSUS,Census operations,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+LAND_ACQUISITION,Land Acquisition,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+RKG,RKG Branch,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+RECORD_ROOM,Record room & Mahafezkhana,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+PERSONNEL,Personnel,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+FOREST,Forest,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+SKILL_DEVELOPMENT,Skill Development,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+RURAL_DEVELOPMENT,Rural Development,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+POWER,Power Department works,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+PHE,Public Health Engineering,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+RTI,RTI (SPIO),NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+BAKIJAI,Bakijai,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+ORUNUDOI,Orunudoi (OGRO / nodal),NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+DEVELOPMENT,Development Branch,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+EDUCATION,Education (incl. DMC / SSA),NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+FPDCA,FPD&CA (incl. paddy procurement),NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+AGRICULTURE,Agriculture & allied services,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+SPORTS,Sports & allied services,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+LINE_DEPARTMENTS,All line departments not specified to others,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+RELIEF_REHABILITATION,Relief & Rehabilitation,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+EXCISE,Excise,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+AADHAAR,Nodal Officer AADHAAR,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+SUBDIVISIONAL_WELFARE,Sub-Divisional Welfare Officer,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+WOMEN_CELL,Women Cell,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+URBAN_AFFAIRS,Urban Affairs,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+CULTURAL_AFFAIRS,Cultural Affairs,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+BATADRABA_NODAL,Nodal Officer Batadraba Than & Sankardev Abirbhab Kshetra,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+CM_DASHBOARD,CM Dashboard,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+MEDIA,Media incl. social media,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+TRANSPORT,Transport & DRSC,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+PUBLIC_GRIEVANCE,Public grievances & CPGRAM,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+DMS,DMS Branch,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+LABOUR,Labour Department,NAGAON_ALLOTMENT,Officers_Workallotment_13_03_26.pdf
+LAND_RECORDS,Land records (Jamabandi / chitha),DEMO,DEMO circle function (not from any order; replace from MDM)
+MUTATION_PARTITION,Mutation and partition,DEMO,DEMO circle function (not from any order; replace from MDM)
+LAND_SETTLEMENT,Land settlement and allotment,DEMO,DEMO circle function (not from any order; replace from MDM)
+AGRI_LICENSING,"Seed, fertiliser and pesticide licensing",DEMO,DEMO department function (PoC_master_data.xlsx lists DAO licence services)
+MEDICAL_REGISTRATION,Registration of medical practitioners,DEMO,DEMO department function (PoC_master_data.xlsx lists ACMR registration services)

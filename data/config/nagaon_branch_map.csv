@@ -1,0 +1,49 @@
+pattern,function_code
+# Regex (case-insensitive) matched against each numbered line of the Nagaon order.
+# First match wins. Lines that match "IGNORE" are not functions.
+any other works,IGNORE
+under district training,IGNORE
+decentrali[sz]ed planning,DECENTRALIZED_PLANNING
+sub-divisional planning|sdplo,SUBDIVISIONAL_PLANNING
+census,CENSUS
+election,ELECTION
+revenue branch,REVENUE
+land acquisition,LAND_ACQUISITION
+\brkg\b,RKG
+record room,RECORD_ROOM
+personnel,PERSONNEL
+forest,FOREST
+skill development,SKILL_DEVELOPMENT
+rural development,RURAL_DEVELOPMENT
+\bpower\b,POWER
+public health engineering|^phe,PHE
+\brti\b,RTI
+bakijai,BAKIJAI
+orunudoi|ogro,ORUNUDOI
+magistracy,MAGISTRACY
+fpd&ca,FPDCA
+education,EDUCATION
+development branch,DEVELOPMENT
+agriculture,AGRICULTURE
+sports,SPORTS
+e-governance,E_GOVERNANCE
+all line departments,LINE_DEPARTMENTS
+relief & rehabilitation,RELIEF_REHABILITATION
+ceo. ddma,DISASTER_MGMT
+excise,EXCISE
+aadhar|aadhaar,AADHAAR
+health & family welfare,HEALTH_FW
+sub-divisional welfare,SUBDIVISIONAL_WELFARE
+social welfare,SOCIAL_WELFARE
+women cell,WOMEN_CELL
+artps,ARTPS
+nazarat,NAZARAT
+urban affairs,URBAN_AFFAIRS
+cultural affairs,CULTURAL_AFFAIRS
+batadraba,BATADRABA_NODAL
+cm dashboard,CM_DASHBOARD
+\bmedia\b,MEDIA
+transport,TRANSPORT
+public grievance,PUBLIC_GRIEVANCE
+\bdms branch\b,DMS
+labour,LABOUR

@@ -1,0 +1,26 @@
+{% macro officer(h) -%}
+  <a href="/ui/officers/{{ h.employee_id }}"><b>{{ h.name }}</b></a> {% if h.is_demo %}<span class="badge demo">DEMO</span>{% endif %}
+  <span class="muted">{{ h.employee_id }} · {{ h.cadre or '—' }} · {{ h.year_of_joining or 'year unknown' }}</span>
+{%- endmacro %}
+
+{% macro charge(c) -%}
+  {% if c == 'SUBSTANTIVE' %}<span class="badge sub">substantive</span>
+  {% elif c == 'ADDITIONAL' %}<span class="badge addl">additional charge</span>
+  {% else %}<span class="badge link">link charge</span>{% endif %}
+{%- endmacro %}
+
+{% macro avail(h) -%}
+  {% if h.available %}<span class="badge avail">available</span>
+  {% else %}<span class="badge away">away: {{ h.unavailable_reason }}</span>
+  {% if h.unavailable_until %}<span class="muted">until {{ h.unavailable_until | ist }}</span>{% endif %}{% endif %}
+{%- endmacro %}
+
+{% macro office_picker(offices, office_id, at_local, extra='') -%}
+  <label>Office
+    <select name="office_id">
+      {% for o in offices %}<option value="{{ o.office_id }}" {{ 'selected' if o.office_id == office_id }}>{{ o.office_id }} — {{ o.name }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>As of (IST)<input type="datetime-local" name="at" value="{{ at_local }}"></label>
+  {{ extra }}
+{%- endmacro %}

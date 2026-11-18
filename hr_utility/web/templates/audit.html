@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Audit trail{% endblock %}
+{% block asof %}Append-only log of every change, newest first. Times in Asia/Kolkata.{% endblock %}
+{% block body %}
+<h1>Audit trail</h1>
+<form class="inline card" method="get">
+  <label>Record type<select name="entity"><option value="">any</option>
+    {% for t in ['posting','function_allotment','availability','vacancy_declaration','onboarding_request','mdm_cache_employee','mdm_cache_sanctioned_post','iam_session'] %}
+    <option {{ 'selected' if t == entity }}>{{ t }}</option>{% endfor %}</select></label>
+  <label>Record ID<input name="entity_id" value="{{ entity_id }}" size="14"></label>
+  <label>Actor<input name="actor" value="{{ actor }}" size="20"></label>
+  <button>Filter</button>
+</form>
+<table>
+  <tr><th>#</th><th>When</th><th>Actor</th><th>Action</th><th>Record</th><th>Before → after</th></tr>
+  {% for a in rows %}
+  <tr><td>{{ a.id }}</td><td>{{ a.ts | ist }}</td><td>{{ a.actor }}</td><td><b>{{ a.action }}</b></td>
+      <td>{{ a.entity }} <code>{{ a.entity_id }}</code></td>
+      <td><details><summary class="muted">show</summary>
+        <div style="max-width:640px;overflow-x:auto"><b>before</b><pre style="white-space:pre-wrap;font-size:12px">{{ a.before_json or '—' }}</pre>
+        <b>after</b><pre style="white-space:pre-wrap;font-size:12px">{{ a.after_json or '—' }}</pre></div></details></td></tr>
+  {% else %}<tr><td colspan="6" class="muted">No entries.</td></tr>{% endfor %}
+</table>
+<p class="muted">Showing up to 300 entries. Rows can never be edited or deleted (BR-10).</p>
+{% endblock %}

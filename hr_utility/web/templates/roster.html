@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Office roster{% endblock %}
+{% block body %}
+<h1>Office roster</h1>
+<form class="inline card" method="get">{{ m.office_picker(offices, office_id, at_local) }}<button>Show</button></form>
+{% if data %}
+<h2>{{ data.name }} <span class="muted">{{ data.office_id }} · {{ data.office_type }}{% if data.provisional_id %} · provisional ID{% endif %}{% if data.external_ref %} · {{ data.external_ref }}{% endif %}</span></h2>
+{% if not data.chairs %}<div class="msg err">This office has no chairs: no officer is on the roster for it. Seat lookups here return NO_HOLDER.</div>{% endif %}
+<table>
+  <tr><th>Chair</th><th>Post</th><th>Holder(s)</th><th>Charge</th><th>Availability</th><th>Functions in this office</th><th>If the holder is away</th></tr>
+  {% for c in data.chairs %}
+    {% if c.holders %}
+      {% for h in c.holders %}
+      <tr>
+        {% if loop.first %}<td rowspan="{{ c.holders|length }}"><code>{{ c.sanctioned_post_id }}</code>{% if c.derived %}<div class="muted">derived</div>{% endif %}</td>
+        <td rowspan="{{ c.holders|length }}">{{ c.post_code }} <span class="muted">rank {{ c.rank_order }}</span></td>{% endif %}
+        <td>{{ m.officer(h) }}<div class="muted">since {{ h.since | ist }} · {{ h.order_ref }}</div></td>
+        <td>{{ m.charge(h.charge_type) }}</td>
+        <td>{{ m.avail(h) }}</td>
+        <td>{% if h.holds_all_office_functions %}<span class="badge link">all {{ h.functions|length }} office functions (by post)</span>
+              <div class="muted">{{ h.functions | join(', ') }}</div>
+            {% else %}{% for f in h.functions %}<span class="fn">{{ f }}</span>{% else %}<span class="muted">none</span>{% endfor %}{% endif %}</td>
+        {% if loop.first %}<td rowspan="{{ c.holders|length }}">
+          {% if c.link_officer %}Link Officer: <b>{{ c.link_officer.name }}</b>{% if c.link_officer.is_demo %} <span class="badge demo">DEMO</span>{% endif %}
+            <div class="muted">{{ c.link_officer.rule_step }} via {{ c.link_officer.sanctioned_post_id }}</div>
+          {% elif c.link_status == 'NO_LINK_OFFICER' %}<span class="badge away">no Link Officer</span><div class="muted">{{ c.link_reason }}</div>
+          {% else %}<span class="muted">—</span>{% endif %}</td>{% endif %}
+      </tr>
+      {% endfor %}
+    {% else %}
+      <tr><td><code>{{ c.sanctioned_post_id }}</code></td><td>{{ c.post_code }}</td>
+        <td colspan="4">{% if c.vacancy %}<span class="badge away">declared vacant</span> since {{ c.vacancy.since | ist }}: {{ c.vacancy.reason }}{% else %}<span class="muted">not held</span>{% endif %}</td>
+        <td>{% if c.link_officer %}Link Officer: <b>{{ c.link_officer.name }}</b> <span class="muted">{{ c.link_officer.rule_step }}</span>{% else %}<span class="muted">{{ c.link_reason or '—' }}</span>{% endif %}</td></tr>
+    {% endif %}
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

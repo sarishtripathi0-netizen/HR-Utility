@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block asof %}Now: <b>{{ at_label }}</b> (Asia/Kolkata). Every screen states the moment it shows.{% endblock %}
+{% block body %}
+<h1>Who sits in which chair, holding which functions?</h1>
+<div class="card">
+  <p>This PoC answers the Rule Engine's question: <i>in office O, which chairs of post P are held at time t by an officer
+  holding function F, are they available, and if none is, who is the Link Officer under rule 3(1)?</i></p>
+  <ul>
+    <li><a href="/ui/seat">Seat lookup</a>: ask that question as a form.</li>
+    <li><a href="/ui/roster">Office roster</a>: every chair in an office, its holder, charge, availability and functions.</li>
+    <li><a href="/ui/allotments">Function allotment</a> (Establishment branch): officers × functions, effective-dated.</li>
+    <li><a href="/ui/postings">Posting &amp; relieving</a>: join, relieve with successor, declare vacant.</li>
+    <li><a href="/ui/leave">Leave entry</a>: leave, tour, training, deputation.</li>
+    <li><a href="/ui/history">Post history</a>: who held a chair between two dates, with working days.</li>
+    <li><a href="/docs">API docs</a> · <a href="/openapi.json">/openapi.json</a></li>
+  </ul>
+  <p class="muted">Officers marked <span class="badge demo">DEMO</span> are synthetic. Office IDs are provisional until the
+  MDM office seed arrives. See <code>data/load_report.md</code> for every data judgement.</p>
+</div>
+{% endblock %}

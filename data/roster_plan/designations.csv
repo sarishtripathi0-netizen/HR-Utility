@@ -1,0 +1,38 @@
+code,name,level,department_code,is_active,mdm_id
+ACMR,Additional Commissioner (Revenue),DISTRICT,RDM,True,34462ebd-ba6f-4fe6-be6c-fdfdda52b2d4
+ADC,Additional District Commissioner,DISTRICT,GAD,True,9081017c-8d82-445c-890a-685cbe1b543d
+ADC_EGOV,Additional District Commissioner (e-Governance),DISTRICT,GAD,True,99c45e38-2bae-4802-889b-ea7ec1f0b79c
+ADC_SUBDISTRICT,Additional District Commissioner i/c Sub-district,SUBDIVISION,GAD,True,c3ca8e0d-536b-413c-a55d-ac7c18ddf4c4
+ASSISTANT_COMMISSIONER,Assistant Commissioner,DISTRICT,GAD,True,e695c400-87be-498f-87e9-4fea368279e8
+ASST_DIRECTOR_EMPLOYMENT,Assistant Director of Employment,DISTRICT,SEE,True,f12c2cb3-9b60-4a9c-ae3c-e51722d99b01
+ASST_EMPLOYMENT_OFFICER,Assistant Employment Officer,DISTRICT,SEE,True,02bdbf4e-8242-4d0c-bfe9-49e95e804cb3
+ASST_REVENUE_OFFICER,Assistant Revenue Officer (Council),CIRCLE,RDM,True,17cc3154-42b1-455a-afc1-2abbe8ea3758
+BLOCK_VETERINARY_OFFICER,Block Veterinary Officer,BLOCK,AHV,True,4dda37bc-0e4d-45f8-8fce-2c79c98795f9
+CHIEF_COMMISSIONER_ASCRTPS,"Chief Commissioner, ASCRTPS",STATE,ARTPPG,True,2f6e0ffb-30a5-41f3-b593-e39a568cf01c
+CIRCLE_OFFICER,Circle Officer,CIRCLE,RDM,True,1ad58776-f3ad-4dcf-b7ad-87ded282ba5c
+CO_DISTRICT_COMMISSIONER,Co-District Commissioner,SUBDIVISION,GAD,True,4ded8c2b-e4c5-46af-81c6-4d841774285c
+COMMISSIONER_SECRETARY,Commissioner & Secretary to the Govt. of Assam,STATE,,True,f2fe64e3-dc9e-4eaf-8c39-51a2aaf2c004
+DEALING_ASSISTANT,Dealing Assistant,DISTRICT,,True,711c33c4-2ffb-4af3-b7e1-f66b7914f300
+DIRECTOR_AHV,"Director, Animal Husbandry and Veterinary",STATE,AHV,True,37f9252a-e582-4634-b681-2f13fa4ff860
+DIRECTOR_EMPLOYMENT,Director of Employment and Craftsmen Training,STATE,SEE,True,81b89663-d4ac-47a2-b93e-d238c434e2ef
+DIRECTOR_LRS,Director of Land Records & Survey,STATE,RDM,True,f8f411b7-b460-4846-a53d-ae994d6083a8
+DIRECTOR_SOIL,Director of Soil Conservation,STATE,SOIL,True,3bf830e2-78ec-4ea7-bb12-d92840a27161
+DISTRICT_AGRICULTURE_OFFICER,District Agriculture Officer,DISTRICT,AGRI,True,61e8e1f4-56d2-49e1-8aeb-b60382e66687
+DISTRICT_COMMISSIONER,District Commissioner,DISTRICT,GAD,True,2bd5dbc0-2435-47a4-96a0-071322ddf014
+DISTRICT_VETERINARY_OFFICER,District Veterinary Officer,DISTRICT,AHV,True,f939623e-fc52-4b2b-8d62-9284d14b5c70
+DIVISIONAL_COMMISSIONER,Divisional Commissioner,DISTRICT,GAD,True,a31287b4-8bf7-44cc-b813-c83fe0ce2ecb
+EMPLOYMENT_OFFICER,Employment Officer,DISTRICT,SEE,True,f75a85f1-d410-492f-823e-affab678c2de
+JOINT_DIRECTOR_SOIL,"Joint Director, Soil Conservation",DISTRICT,SOIL,True,107f64a3-4f32-4b98-933c-bb2c70601cd8
+LOT_MONDOL,Lot Mondol,CIRCLE,RDM,True,a10247de-bac8-4fa5-8ec0-0d7ec8eb5d09
+LOT_PATOWARY,Lot Patowary (Council),CIRCLE,RDM,True,26b9b02b-6ae2-4688-bb31-887b6d47f7bd
+PRESIDENT,President (Anchalik Panchayat),BLOCK,PNRD,True,b7e611af-224a-4d7f-873f-031fe8f80021
+PRINCIPAL_SECRETARY,Principal Secretary to the Govt. of Assam,STATE,,True,23d32436-37c9-42a3-b772-e4600f52abd9
+REGISTRAR,Registrar,DISTRICT,RDM,True,5cfad851-56cd-4800-bea0-6dd417dfe798
+REVENUE_OFFICER,Revenue Officer (Council),CIRCLE,RDM,True,2d8b24f5-d5f2-499b-9c6c-66b1881c37dd
+SDO_SADAR,Sub-Divisional Officer (Sadar),SUBDIVISION,GAD,True,a3e6cd83-8786-4040-9c78-4af96910db4f
+SECRETARY,Secretary to the Govt. of Assam,STATE,,True,743e2578-1eb8-4ada-aaaf-a750bd588818
+SETTLEMENT_OFFICER,Settlement Officer,DISTRICT,RDM,True,b39081ac-147e-4e49-9088-fef47c8218f6
+SR_MOST_SECRETARY,Senior Most Secretary to the Govt. of Assam,STATE,,True,ef0df806-7f5c-4555-810e-dd92c1fed49b
+SUB_REGISTRAR,Sub Registrar,SUBDIVISION,RDM,True,3ac55486-fd47-4a04-bc91-82a426a0a196
+SUPERVISOR_KANUNGO,Supervisor Kanungo,CIRCLE,RDM,True,a5432604-8221-4cb6-916e-210a75b7937b
+VETERINARY_OFFICER,Veterinary Officer,BLOCK,AHV,True,a4cd8e03-3b18-4fa3-a6d9-9cb4a0a33836

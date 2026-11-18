@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}HR Utility{% endblock %} · Sewa Setu HR Utility</title>
+<style>
+  :root { --ink:#1d2433; --muted:#5b6475; --line:#d9dee7; --bg:#f6f7f9; --card:#fff; --accent:#0b5cad;
+          --ok:#1b7a3d; --warn:#9a5b00; --bad:#b42318; --demo:#6b3fa0; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.45 system-ui, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+  header { background:#12355b; color:#fff; padding:10px 20px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+  header strong { font-size:16px; margin-right:12px; }
+  header a { color:#dce8f7; text-decoration:none; }
+  header a:hover, header a.on { color:#fff; text-decoration:underline; }
+  .asof { background:#fff4d6; border-bottom:2px solid #e8c25a; padding:10px 20px; font-size:17px; }
+  .asof b { font-size:19px; }
+  main { padding:18px 20px 40px; max-width:1400px; }
+  h1 { font-size:22px; margin:4px 0 14px; }
+  h2 { font-size:17px; margin:22px 0 8px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin:12px 0; }
+  form.inline { display:flex; flex-wrap:wrap; gap:10px 14px; align-items:end; }
+  label { display:flex; flex-direction:column; font-size:13px; color:var(--muted); gap:3px; }
+  input, select, button { font:inherit; padding:6px 8px; border:1px solid #b9c1ce; border-radius:5px; background:#fff; }
+  button { background:var(--accent); color:#fff; border-color:var(--accent); cursor:pointer; }
+  button.secondary { background:#fff; color:var(--accent); }
+  table { border-collapse:collapse; width:100%; background:#fff; }
+  th, td { border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top; }
+  th { background:#eef1f6; font-weight:600; font-size:13px; }
+  .badge { display:inline-block; padding:1px 7px; border-radius:10px; font-size:12px; font-weight:600; }
+  .demo { background:#efe6fa; color:var(--demo); border:1px solid #d6c3ef; }
+  .avail { background:#e3f4e8; color:var(--ok); }
+  .away { background:#fde8e6; color:var(--bad); }
+  .sub { background:#e7eefa; color:#1f4f8f; }
+  .addl { background:#fff1db; color:var(--warn); }
+  .link { background:#e6f6f5; color:#0f6b66; }
+  .msg { padding:10px 14px; border-radius:6px; margin:10px 0; }
+  .msg.ok { background:#e3f4e8; border:1px solid #9fd3ae; }
+  .msg.err { background:#fde8e6; border:1px solid #f1a9a1; color:#7a1b12; font-weight:500; }
+  .muted { color:var(--muted); font-size:13px; }
+  .fn { display:inline-block; background:#eef1f6; border-radius:4px; padding:0 5px; margin:1px; font-size:12px; }
+  .status { font-weight:700; }
+  .status.RESOLVED { color:var(--ok); } .status.NO_HOLDER, .status.NO_LINK_OFFICER { color:var(--bad); }
+  .grid td { text-align:center; } .grid td.name, .grid th.name { text-align:left; white-space:nowrap; }
+  .grid th.rot { writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; font-size:12px; }
+  code { background:#eef1f6; padding:1px 4px; border-radius:3px; }
+</style>
+</head>
+<body>
+<header>
+  <strong>Sewa Setu 2.0 · HR Utility (PoC)</strong>
+  {% set p = request.url.path %}
+  <a href="/ui/officers" class="{{ 'on' if p.startswith('/ui/officers') }}">Officers</a>
+  <a href="/ui/chairs" class="{{ 'on' if p.startswith('/ui/chairs') }}">Chairs</a>
+  <a href="/ui/roster" class="{{ 'on' if p.startswith('/ui/roster') }}">Office roster</a>
+  <a href="/ui/seat" class="{{ 'on' if p.startswith('/ui/seat') }}">Seat lookup</a>
+  <a href="/ui/allotments" class="{{ 'on' if p.startswith('/ui/allot') }}">Function allotment</a>
+  <a href="/ui/functions" class="{{ 'on' if p.startswith('/ui/functions') }}">Functions by post</a>
+  <a href="/ui/postings" class="{{ 'on' if p.startswith('/ui/postings') }}">Posting &amp; relieving</a>
+  <a href="/ui/leave" class="{{ 'on' if p.startswith('/ui/leave') }}">Leave entry</a>
+  <a href="/ui/history" class="{{ 'on' if p.startswith('/ui/history') }}">Post history</a>
+  <a href="/ui/audit" class="{{ 'on' if p.startswith('/ui/audit') }}">Audit</a>
+  <a href="/docs">API</a>
+  {% if mdm %}<a href="/v1/mdm/status" style="margin-left:auto" title="{{ mdm.error or 'MDM copy is current' }}">
+    MDM: {{ 'live ' if mdm.source.startswith('http') else '' }}v{{ mdm.version or '?' }} · synced {{ mdm.synced }}{% if mdm.stale %} · <b style="color:#ffb4a9">STALE</b>{% endif %}</a>{% endif %}
+</header>
+<div class="asof">{% block asof %}As of <b>{{ at_label }}</b> (Asia/Kolkata){% endblock %}</div>
+<main>
+{% if message %}<div class="msg ok">{{ message }}</div>{% endif %}
+{% if error %}<div class="msg err">{{ error }}</div>{% endif %}
+{% block body %}{% endblock %}
+</main>
+</body>
+</html>
